@@ -15,10 +15,10 @@ module.exports = function(grunt) {
   // TASKS
   // ==========================================================================
 
-  grunt.registerMultiTask('html', 'Validate html files', function() {
+  grunt.registerMultiTask('htmllint', 'Validate html files', function() {
     var done = this.async(),
       files = grunt.file.expand(this.file.src);
-    grunt.helper('html', files, function(error, result) {
+    grunt.helper('htmllint', files, function(error, result) {
       if (error) {
         grunt.log.error(error);
         done(false);
@@ -38,7 +38,7 @@ module.exports = function(grunt) {
   // HELPERS
   // ==========================================================================
 
-  grunt.registerHelper('html', function(files, done) {
+  grunt.registerHelper('htmllint', function(files, done) {
     var jar = __dirname + '/../vnu.jar';
     grunt.utils.spawn({
       cmd: 'java',

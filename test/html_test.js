@@ -1,6 +1,6 @@
 var grunt = require('grunt');
 
-exports['html'] = {
+exports['htmllint'] = {
   setUp: function(done) {
     // setup here
     done();
@@ -8,7 +8,7 @@ exports['html'] = {
   'helper': function(test) {
     test.expect(1);
     // tests here
-    grunt.helper('html', ['test/valid.html', 'test/invalid.html'], function(error, result) {
+    grunt.helper('htmllint', ['test/valid.html', 'test/invalid.html'], function(error, result) {
       if (error) {
         throw error;
       }

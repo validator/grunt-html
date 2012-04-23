@@ -15,7 +15,7 @@ Then specify what files to validate in your config:
 
 ```javascript
 grunt.initConfig({
-	html: {
+	htmllint: {
 		all: ["demos/**/*.html", "tests/**/*.html"]
 	}
 });
@@ -28,6 +28,7 @@ For fast validation, keep that in a single group, as the validator initializatio
 [vnujar]: https://bitbucket.org/sideshowbarker/vnu/
 
 ## Release History
+* 0.1.1 Rename html task to htmllint, fixes #1
 * 0.1.0 First Release
 
 ## License
