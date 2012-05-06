@@ -1,6 +1,7 @@
 # grunt-html
 
-[Grunt][grunt] plugin for html validation, using [Mike Smith's vnu.jar][vnujar].
+[Grunt][grunt] plugin for html validation, using [Mike Smith's vnu.jar][vnujar] and
+html minification using [kangax html-minifier][html-min]
 
 ## Getting Started
 Install this grunt plugin next to your project's [grunt.js gruntfile][getting_started] with: `npm install grunt-html`
