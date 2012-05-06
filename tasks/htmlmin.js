@@ -13,7 +13,7 @@ module.exports = function(grunt) {
 
   // External libs.
   var minify = require('html-minifier').minify,
-      wrench = require('wrench');
+      wrench = require('mkdirp');
 
   // ==========================================================================
   // TASKS
@@ -55,7 +55,7 @@ module.exports = function(grunt) {
 
       // generate the destination path recursive
       destPath = destinationPath.join('/');
-      wrench.mkdirSyncRecursive(destPath, 0777);
+      mkdirp.sync(destPath, 0777);
       
       // write out the minified file
       grunt.log.writeln('File "' + destPath + '/' + file + '" created.');
