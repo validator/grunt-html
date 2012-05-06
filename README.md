@@ -38,6 +38,12 @@ grunt.initConfig({
     }
 });
 ```
+
+This task behaves a bit different than the js minifier task that comes
+with grunt. Instead of defining a destination file, you define a destination
+directory where all of the found source files will be stored in their minified
+form.
+
 Additionally, define options for your minification task
 (if you don´t specify any options, nothing will happen to your files...)
 
