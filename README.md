@@ -40,12 +40,12 @@ grunt.initConfig({
 });
 ```
 
-This task behaves a bit different than the js minifier task that comes
-with grunt. Instead of defining a destination file, you define a destination
-directory where all of the found source files will be stored in their minified
-form.
+The destination property can be a directory or a file name.
+Please be aware of that unlike css and js files, html files can´t be concatenated.
+If the destination property is set to a specific file and more than one source file
+is found, the task will throw an error.
 
-Additionally, define options for your minification task
+Additionally you can define options for your minification task
 (if you don´t specify any options, nothing will happen to your files...)
 
 A detailed description for each option can be found [here](http://perfectionkills.com/experimenting-with-html-minifier/#options)
