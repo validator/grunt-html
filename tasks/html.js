@@ -40,7 +40,7 @@ module.exports = function(grunt) {
 
   grunt.registerHelper('htmllint', function(files, done) {
     var jar = __dirname + '/../vnu.jar';
-    grunt.utils.spawn({
+    grunt.util.spawn({
       cmd: 'java',
       args: ['-Dnu.validator.client.quiet=yes',  '-jar', jar].concat(files)
     }, function(error, output) {
