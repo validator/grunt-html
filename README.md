@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/jzaefferer/grunt-html.png)](http://travis-ci.org/jzaefferer/grunt-html)
 # grunt-html
 
 [Grunt][grunt] plugin for html validation, using [Mike Smith's vnu.jar][vnujar].
