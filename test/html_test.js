@@ -1,14 +1,11 @@
-var grunt = require('grunt');
+var grunt = require('grunt'),
+  htmllint = require('../lib/htmllint');
 
 exports['htmllint'] = {
-  setUp: function(done) {
-    // setup here
-    done();
-  },
   'helper': function(test) {
     test.expect(1);
     // tests here
-    grunt.helper('htmllint', ['test/valid.html', 'test/invalid.html'], function(error, result) {
+    htmllint(grunt, ['test/valid.html', 'test/invalid.html'], function(error, result) {
       if (error) {
         throw error;
       }
