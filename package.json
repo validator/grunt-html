@@ -4,7 +4,7 @@
   "version": "0.2.0",
   "homepage": "https://github.com/jzaefferer/grunt-html",
   "author": {
-    "name": "Jörn Zaefferer",
+    "name": "Jörn Zaefferer",
     "email": "joern.zaefferer@gmail.com"
   },
   "repository": {
@@ -26,9 +26,6 @@
   },
   "scripts": {
     "test": "grunt test"
-  },
-  "dependencies": {
-    "grunt": "~0.3.9"
   },
   "devDependencies": {
     "grunt": "~0.3.9"
