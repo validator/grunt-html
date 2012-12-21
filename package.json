@@ -28,7 +28,8 @@
     "test": "grunt test"
   },
   "devDependencies": {
-    "grunt": "~0.3.9"
+    "grunt": "0.4.x",
+    "grunt-contrib-jshint": "0.1.0"
   },
   "keywords": [
     "gruntplugin"

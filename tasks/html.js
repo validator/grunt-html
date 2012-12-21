@@ -9,6 +9,7 @@
 var htmllint = require('../lib/htmllint');
 
 module.exports = function(grunt) {
+  "use strict";
 
   grunt.registerMultiTask('htmllint', 'Validate html files', function() {
     var done = this.async(),
