@@ -3,9 +3,9 @@
 [Grunt][grunt] plugin for html validation, using [Mike Smith's vnu.jar][vnujar].
 
 ## Getting Started
-Install this grunt plugin next to your project's [grunt.js gruntfile][getting_started] with: `npm install grunt-html`
+Install this grunt plugin next to your project's [Gruntfile.js gruntfile][getting_started] with: `npm install grunt-html --save-dev`
 
-Then add this line to your project's `grunt.js` gruntfile:
+Then add this line to your project's `Gruntfile.js`:
 
 ```javascript
 grunt.loadNpmTasks('grunt-html');
@@ -23,13 +23,9 @@ grunt.initConfig({
 
 For fast validation, keep that in a single group, as the validator initialization takes a few seconds.
 
-[grunt]: https://github.com/cowboy/grunt
-[getting_started]: https://github.com/cowboy/grunt/blob/master/docs/getting_started.md
+[grunt]: https://github.com/gruntjs/grunt
+[getting_started]: https://github.com/gruntjs/grunt/wiki/Getting-started
 [vnujar]: https://bitbucket.org/sideshowbarker/vnu/
-
-## Release History
-* 0.1.1 Rename html task to htmllint, fixes #1
-* 0.1.0 First Release
 
 ## License
 Copyright (c) 2012 Jörn Zaefferer
