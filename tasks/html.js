@@ -22,7 +22,7 @@ module.exports = function(grunt) {
         return;
       }
       if (!result.length) {
-        grunt.log.writeln('>> '.green + files.length + ' file' + (data.length === 1 ? '' : 's') + ' lint free.');
+        grunt.log.writeln('>> '.green + files.length + ' file' + (files.length === 1 ? '' : 's') + ' lint free.');
         done();
         return;
       } else {
