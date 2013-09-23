@@ -22,11 +22,22 @@ module.exports = function(grunt) {
         return;
       }
       if (!result.length) {
-        grunt.log.writeln(files.length + ' file(s) valid');
+        grunt.log.writeln(files.length + ' file(s) valid...'+'OK'.green);
         done();
         return;
+      } else {
+        var parts = [], loc = [];
+        for (var i = 0, l = result.length; i < l; i++) {
+          parts = result[i].split(':'); // 0=file, 1=line, 2=error, 3=msg
+          
+          if (parts.length < 4) {
+            parts.splice(1, 0, '--.--.--');
+          }
+          loc = parts[1].split('.');
+          grunt.log.writeln('Linting ' + parts[0].replace('"', '') + '...' + (parts[2].toUpperCase()).red);
+          grunt.log.writeln('['.red + ('L' + loc[0]).yellow + ':'.red + ('C' + loc[2]).yellow + ']'.red + (parts[3]).yellow);
+        }
       }
-      grunt.log.writeln(result.join('\n'));
       done(false);
     });
   });
