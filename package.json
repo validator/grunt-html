@@ -28,9 +28,12 @@
     "test": "grunt nodeunit"
   },
   "devDependencies": {
-    "grunt": "0.4.x",
-    "grunt-contrib-jshint": "0.1.0",
+    "grunt": "~0.4.0",
+    "grunt-contrib-jshint": "~0.6.4",
     "grunt-contrib-nodeunit": "0.1.1"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.0"
   },
   "keywords": [
     "gruntplugin"
