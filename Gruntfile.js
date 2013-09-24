@@ -7,7 +7,7 @@ module.exports = function(grunt) {
       valid: "test/valid.html",
       invalid: "test/*.html"
     },
-    test: {
+    nodeunit: {
       files: ['test/**/*.js']
     },
     jshint: {
@@ -24,6 +24,7 @@ module.exports = function(grunt) {
 
   grunt.loadTasks('tasks');
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-nodeunit');
 
   grunt.registerTask('default', 'jshint');
 
