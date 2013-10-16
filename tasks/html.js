@@ -50,7 +50,7 @@ module.exports = function(grunt) {
           grunt.log.writeln('['.red + ('L' + loc[0]).yellow + ':'.red + ('C' + loc[2]).yellow + ']'.red + (parts[3]).yellow);
         }
       }
-      done(!!viols);
+      done(!viols);
     });
   });
 
