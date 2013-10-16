@@ -34,7 +34,7 @@ module.exports = function(grunt) {
         var parts = [], loc = [];
         for (var i = 0, l = result.length; i < l; i++) {
           parts = result[i].split(':'); // 0=file, 1=line, 2=error, 3=msg
-          if (options.ignore.indexOf(parts[2].trim()) !== -1) {
+          if (options.ignore.indexOf(parts[2].trim()) !== -1 || (parts[3] && options.ignore.indexOf(parts[3].trim()) !== -1 )) {
             continue;
           }
 
