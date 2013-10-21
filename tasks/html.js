@@ -12,8 +12,14 @@ module.exports = function(grunt) {
   "use strict";
 
   grunt.registerMultiTask('htmllint', 'Validate html files', function() {
-    var done = this.async(),
-      files = grunt.file.expand(this.filesSrc);
+
+    var viols = 0,
+      done = this.async(),
+      files = grunt.file.expand(this.filesSrc),
+      options = this.options({
+        ignore: []
+      });
+
 
     htmllint(grunt, files, function(error, result) {
       if (error) {
@@ -29,16 +35,22 @@ module.exports = function(grunt) {
         var parts = [], loc = [];
         for (var i = 0, l = result.length; i < l; i++) {
           parts = result[i].split(':'); // 0=file, 1=line, 2=error, 3=msg
-          
+
           if (parts.length < 4) {
             parts.splice(1, 0, '--.--.--');
           }
+          if (options.ignore.indexOf(parts[3].trim()) !== -1) {
+            continue;
+          }
+
+          viols++;
+
           loc = parts[1].split('.');
           grunt.log.writeln('Linting ' + parts[0].replace('"', '') + '...' + (parts[2].toUpperCase()).red);
           grunt.log.writeln('['.red + ('L' + loc[0]).yellow + ':'.red + ('C' + loc[2]).yellow + ']'.red + (parts[3]).yellow);
         }
       }
-      done(false);
+      done(!viols);
     });
   });
 
