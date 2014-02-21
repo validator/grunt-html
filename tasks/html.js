@@ -11,6 +11,8 @@ var htmllint = require('../lib/htmllint');
 module.exports = function(grunt) {
   "use strict";
 
+  var chalk = require('chalk');
+
   grunt.registerMultiTask('htmllint', 'Validate html files', function() {
     var done = this.async(),
       files = grunt.file.expand(this.filesSrc);
@@ -26,17 +28,13 @@ module.exports = function(grunt) {
         done();
         return;
       } else {
-        var parts = [], loc = [];
-        for (var i = 0, l = result.length; i < l; i++) {
-          parts = result[i].split(':'); // 0=file, 1=line, 2=error, 3=msg
-          
-          if (parts.length < 4) {
-            parts.splice(1, 0, '--.--.--');
-          }
-          loc = parts[1].split('.');
-          grunt.log.writeln('Linting ' + parts[0].replace('"', '') + '...' + (parts[2].toUpperCase()).red);
-          grunt.log.writeln('['.red + ('L' + loc[0]).yellow + ':'.red + ('C' + loc[2]).yellow + ']'.red + (parts[3]).yellow);
-        }
+        result.forEach(function(message) {
+          var output = chalk.cyan(message.file) + ' ';
+          output += chalk.red('[') + chalk.yellow('L' + message.lastLine) +
+            chalk.red(':') + chalk.yellow('C' + message.lastColumn) + chalk.red('] ');
+          output += message.message;
+          grunt.log.writeln(output);
+        });
       }
       done(false);
     });

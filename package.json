@@ -27,6 +27,9 @@
   "scripts": {
     "test": "grunt nodeunit"
   },
+  "dependencies": {
+    "chalk": "0.4.0"
+  },
   "devDependencies": {
     "grunt": "~0.4.0",
     "grunt-contrib-jshint": "~0.6.4",

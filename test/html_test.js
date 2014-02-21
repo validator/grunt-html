@@ -10,11 +10,30 @@ exports['htmllint'] = {
       if (error) {
         throw error;
       }
+      // copy only the properties we want to test
+      // url property is absolute, system-dependend path
+      result = result.map(function(message) {
+        return {
+          file: message.file,
+          message: message.message,
+          lastLine: message.lastLine,
+          lastColumn: message.lastColumn
+        };
+      });
       test.deepEqual(result, [
-        '"test/invalid.html":10.1-10.81: error: An "img" element must have an "alt" attribute, except under certain conditions. For details, consult guidance on providing text alternatives for images.',
-        '"test/invalid.html":12.1-12.19: error: The "clear" attribute on the "br" element is obsolete. Use CSS instead.',
-        '"test/invalid.html": info warning: The character encoding of the document was not declared.'
-      ], 'three errors from test/invalid.html');
+        {
+          lastLine: 10,
+          lastColumn: 81,
+          message: 'An “img” element must have an “alt” attribute, except under certain conditions. For details, consult guidance on providing text alternatives for images.',
+          file: 'test/invalid.html'
+        },
+        {
+          lastLine: 12,
+          lastColumn: 19,
+          message: 'The “clear” attribute on the “br” element is obsolete. Use CSS instead.',
+          file: 'test/invalid.html'
+        }
+      ], 'two errors from test/invalid.html');
       test.done();
     });
   }
