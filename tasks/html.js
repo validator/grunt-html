@@ -15,11 +15,12 @@ module.exports = function(grunt) {
 
   grunt.registerMultiTask('htmllint', 'Validate html files', function() {
     var done = this.async(),
-      files = grunt.file.expand(this.filesSrc);
+      files = grunt.file.expand(this.filesSrc),
+      options = this.options({
+        files: files
+      });
 
-    htmllint({
-      files: files
-    }, function(error, result) {
+    htmllint(options, function(error, result) {
       if (error) {
         grunt.log.error(error);
         done(false);

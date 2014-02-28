@@ -5,7 +5,13 @@ module.exports = function(grunt) {
   grunt.initConfig({
     htmllint: {
       valid: "test/valid.html",
-      invalid: "test/*.html"
+      invalid: "test/*.html",
+      ignore: {
+        options: {
+          ignore: 'The “clear” attribute on the “br” element is obsolete. Use CSS instead.'
+        },
+        src: "test/*.html"
+      }
     },
     nodeunit: {
       files: ['test/**/*.js']

@@ -7,13 +7,13 @@ Install this grunt plugin next to your project's [Gruntfile.js gruntfile][gettin
 
 Then add this line to your project's `Gruntfile.js`:
 
-```javascript
+```js
 grunt.loadNpmTasks('grunt-html');
 ```
 
 Then specify what files to validate in your config:
 
-```javascript
+```js
 grunt.initConfig({
 	htmllint: {
 		all: ["demos/**/*.html", "tests/**/*.html"]
@@ -23,10 +23,23 @@ grunt.initConfig({
 
 For fast validation, keep that in a single group, as the validator initialization takes a few seconds.
 
-[grunt]: https://github.com/gruntjs/grunt
-[getting_started]: https://github.com/gruntjs/grunt/wiki/Getting-started
-[vnujar]: https://bitbucket.org/sideshowbarker/vnu/
+## Options
+
+There's a single option, `ignore`. Use this to specify the error messages to ignore. For example:
+
+```js
+ignore: {
+	options: {
+		ignore: 'The “clear” attribute on the “br” element is obsolete. Use CSS instead.'
+	},
+	src: "html4.html"
+}
+```
+
+[grunt]: http://gruntjs.com/
+[getting_started]: http://gruntjs.com/getting-started
+[vnujar]: https://github.com/validator/validator.github.io
 
 ## License
-Copyright (c) 2012 Jörn Zaefferer
+Copyright (c) 2014 Jörn Zaefferer
 Licensed under the MIT license.
