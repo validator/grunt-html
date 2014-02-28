@@ -1,12 +1,13 @@
-var grunt = require('grunt'),
-  htmllint = require('../lib/htmllint');
+var htmllint = require('../lib/htmllint');
 
-exports['htmllint'] = {
+exports.htmllint = {
   'helper': function(test) {
     "use strict";
     test.expect(1);
     // tests here
-    htmllint(grunt, ['test/valid.html', 'test/invalid.html'], function(error, result) {
+    htmllint({
+      files: ['test/valid.html', 'test/invalid.html']
+    }, function(error, result) {
       if (error) {
         throw error;
       }

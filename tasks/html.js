@@ -17,7 +17,9 @@ module.exports = function(grunt) {
     var done = this.async(),
       files = grunt.file.expand(this.filesSrc);
 
-    htmllint(grunt, files, function(error, result) {
+    htmllint({
+      files: files
+    }, function(error, result) {
       if (error) {
         grunt.log.error(error);
         done(false);
