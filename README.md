@@ -1,6 +1,6 @@
 # grunt-html
 
-[Grunt][grunt] plugin for html validation, using [Mike Smith's vnu.jar][vnujar].
+[Grunt][grunt] plugin for html validation, using the [vnu.jar markup checker][vnujar].
 
 ## Getting Started
 Install this grunt plugin next to your project's [Gruntfile.js gruntfile][getting_started] with: `npm install grunt-html --save-dev`
@@ -38,7 +38,7 @@ ignore: {
 
 [grunt]: http://gruntjs.com/
 [getting_started]: http://gruntjs.com/getting-started
-[vnujar]: https://github.com/validator/validator.github.io
+[vnujar]: https://validator.github.io/
 
 ## License
 Copyright (c) 2014 Jörn Zaefferer
