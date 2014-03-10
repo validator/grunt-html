@@ -1,3 +1,4 @@
+var path = require('path');
 var htmllint = require('../lib/htmllint');
 
 function run(test, config, expected, message) {
@@ -38,13 +39,13 @@ exports.htmllint = {
         lastLine: 9,
         lastColumn: 81,
         message: 'An “img” element must have an “alt” attribute, except under certain conditions. For details, consult guidance on providing text alternatives for images.',
-        file: 'test/invalid.html'
+        file: path.join('test', 'invalid.html')
       },
       {
         lastLine: 11,
         lastColumn: 19,
         message: 'The “clear” attribute on the “br” element is obsolete. Use CSS instead.',
-        file: 'test/invalid.html'
+        file: path.join('test', '/invalid.html')
       }
     ], 'three errors from test/invalid.html');
   },
@@ -60,7 +61,7 @@ exports.htmllint = {
         lastLine: 9,
         lastColumn: 81,
         message: 'An “img” element must have an “alt” attribute, except under certain conditions. For details, consult guidance on providing text alternatives for images.',
-        file: 'test/invalid.html'
+        file: path.join('test','invalid.html')
       }
     ], 'one error from test/invalid.html, other two were ignored');
   }
