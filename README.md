@@ -25,12 +25,12 @@ For fast validation, keep that in a single group, as the validator initializatio
 
 ## Options
 
-There's a single option, `ignore`. Use this to specify the error messages to ignore. For example:
+There's a single option, `ignore` (`Array`). Use this to specify the error messages to ignore. For example:
 
 ```js
 ignore: {
 	options: {
-		ignore: 'The “clear” attribute on the “br” element is obsolete. Use CSS instead.'
+		ignore: ['The “clear” attribute on the “br” element is obsolete. Use CSS instead.']
 	},
 	src: "html4.html"
 }
