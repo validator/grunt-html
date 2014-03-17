@@ -1,5 +1,6 @@
 var path = require('path');
 var htmllint = require('../lib/htmllint');
+var chunkify = require('../lib/chunkify');
 
 function run(test, config, expected, message) {
   "use strict";
@@ -55,5 +56,12 @@ exports.htmllint = {
         file: path.join('test','invalid.html')
       }
     ], 'one error from test/invalid.html, other one was ignored');
+  },
+  'chunks': function(test) {
+      var files = ['./some/long/path/to/file.html','./some/long/path/to/file.html', './some/long/path/to/file.html'],
+        expected = ['./some/long/path/to/file.html ./some/long/path/to/file.html ', './some/long/path/to/file.html '];
+      test.expect(1);
+      test.deepEqual(chunkify(files, 60), expected, "Should split the file list of file in 2 chunks");
+      test.done();
   }
 };
