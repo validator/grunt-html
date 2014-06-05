@@ -33,7 +33,7 @@ exports.htmllint = {
         lastLine: 1,
         lastColumn: 16,
         message: 'Start tag seen without seeing a doctype first. Expected “<!DOCTYPE html>”.',
-        file: 'test/invalid.html'
+        file: path.join('test', 'invalid.html')
       },
       {
         lastLine: 9,
