@@ -36,6 +36,16 @@ ignore: {
 }
 ```
 
+The ignore array also supports regular expressions. For example, to ignore AngularJS directive attributes:
+
+```js
+ignore: {
+	options: {
+		ignore: [/attribute “ng-[a-z-]+” not allowed/]
+	}
+}
+```
+
 [grunt]: http://gruntjs.com/
 [getting_started]: http://gruntjs.com/getting-started
 [vnujar]: https://validator.github.io/
