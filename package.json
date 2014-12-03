@@ -1,7 +1,7 @@
 {
   "name": "grunt-html",
   "description": "Grunt plugin for html validation, using vnu.jar for the actual validation",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "homepage": "https://github.com/jzaefferer/grunt-html",
   "author": {
     "name": "Jörn Zaefferer",
