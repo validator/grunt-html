@@ -29,7 +29,7 @@ For fast validation, keep that in a single group, as the validator initializatio
 There's a single option, `ignore` (`Array`). Use this to specify the error messages to ignore. For example:
 
 ```js
-ignore: {
+all: {
 	options: {
 		ignore: ['The “clear” attribute on the “br” element is obsolete. Use CSS instead.']
 	},
@@ -40,10 +40,11 @@ ignore: {
 The ignore array also supports regular expressions. For example, to ignore AngularJS directive attributes:
 
 ```js
-ignore: {
+all: {
 	options: {
 		ignore: [/attribute “ng-[a-z-]+” not allowed/]
-	}
+	},
+	src: "app.html"
 }
 ```
 
