@@ -4,7 +4,10 @@
 
 ## Getting Started
 Install this grunt plugin next to your project's [Gruntfile.js][getting_started] with:
-	npm install grunt-html --save-dev
+
+```bash
+npm install grunt-html --save-dev
+```
 
 Then add this line to your project's `Gruntfile.js`:
 
