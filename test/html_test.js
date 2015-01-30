@@ -38,7 +38,7 @@ exports.htmllint = {
       {
         lastLine: 9,
         lastColumn: 96,
-        message: 'Attribute “unknownattr” not allowed on XHTML element “img” at this point.',
+        message: 'Attribute “unknownattr” not allowed on element “img” at this point.',
         file: path.join('test', 'invalid.html')
       },
       {
