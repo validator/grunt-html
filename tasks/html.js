@@ -17,13 +17,15 @@ module.exports = function(grunt) {
     var done = this.async(),
       files = grunt.file.expand(this.filesSrc),
       options = this.options({
-        files: files
-      });
+        files: files,
+        force: false
+      }),
+      force = options.force;
 
     htmllint(options, function(error, result) {
       if (error) {
         grunt.log.error(error);
-        done(false);
+        done(force);
         return;
       }
       if (!result.length) {
@@ -39,7 +41,7 @@ module.exports = function(grunt) {
           grunt.log.writeln(output);
         });
       }
-      done(false);
+      done(force);
     });
   });
 
