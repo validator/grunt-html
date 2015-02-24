@@ -25,7 +25,7 @@
     "node": "*"
   },
   "scripts": {
-    "test": "grunt nodeunit"
+    "test": "grunt"
   },
   "dependencies": {
     "async": "0.2.10",
