@@ -31,7 +31,7 @@ For fast validation, keep that in a single group, as the validator initializatio
 
 ### `ignore`
 
-Type: `Array`, `String`, or `RegExp`
+Type: `Array`, `String`, or `RegExp`  
 Default: `null`
 
 Use this to specify the error message(s) to ignore. For example:
@@ -58,7 +58,7 @@ all: {
 
 ### `force`
 
-Type: `Boolean`
+Type: `Boolean`  
 Default: `false`
 
 Set `force` to `true` to report errors but not fail the `grunt` task.
