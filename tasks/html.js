@@ -36,6 +36,11 @@ module.exports = function(grunt) {
           options.reporter = '../lib/reporters/checkstyle.js';
           break;
 
+        // JSON reporter
+        case options.reporter === 'json':
+          options.reporter = '../lib/reporters/json.js';
+          break;
+
         // Custom reporter
         case options.reporter != null:
           options.reporter = path.resolve(process.cwd(), options.reporter);
