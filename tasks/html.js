@@ -10,7 +10,6 @@
 
 var path = require('path');
 var chalk = require('chalk');
-var hooker = require('hooker');
 var htmllint = require('../lib/htmllint');
 
 module.exports = function(grunt) {
@@ -19,13 +18,14 @@ module.exports = function(grunt) {
 
     // Default Grunt reporter
     defaultReporter = function(result) {
-      result.forEach(function(message) {
+      var out = result.map(function(message) {
         var output = chalk.cyan(message.file) + ' ';
         output += chalk.red('[') + chalk.yellow('L' + message.lastLine) +
           chalk.red(':') + chalk.yellow('C' + message.lastColumn) + chalk.red('] ');
         output += message.message;
-        grunt.log.writeln(output);
+        return output;
       });
+      return out.join('\n');
     },
 
     // Select a reporter (if not using the default Grunt reporter)
@@ -69,22 +69,12 @@ module.exports = function(grunt) {
       }),
       force = options.force,
       reporter = selectReporter(options),
-      reporterOutput = options.reporterOutput,
-      output;
-
-    // Hook into stdout to capture report
-    if (reporterOutput) {
-      output = '';
-      hooker.hook(process.stdout, 'write', {
-        pre: function(out) {
-          output += out;
-          return hooker.preempt();
-        }
-      });
-    }
+      reporterOutput = options.reporterOutput;
 
     htmllint(options, function(error, result) {
-      var passed = true;
+      var passed = true,
+        output = '';
+
       if (error) {
         passed = force;
         grunt.log.error(error);
@@ -95,8 +85,9 @@ module.exports = function(grunt) {
         }
       } else {
         passed = force;
-        reporter(result);
+        output = reporter(result);
         if (usingDefaultReporter) {
+          grunt.log.writeln(output);
           grunt.log.error(result.length + ' ' + grunt.util.pluralize(result.length, 'error/errors') + ' in ' +
                           files.length + ' ' + grunt.util.pluralize(files.length, 'file/files'));
         }
@@ -104,7 +95,6 @@ module.exports = function(grunt) {
 
       // Write the output of the reporter if wanted
       if (reporterOutput) {
-        hooker.unhook(process.stdout, 'write');
         reporterOutput = grunt.template.process(reporterOutput);
         var destDir = path.dirname(reporterOutput);
         if (!grunt.file.exists(destDir)) {
