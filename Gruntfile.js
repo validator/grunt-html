@@ -17,13 +17,25 @@ module.exports = function(grunt) {
           ignore: /XML processing instructions/
         },
         src: 'test/*.php'
+      },
+      checkstyle: {
+        options: {
+          reporter: 'checkstyle'
+        },
+        src: 'test/*.html'
+      },
+      json: {
+        options: {
+          reporter: 'json'
+        },
+        src: 'test/*.html'
       }
     },
     nodeunit: {
-      files: 'test/**/*.js'
+      files: ['test/**/*.js', '!test/support/**/*.js']
     },
     jshint: {
-      files: ['Grunfile.js', 'tasks/**/*.js', 'test/**/*.js'],
+      files: ['Gruntfile.js', 'lib/**/*.js', 'tasks/**/*.js', 'test/**/*.js'],
       options: {
         jshintrc: '.jshintrc'
       }

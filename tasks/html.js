@@ -8,41 +8,71 @@
 
 'use strict';
 
+var path = require('path');
 var htmllint = require('../lib/htmllint');
+var reporters = require('../lib/reporters');
 
 module.exports = function(grunt) {
-
-  var chalk = require('chalk');
 
   grunt.registerMultiTask('htmllint', 'Validate html files', function() {
     var done = this.async(),
       files = grunt.file.expand(this.filesSrc),
       options = this.options({
         files: files,
-        force: false
+        force: false,
+        absoluteFilePathsForReporter: false
       }),
-      force = options.force;
+      force = options.force,
+      reporterOutput = options.reporterOutput,
+      reporter;
 
     htmllint(options, function(error, result) {
+      var passed = true,
+        output,
+        uniqueFiles;
+
+      try {
+        reporter = reporters.selectReporter(options);
+      } catch (err) {
+        grunt.fatal(err);
+      }
+
       if (error) {
+        passed = force;
         grunt.log.error(error);
-        done(force);
-        return;
       }
-      if (!result.length) {
-        grunt.log.ok(files.length + ' file' + (files.length === 1 ? '' : 's') + ' lint free.');
-        done();
-        return;
+      else if (!result.length) {
+        grunt.log.ok(files.length + ' ' + grunt.util.pluralize(files.length, 'file/files') + ' lint free.');
       } else {
-        result.forEach(function(message) {
-          var output = chalk.cyan(message.file) + ' ';
-          output += chalk.red('[') + chalk.yellow('L' + message.lastLine) +
-            chalk.red(':') + chalk.yellow('C' + message.lastColumn) + chalk.red('] ');
-          output += message.message;
+        passed = force;
+        output = reporter(result);
+        if (!reporterOutput) {
           grunt.log.writeln(output);
-        });
+        }
+        uniqueFiles = result
+          .map(function(elem) {
+            return elem.file;
+          })
+          .filter(function(file, index, resultFiles) {
+            return resultFiles.indexOf(file) === index;
+          });
+        grunt.log.error(files.length + ' ' + grunt.util.pluralize(files.length, 'file/files') + ' checked, ' +
+                        result.length + ' ' + grunt.util.pluralize(result.length, 'error/errors') + ' in ' +
+                        uniqueFiles.length + ' ' + grunt.util.pluralize(uniqueFiles.length, 'file/files'));
       }
-      done(force);
+
+      // Write the output of the reporter if wanted
+      if (reporterOutput) {
+        reporterOutput = grunt.template.process(reporterOutput);
+        var destDir = path.dirname(reporterOutput);
+        if (!grunt.file.exists(destDir)) {
+          grunt.file.mkdir(destDir);
+        }
+        grunt.file.write(reporterOutput, output);
+        grunt.log.ok('Report "' + reporterOutput + '" created.');
+      }
+
+      done(passed);
     });
   });
 

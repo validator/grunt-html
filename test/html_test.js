@@ -2,6 +2,7 @@
 
 var path = require('path');
 var htmllint = require('../lib/htmllint');
+var expectedResults = require('./support/expected_results');
 
 function run(test, config, expected, message) {
   test.expect(1);
@@ -15,6 +16,7 @@ function run(test, config, expected, message) {
     result = result.map(function(msg) {
       return {
         file: msg.file,
+        type: msg.type,
         message: msg.message,
         lastLine: msg.lastLine,
         lastColumn: msg.lastColumn
@@ -26,35 +28,28 @@ function run(test, config, expected, message) {
 }
 
 exports.htmllint = {
-  'all': function(test) {
-    run(test, {
-      files: ['test/valid.html', 'test/invalid.html']
-    }, [
-      {
-        lastLine: 1,
-        lastColumn: 16,
-        message: 'Start tag seen without seeing a doctype first. Expected “<!DOCTYPE html>”.',
-        file: path.join('test', 'invalid.html')
-      },
-      {
-        lastLine: 9,
-        lastColumn: 96,
-        message: 'Attribute “unknownattr” not allowed on element “img” at this point.',
-        file: path.join('test', 'invalid.html')
-      },
-      {
-        lastLine: 9,
-        lastColumn: 96,
-        message: 'An “img” element must have an “alt” attribute, except under certain conditions. For details, consult guidance on providing text alternatives for images.',
-        file: path.join('test', 'invalid.html')
-      },
-      {
-        lastLine: 11,
-        lastColumn: 19,
-        message: 'The “clear” attribute on the “br” element is obsolete. Use CSS instead.',
-        file: path.join('test', 'invalid.html')
-      }
-    ], 'four errors from test/invalid.html');
+  'all': {
+    'with relative paths': function(test) {
+      var expected = expectedResults['invalid.html'];
+      run(test, {
+        files: ['test/valid.html', 'test/invalid.html']
+      }, expected, 'four errors from test/invalid.html');
+    },
+    'with absolute paths': function(test) {
+      var expected = expectedResults['invalid.html'].map(function(result) {
+        return {
+          file: path.resolve(result.file),
+          type: result.type,
+          message: result.message,
+          lastLine: result.lastLine,
+          lastColumn: result.lastColumn
+        };
+      });
+      run(test, {
+        files: ['test/valid.html', 'test/invalid.html'],
+        absoluteFilePathsForReporter: true
+      }, expected, 'four errors from test/invalid.html');
+    }
   },
   'ignore': function(test) {
     run(test, {
@@ -68,6 +63,7 @@ exports.htmllint = {
       {
         lastLine: 9,
         lastColumn: 96,
+        type: 'error',
         message: 'An “img” element must have an “alt” attribute, except under certain conditions. For details, consult guidance on providing text alternatives for images.',
         file: path.join('test', 'invalid.html')
       }
