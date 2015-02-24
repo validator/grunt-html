@@ -82,7 +82,7 @@ Specify a filepath to output the results of a reporter. If `reporterOutput` is s
 Type: `Boolean`  
 Default: `false`
 
-Set `absoluteFilePathsForReporter` to `true` to use absolute file pathsin generated reports.
+Set `absoluteFilePathsForReporter` to `true` to use absolute file paths in generated reports.
 
 [grunt]: http://gruntjs.com/
 [getting_started]: http://gruntjs.com/getting-started
