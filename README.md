@@ -63,6 +63,27 @@ Default: `false`
 
 Set `force` to `true` to report errors but not fail the `grunt` task.
 
+### `reporter`
+
+Type: `String`
+Default: `null`
+
+Allows you to modify the output format. By default, this plugin will use a built-in Grunt reporter. Set the path to your own custom reporter or to one of the build-in reporters: `checkstyle` or `json`.
+
+### `reporterOutput`
+
+Type: `String`  
+Default: `null`
+
+Specify a filepath to output the results of a reporter. If `reporterOutput` is specified then all output will be written to the given filepath rather than printed to `stdout`.
+
+### `absoluteFilePathsForReporter`
+
+Type: `Boolean`  
+Default: `false`
+
+Set `absoluteFilePathsForReporter` to `true` to use absolute file pathsin generated reports.
+
 [grunt]: http://gruntjs.com/
 [getting_started]: http://gruntjs.com/getting-started
 [vnujar]: https://validator.github.io/validator/
