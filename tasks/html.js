@@ -30,20 +30,15 @@ module.exports = function(grunt) {
 
     // Select a reporter (if not using the default Grunt reporter)
     selectReporter = function(options) {
-      switch (true) {
-        // Checkstyle (XML) reporter
-        case options.reporter === 'checkstyle':
-          options.reporter = '../lib/reporters/checkstyle.js';
-          break;
-
+      if (options.reporter === 'checkstyle') {
+        // Checkstyle XML reporter
+        options.reporter = '../lib/reporters/checkstyle.js';
+      } else if (options.reporter === 'json') {
         // JSON reporter
-        case options.reporter === 'json':
-          options.reporter = '../lib/reporters/json.js';
-          break;
-
+        options.reporter = '../lib/reporters/json.js';
+      } else if (options.reporter != null) {
         // Custom reporter
-        case options.reporter != null:
-          options.reporter = path.resolve(process.cwd(), options.reporter);
+        options.reporter = path.resolve(process.cwd(), options.reporter);
       }
 
       var reporter;
