@@ -64,7 +64,8 @@ module.exports = function(grunt) {
       files = grunt.file.expand(this.filesSrc),
       options = this.options({
         files: files,
-        force: false
+        force: false,
+        absoluteFilePathsForReporter: false
       }),
       force = options.force,
       reporter = selectReporter(options),
