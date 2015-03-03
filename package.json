@@ -3,13 +3,10 @@
   "description": "Grunt plugin for html validation, using vnu.jar for the actual validation",
   "version": "3.0.0",
   "homepage": "https://github.com/jzaefferer/grunt-html",
-  "author": {
-    "name": "Jörn Zaefferer",
-    "email": "joern.zaefferer@gmail.com"
-  },
+  "author": "Jörn Zaefferer <joern.zaefferer@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "git://github.com/jzaefferer/grunt-html.git"
+    "url": "https://github.com/jzaefferer/grunt-html.git"
   },
   "bugs": {
     "url": "https://github.com/jzaefferer/grunt-html/issues"
@@ -20,26 +17,31 @@
       "url": "https://github.com/jzaefferer/grunt-html/blob/master/LICENSE-MIT"
     }
   ],
-  "main": "grunt.js",
   "engines": {
-    "node": "*"
+    "node": ">=0.10"
   },
   "scripts": {
     "test": "grunt"
   },
   "dependencies": {
-    "async": "0.2.10",
-    "chalk": "0.4.0"
+    "async": "0.9.0",
+    "chalk": "1.0.0"
   },
   "devDependencies": {
-    "grunt": "~0.4.0",
-    "grunt-contrib-jshint": "~0.6.4",
-    "grunt-contrib-nodeunit": "0.1.1"
+    "grunt": "0.4.5",
+    "grunt-contrib-jshint": "0.11.0",
+    "grunt-contrib-nodeunit": "0.4.1"
   },
   "peerDependencies": {
-    "grunt": "~0.4.0"
+    "grunt": ">=0.4.0"
   },
   "keywords": [
     "gruntplugin"
+  ],
+  "files": [
+    "lib",
+    "tasks",
+    "LICENSE-MIT",
+    "vnu.jar"
   ]
 }
