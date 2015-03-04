@@ -11,6 +11,12 @@ module.exports = function(grunt) {
           ignore: 'The “clear” attribute on the “br” element is obsolete. Use CSS instead.'
         },
         src: "test/*.html"
+      },
+      invalidPhp: {
+        options: {
+          ignore: /XML processing instructions/
+        },
+        src: "test/*.php"
       }
     },
     nodeunit: {
