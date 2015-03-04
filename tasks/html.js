@@ -11,53 +11,9 @@
 var path = require('path');
 var chalk = require('chalk');
 var htmllint = require('../lib/htmllint');
+var reporters = require('../lib/reporters');
 
 module.exports = function(grunt) {
-
-  var usingDefaultReporter,
-
-    // Default Grunt reporter
-    defaultReporter = function(result) {
-      var out = result.map(function(message) {
-        var output = chalk.cyan(message.file) + ' ';
-        output += chalk.red('[') + chalk.yellow('L' + message.lastLine) +
-          chalk.red(':') + chalk.yellow('C' + message.lastColumn) + chalk.red('] ');
-        output += message.message;
-        return output;
-      });
-      return out.join('\n');
-    },
-
-    // Select a reporter (if not using the default Grunt reporter)
-    selectReporter = function(options) {
-      if (options.reporter === 'checkstyle') {
-        // Checkstyle XML reporter
-        options.reporter = '../lib/reporters/checkstyle.js';
-      } else if (options.reporter === 'json') {
-        // JSON reporter
-        options.reporter = '../lib/reporters/json.js';
-      } else if (options.reporter != null) {
-        // Custom reporter
-        options.reporter = path.resolve(process.cwd(), options.reporter);
-      }
-
-      var reporter;
-      if (options.reporter) {
-        try {
-          reporter = require(options.reporter).reporter;
-          usingDefaultReporter = false;
-        } catch (err) {
-          grunt.fatal(err);
-        }
-      }
-
-      if (!reporter) {
-        reporter = defaultReporter;
-        usingDefaultReporter = true;
-      }
-
-      return reporter;
-    };
 
   grunt.registerMultiTask('htmllint', 'Validate html files', function() {
     var done = this.async(),
@@ -68,12 +24,19 @@ module.exports = function(grunt) {
         absoluteFilePathsForReporter: false
       }),
       force = options.force,
-      reporter = selectReporter(options),
-      reporterOutput = options.reporterOutput;
+      reporterOutput = options.reporterOutput,
+      reporter;
 
     htmllint(options, function(error, result) {
       var passed = true,
-        output = '';
+        output = '',
+        usingDefaultReporter = !options.reporter;
+
+      try {
+        reporter = reporters.selectReporter(options);
+      } catch (err) {
+        grunt.fatal(err);
+      }
 
       if (error) {
         passed = force;
