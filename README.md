@@ -1,4 +1,4 @@
-# grunt-html
+# grunt-html [![Build Status: Linux](https://travis-ci.org/jzaefferer/grunt-html.svg?branch=master)](https://travis-ci.org/jzaefferer/grunt-html)
 
 [Grunt][grunt] plugin for html validation, using the [vnu.jar markup checker][vnujar].
 
@@ -65,8 +65,8 @@ Set `force` to `true` to report errors but not fail the `grunt` task.
 
 [grunt]: http://gruntjs.com/
 [getting_started]: http://gruntjs.com/getting-started
-[vnujar]: https://validator.github.io/
+[vnujar]: http://validator.github.io/validator/
 
 ## License
-Copyright Jörn Zaefferer
+Copyright Jörn Zaefferer.  
 Licensed under the MIT license.
