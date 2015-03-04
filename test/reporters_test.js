@@ -16,21 +16,22 @@ exports.reporters = testCase({
       test.done();
     },
     'when given non-empty result': function(test) {
-      var result = [{
-        lastLine: 1,
-        lastColumn: 16,
-        message: 'Start tag seen without seeing a doctype first. Expected “<!DOCTYPE html>”.',
-        file: path.join('test', 'invalid.html')
-      }, {
-        lastLine: 9,
-        lastColumn: 96,
-        message: 'Attribute “unknownattr” not allowed on element “img” at this point.',
-        file: path.join('test', 'invalid.html')
-      }],
+      var invalid_html = path.join('test', 'invalid.html'),
+        result = [{
+          lastLine: 1,
+          lastColumn: 16,
+          message: 'Start tag seen without seeing a doctype first. Expected “<!DOCTYPE html>”.',
+          file: invalid_html
+        }, {
+          lastLine: 9,
+          lastColumn: 96,
+          message: 'Attribute “unknownattr” not allowed on element “img” at this point.',
+          file: invalid_html
+        }],
         reporter = reporters.defaultReporter,
         expected = [
-          'test/invalid.html [L1:C16] Start tag seen without seeing a doctype first. Expected “<!DOCTYPE html>”.',
-          'test/invalid.html [L9:C96] Attribute “unknownattr” not allowed on element “img” at this point.'
+          invalid_html + ' [L1:C16] Start tag seen without seeing a doctype first. Expected “<!DOCTYPE html>”.',
+          invalid_html + ' [L9:C96] Attribute “unknownattr” not allowed on element “img” at this point.'
         ].join("\n"),
         actual = stripColorCodes(reporter(result));
       test.equal(actual, expected, 'Should report errors as a String');
