@@ -20,7 +20,7 @@ module.exports = function(grunt) {
       }
     },
     nodeunit: {
-      files: 'test/**/*.js'
+      files: ['test/**/*.js', '!test/support/**/*.js']
     },
     jshint: {
       files: ['Grunfile.js', 'tasks/**/*.js', 'test/**/*.js'],
