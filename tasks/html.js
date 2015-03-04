@@ -9,7 +9,6 @@
 'use strict';
 
 var path = require('path');
-var chalk = require('chalk');
 var htmllint = require('../lib/htmllint');
 var reporters = require('../lib/reporters');
 
