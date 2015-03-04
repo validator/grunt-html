@@ -29,8 +29,7 @@ module.exports = function(grunt) {
 
     htmllint(options, function(error, result) {
       var passed = true,
-        output = '',
-        usingDefaultReporter = !options.reporter;
+        output;
 
       try {
         reporter = reporters.selectReporter(options);
@@ -43,13 +42,11 @@ module.exports = function(grunt) {
         grunt.log.error(error);
       }
       else if (!result.length) {
-        if (usingDefaultReporter) {
-          grunt.log.ok(files.length + ' ' + grunt.util.pluralize(files.length, 'file/files') + ' lint free.');
-        }
+        grunt.log.ok(files.length + ' ' + grunt.util.pluralize(files.length, 'file/files') + ' lint free.');
       } else {
         passed = force;
         output = reporter(result);
-        if (usingDefaultReporter) {
+        if (!reporterOutput) {
           grunt.log.writeln(output);
           grunt.log.error(result.length + ' ' + grunt.util.pluralize(result.length, 'error/errors') + ' in ' +
                           files.length + ' ' + grunt.util.pluralize(files.length, 'file/files'));
