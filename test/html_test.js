@@ -1,8 +1,9 @@
+'use strict';
+
 var path = require('path');
 var htmllint = require('../lib/htmllint');
 
 function run(test, config, expected, message) {
-  "use strict";
   test.expect(1);
   // tests here
   htmllint(config, function(error, result) {
@@ -11,12 +12,12 @@ function run(test, config, expected, message) {
     }
     // copy only the properties we want to test
     // url property is absolute, system-dependend path
-    result = result.map(function(message) {
+    result = result.map(function(msg) {
       return {
-        file: message.file,
-        message: message.message,
-        lastLine: message.lastLine,
-        lastColumn: message.lastColumn
+        file: msg.file,
+        message: msg.message,
+        lastLine: msg.lastLine,
+        lastColumn: msg.lastColumn
       };
     });
     test.deepEqual(result, expected, message);
@@ -68,7 +69,7 @@ exports.htmllint = {
         lastLine: 9,
         lastColumn: 96,
         message: 'An “img” element must have an “alt” attribute, except under certain conditions. For details, consult guidance on providing text alternatives for images.',
-        file: path.join('test','invalid.html')
+        file: path.join('test', 'invalid.html')
       }
     ], 'one error from test/invalid.html, other three were ignored');
   }

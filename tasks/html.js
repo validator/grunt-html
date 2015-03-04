@@ -6,10 +6,11 @@
  * Licensed under the MIT license.
  */
 
+'use strict';
+
 var htmllint = require('../lib/htmllint');
 
 module.exports = function(grunt) {
-  "use strict";
 
   var chalk = require('chalk');
 

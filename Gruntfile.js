@@ -1,16 +1,17 @@
+'use strict';
+
 module.exports = function(grunt) {
-  "use strict";
 
   // Project configuration.
   grunt.initConfig({
     htmllint: {
-      valid: "test/valid.html",
-      invalid: "test/*.html",
+      valid: 'test/valid.html',
+      invalid: 'test/*.html',
       ignore: {
         options: {
           ignore: 'The “clear” attribute on the “br” element is obsolete. Use CSS instead.'
         },
-        src: "test/*.html"
+        src: 'test/*.html'
       }
     },
     nodeunit: {
@@ -19,7 +20,7 @@ module.exports = function(grunt) {
     jshint: {
       files: ['Grunfile.js', 'tasks/**/*.js', 'test/**/*.js'],
       options: {
-        jshintrc: ".jshintrc"
+        jshintrc: '.jshintrc'
       }
     },
     watch: {
