@@ -47,9 +47,9 @@ module.exports = function(grunt) {
         output = reporter(result);
         if (!reporterOutput) {
           grunt.log.writeln(output);
-          grunt.log.error(result.length + ' ' + grunt.util.pluralize(result.length, 'error/errors') + ' in ' +
-                          files.length + ' ' + grunt.util.pluralize(files.length, 'file/files'));
         }
+        grunt.log.error(result.length + ' ' + grunt.util.pluralize(result.length, 'error/errors') + ' in ' +
+                        files.length + ' ' + grunt.util.pluralize(files.length, 'file/files'));
       }
 
       // Write the output of the reporter if wanted
