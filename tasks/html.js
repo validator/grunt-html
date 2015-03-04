@@ -1,8 +1,8 @@
 /*
  * grunt-html
- * https://github.com/jzaefferer/grunnt-html
+ * https://github.com/jzaefferer/grunt-html
  *
- * Copyright (c) 2012 Jörn Zaefferer
+ * Copyright Jörn Zaefferer
  * Licensed under the MIT license.
  */
 
