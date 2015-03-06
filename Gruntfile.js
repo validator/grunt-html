@@ -17,6 +17,18 @@ module.exports = function(grunt) {
           ignore: /XML processing instructions/
         },
         src: 'test/*.php'
+      },
+      checkstyle: {
+        options: {
+          reporter: 'checkstyle'
+        },
+        src: 'test/*.html'
+      },
+      json: {
+        options: {
+          reporter: 'json'
+        },
+        src: 'test/*.html'
       }
     },
     nodeunit: {
