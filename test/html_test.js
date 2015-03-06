@@ -1,7 +1,6 @@
 'use strict';
 
 var path = require('path');
-var testCase = require('nodeunit').testCase;
 var htmllint = require('../lib/htmllint');
 
 function run(test, config, expected, message) {
@@ -26,8 +25,8 @@ function run(test, config, expected, message) {
   });
 }
 
-exports.htmllint = testCase({
-  'all': testCase({
+exports.htmllint = {
+  'all': {
     'with relative paths': function(test) {
       run(test, {
         files: ['test/valid.html', 'test/invalid.html']
@@ -89,7 +88,7 @@ exports.htmllint = testCase({
         }
       ], 'four errors from test/invalid.html');
     }
-  }),
+  },
   'ignore': function(test) {
     run(test, {
       ignore: [
@@ -107,4 +106,4 @@ exports.htmllint = testCase({
       }
     ], 'one error from test/invalid.html, other three were ignored');
   }
-});
+};

@@ -1,11 +1,10 @@
 'use strict';
 
 var path = require('path');
-var testCase  = require('nodeunit').testCase;
 var checkstyle = require('../lib/reporters/checkstyle');
 
-exports.reporters = testCase({
-  'checkstyle reporter': testCase({
+exports.reporters = {
+  'checkstyle reporter': {
     'when given empty result': function(test) {
       var result = [],
         reporter = checkstyle.reporter,
@@ -42,5 +41,5 @@ exports.reporters = testCase({
       test.equal(actual, expected, 'Should report errors as checkstyle XML');
       test.done();
     }
-  })
-});
+  }
+};

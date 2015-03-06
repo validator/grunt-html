@@ -1,11 +1,10 @@
 'use strict';
 
 var path = require('path');
-var testCase  = require('nodeunit').testCase;
 var json = require('../lib/reporters/json');
 
-exports.reporters = testCase({
-  'json reporter': testCase({
+exports.reporters = {
+  'json reporter': {
     'when given empty result': function(test) {
       var result = [],
         reporter = json.reporter,
@@ -35,5 +34,5 @@ exports.reporters = testCase({
       test.equal(actual, expected, 'Should report errors as json array');
       test.done();
     }
-  })
-});
+  }
+};

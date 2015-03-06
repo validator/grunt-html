@@ -2,11 +2,10 @@
 
 var path = require('path');
 var stripColorCodes = require('stripcolorcodes');
-var testCase  = require('nodeunit').testCase;
 var reporters = require('../lib/reporters');
 
-exports.reporters = testCase({
-  'defaultReporter': testCase({
+exports.reporters = {
+  'defaultReporter': {
     'when given empty result': function(test) {
       var result = [],
         reporter = reporters.defaultReporter,
@@ -37,8 +36,8 @@ exports.reporters = testCase({
       test.equal(actual, expected, 'Should report errors as a String');
       test.done();
     }
-  }),
-  'selectReporter': testCase({
+  },
+  'selectReporter': {
     'when no reporter is specified': function(test) {
       var options = {},
         reporter = reporters.selectReporter(options);
@@ -84,5 +83,5 @@ exports.reporters = testCase({
       );
       test.done();
     }
-  })
-});
+  }
+};
