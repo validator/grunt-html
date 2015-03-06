@@ -32,8 +32,8 @@ exports.reporters = {
         expected = [
           '<?xml version="1.0" encoding="utf-8"?><checkstyle>',
           '\t<file name="test/invalid.html">',
-          '\t\t<error line="1" column="16" severity="error" message="Start tag seen without seeing a doctype first. Expected “&lt;!DOCTYPE html&gt;”." source="Start tag seen without seeing a doctype first. Expected “&lt;!DOCTYPE html&gt;”." />',
-          '\t\t<error line="9" column="96" severity="error" message="Attribute “unknownattr” not allowed on element “img” at this point." source="Attribute “unknownattr” not allowed on element “img” at this point." />',
+          '\t\t<error line="1" column="16" severity="error" message="Start tag seen without seeing a doctype first. Expected “&lt;!DOCTYPE html&gt;”." />',
+          '\t\t<error line="9" column="96" severity="error" message="Attribute “unknownattr” not allowed on element “img” at this point." />',
           '\t</file>',
           '</checkstyle>'
         ].join("\n"),
