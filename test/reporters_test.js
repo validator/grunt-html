@@ -3,6 +3,7 @@
 var path = require('path');
 var stripColorCodes = require('stripcolorcodes');
 var reporters = require('../lib/reporters');
+var expectedResults = require('./support/expected_results');
 
 exports.reporters = {
   'defaultReporter': {
@@ -10,28 +11,20 @@ exports.reporters = {
       var result = [],
         reporter = reporters.defaultReporter,
         expected = '',
-        actual = stripColorCodes(reporter(result));
+        actual = reporter(result);
       test.equal(actual, expected, 'Should return empty String for empty result');
       test.done();
     },
     'when given non-empty result': function(test) {
       var invalid_html = path.join('test', 'invalid.html'),
-        result = [{
-          lastLine: 1,
-          lastColumn: 16,
-          message: 'Start tag seen without seeing a doctype first. Expected “<!DOCTYPE html>”.',
-          file: invalid_html
-        }, {
-          lastLine: 9,
-          lastColumn: 96,
-          message: 'Attribute “unknownattr” not allowed on element “img” at this point.',
-          file: invalid_html
-        }],
+        result = expectedResults['invalid.html'],
         reporter = reporters.defaultReporter,
         expected = [
           invalid_html + ' [L1:C16] Start tag seen without seeing a doctype first. Expected “<!DOCTYPE html>”.',
-          invalid_html + ' [L9:C96] Attribute “unknownattr” not allowed on element “img” at this point.'
-        ].join("\n"),
+          invalid_html + ' [L9:C96] Attribute “unknownattr” not allowed on element “img” at this point.',
+          invalid_html + ' [L9:C96] An “img” element must have an “alt” attribute, except under certain conditions. For details, consult guidance on providing text alternatives for images.',
+          invalid_html + ' [L11:C19] The “clear” attribute on the “br” element is obsolete. Use CSS instead.'
+        ].join('\n'),
         actual = stripColorCodes(reporter(result));
       test.equal(actual, expected, 'Should report errors as a String');
       test.done();

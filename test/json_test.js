@@ -1,7 +1,7 @@
 'use strict';
 
-var path = require('path');
 var reporter = require('../lib/reporters/json');
+var expectedResults = require('./support/expected_results');
 
 exports.reporters = {
   'json reporter': {
@@ -13,20 +13,7 @@ exports.reporters = {
       test.done();
     },
     'when given non-empty result': function(test) {
-      var invalid_html = path.join('test', 'invalid.html'),
-        result = [{
-          lastLine: 1,
-          lastColumn: 16,
-          type: 'error',
-          message: 'Start tag seen without seeing a doctype first. Expected “<!DOCTYPE html>”.',
-          file: invalid_html
-        }, {
-          lastLine: 9,
-          lastColumn: 96,
-          type: 'error',
-          message: 'Attribute “unknownattr” not allowed on element “img” at this point.',
-          file: invalid_html
-        }],
+      var result = expectedResults['invalid.html'],
         expected = JSON.stringify(result),
         actual = reporter(result);
       test.equal(actual, expected, 'Should report errors as json array');
