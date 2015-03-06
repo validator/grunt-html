@@ -28,7 +28,8 @@ module.exports = function(grunt) {
 
     htmllint(options, function(error, result) {
       var passed = true,
-        output;
+        output,
+        uniqueFiles;
 
       try {
         reporter = reporters.selectReporter(options);
@@ -48,8 +49,16 @@ module.exports = function(grunt) {
         if (!reporterOutput) {
           grunt.log.writeln(output);
         }
-        grunt.log.error(result.length + ' ' + grunt.util.pluralize(result.length, 'error/errors') + ' in ' +
-                        files.length + ' ' + grunt.util.pluralize(files.length, 'file/files'));
+        uniqueFiles = result
+          .map(function(elem) {
+            return elem.file;
+          })
+          .filter(function(file, index, resultFiles) {
+            return resultFiles.indexOf(file) === index;
+          });
+        grunt.log.error(files.length + ' ' + grunt.util.pluralize(files.length, 'file/files') + ' checked, ' +
+                        result.length + ' ' + grunt.util.pluralize(result.length, 'error/errors') + ' in ' +
+                        uniqueFiles.length + ' ' + grunt.util.pluralize(uniqueFiles.length, 'file/files'));
       }
 
       // Write the output of the reporter if wanted
