@@ -49,7 +49,7 @@ exports.reporters = {
         reporter: 'checkstyle'
       },
         reporter = reporters.selectReporter(options),
-        checkstyleReporter = require('../lib/reporters/checkstyle').reporter;
+        checkstyleReporter = require('../lib/reporters/checkstyle');
       test.equal(reporter, checkstyleReporter, 'Should return checkstyle reporter');
       test.done();
     },
@@ -58,7 +58,7 @@ exports.reporters = {
         reporter: 'json'
       },
         reporter = reporters.selectReporter(options),
-        jsonReporter = require('../lib/reporters/json').reporter;
+        jsonReporter = require('../lib/reporters/json');
       test.equal(reporter, jsonReporter, 'Should return json reporter');
       test.done();
     },
@@ -67,7 +67,7 @@ exports.reporters = {
         reporter: 'test/support/custom_reporter.js'
       },
         reporter = reporters.selectReporter(options),
-        customReporter = require('./support/custom_reporter').reporter;
+        customReporter = require('./support/custom_reporter');
       test.equal(reporter, customReporter, 'Should return custom reporter');
       test.done();
     },

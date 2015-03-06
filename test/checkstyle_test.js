@@ -1,13 +1,12 @@
 'use strict';
 
 var path = require('path');
-var checkstyle = require('../lib/reporters/checkstyle');
+var reporter = require('../lib/reporters/checkstyle');
 
 exports.reporters = {
   'checkstyle reporter': {
     'when given empty result': function(test) {
       var result = [],
-        reporter = checkstyle.reporter,
         expected = '<?xml version="1.0" encoding="utf-8"?><checkstyle>\n</checkstyle>',
         actual = reporter(result);
       test.equal(actual, expected, 'Should return empty checkstyle XML for empty result');
@@ -28,7 +27,6 @@ exports.reporters = {
           message: 'Attribute “unknownattr” not allowed on element “img” at this point.',
           file: invalid_html
         }],
-        reporter = checkstyle.reporter,
         expected = [
           '<?xml version="1.0" encoding="utf-8"?><checkstyle>',
           '\t<file name="test/invalid.html">',

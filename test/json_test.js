@@ -1,13 +1,12 @@
 'use strict';
 
 var path = require('path');
-var json = require('../lib/reporters/json');
+var reporter = require('../lib/reporters/json');
 
 exports.reporters = {
   'json reporter': {
     'when given empty result': function(test) {
       var result = [],
-        reporter = json.reporter,
         expected = '[]',
         actual = reporter(result);
       test.equal(actual, expected, 'Should return empty json array for empty result');
@@ -28,7 +27,6 @@ exports.reporters = {
           message: 'Attribute “unknownattr” not allowed on element “img” at this point.',
           file: invalid_html
         }],
-        reporter = json.reporter,
         expected = JSON.stringify(result),
         actual = reporter(result);
       test.equal(actual, expected, 'Should report errors as json array');
