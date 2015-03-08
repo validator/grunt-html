@@ -3,7 +3,7 @@
 var reporter = require('../lib/reporters/json');
 var expectedResults = require('./support/expected_results');
 
-exports.reporters = {
+exports.json = {
   'json reporter': {
     'when given empty result': function(test) {
       var result = [],

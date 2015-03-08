@@ -3,7 +3,7 @@
 var reporter = require('../lib/reporters/checkstyle');
 var expectedResults = require('./support/expected_results');
 
-exports.reporters = {
+exports.checkstyle = {
   'checkstyle reporter': {
     'when given empty result': function(test) {
       var result = [],
