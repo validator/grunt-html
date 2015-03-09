@@ -1,4 +1,4 @@
-# grunt-html [![Build Status: Linux](https://travis-ci.org/jzaefferer/grunt-html.svg?branch=master)](https://travis-ci.org/jzaefferer/grunt-html)
+# grunt-html [![Build Status: Linux](https://travis-ci.org/jzaefferer/grunt-html.svg?branch=master)](https://travis-ci.org/jzaefferer/grunt-html) [![Code Climate](https://codeclimate.com/github/jzaefferer/grunt-html/badges/gpa.svg)](https://codeclimate.com/github/jzaefferer/grunt-html)
 
 [Grunt][grunt] plugin for html validation, using the [vnu.jar markup checker][vnujar].
 
