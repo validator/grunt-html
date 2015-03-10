@@ -16,14 +16,14 @@ exports.reporters = {
       test.done();
     },
     'when given non-empty result': function(test) {
-      var invalid_html = path.join('test', 'invalid.html'),
-        result = expectedResults['invalid.html'],
+      var invalidHtml = path.join('test', 'invalid.html'),
+        result = expectedResults.invalid,
         reporter = reporters.defaultReporter,
         expected = [
-          invalid_html + ' [L1:C16] Start tag seen without seeing a doctype first. Expected “<!DOCTYPE html>”.',
-          invalid_html + ' [L9:C96] Attribute “unknownattr” not allowed on element “img” at this point.',
-          invalid_html + ' [L9:C96] An “img” element must have an “alt” attribute, except under certain conditions. For details, consult guidance on providing text alternatives for images.',
-          invalid_html + ' [L11:C19] The “clear” attribute on the “br” element is obsolete. Use CSS instead.'
+          invalidHtml + ' [L1:C16] Start tag seen without seeing a doctype first. Expected “<!DOCTYPE html>”.',
+          invalidHtml + ' [L9:C96] Attribute “unknownattr” not allowed on element “img” at this point.',
+          invalidHtml + ' [L9:C96] An “img” element must have an “alt” attribute, except under certain conditions. For details, consult guidance on providing text alternatives for images.',
+          invalidHtml + ' [L11:C19] The “clear” attribute on the “br” element is obsolete. Use CSS instead.'
         ].join('\n'),
         actual = stripColorCodes(reporter(result));
       test.equal(actual, expected, 'Should report errors as a String');

@@ -14,7 +14,7 @@ exports.checkstyle = {
       test.done();
     },
     'when given non-empty result': function(test) {
-      var result = expectedResults['invalid.html'],
+      var result = expectedResults.invalid,
         filename = path.normalize('test/invalid.html'),
         expected = [
           '<?xml version="1.0" encoding="utf-8"?><checkstyle>',

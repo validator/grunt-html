@@ -30,13 +30,13 @@ function run(test, config, expected, message) {
 exports.htmllint = {
   'all': {
     'with relative paths': function(test) {
-      var expected = expectedResults['invalid.html'];
+      var expected = expectedResults.invalid;
       run(test, {
         files: ['test/valid.html', 'test/invalid.html']
       }, expected, 'four errors from test/invalid.html');
     },
     'with absolute paths': function(test) {
-      var expected = expectedResults['invalid.html'].map(function(result) {
+      var expected = expectedResults.invalid.map(function(result) {
         return {
           file: path.resolve(result.file),
           type: result.type,

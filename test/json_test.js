@@ -13,7 +13,7 @@ exports.json = {
       test.done();
     },
     'when given non-empty result': function(test) {
-      var result = expectedResults['invalid.html'],
+      var result = expectedResults.invalid,
         expected = JSON.stringify(result),
         actual = reporter(result);
       test.equal(actual, expected, 'Should report errors as json array');

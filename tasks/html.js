@@ -40,8 +40,7 @@ module.exports = function(grunt) {
       if (error) {
         passed = force;
         grunt.log.error(error);
-      }
-      else if (!result.length) {
+      } else if (!result.length) {
         grunt.log.ok(files.length + ' ' + grunt.util.pluralize(files.length, 'file/files') + ' lint free.');
       } else {
         passed = force;
