@@ -2,6 +2,7 @@
 
 var reporter = require('../lib/reporters/checkstyle');
 var expectedResults = require('./support/expected_results');
+var path = require('path');
 
 exports.checkstyle = {
   'checkstyle reporter': {
@@ -14,9 +15,10 @@ exports.checkstyle = {
     },
     'when given non-empty result': function(test) {
       var result = expectedResults['invalid.html'],
+        filename = path.normalize('test/invalid.html'),
         expected = [
           '<?xml version="1.0" encoding="utf-8"?><checkstyle>',
-          '\t<file name="test/invalid.html">',
+          '\t<file name="' + filename + '">',
           '\t\t<error line="1" column="16" severity="error" message="Start tag seen without seeing a doctype first. Expected “&lt;!DOCTYPE html&gt;”." source="htmllint.ValidationError" />',
           '\t\t<error line="9" column="96" severity="error" message="Attribute “unknownattr” not allowed on element “img” at this point." source="htmllint.ValidationError" />',
           '\t\t<error line="9" column="96" severity="error" message="An “img” element must have an “alt” attribute, except under certain conditions. For details, consult guidance on providing text alternatives for images." source="htmllint.ValidationError" />',
