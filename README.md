@@ -1,4 +1,9 @@
-# grunt-html [![Build Status: Linux](https://travis-ci.org/jzaefferer/grunt-html.svg?branch=master)](https://travis-ci.org/jzaefferer/grunt-html) [![Code Climate](https://codeclimate.com/github/jzaefferer/grunt-html/badges/gpa.svg)](https://codeclimate.com/github/jzaefferer/grunt-html)
+# grunt-html
+
+[![Linux Build Status](https://img.shields.io/travis/jzaefferer/grunt-html/master.svg)](https://travis-ci.org/jzaefferer/grunt-html)
+[![Code Climate](https://img.shields.io/codeclimate/github/jzaefferer/grunt-html.svg)](https://codeclimate.com/github/jzaefferer/grunt-html)
+[![Dependency Status](https://img.shields.io/david/jzaefferer/grunt-html.svg)](https://david-dm.org/jzaefferer/grunt-html)
+[![devDependency Status](https://img.shields.io/david/dev/jzaefferer/grunt-html.svg)](https://david-dm.org/jzaefferer/grunt-html#info=devDependencies)
 
 [Grunt][grunt] plugin for html validation, using the [vnu.jar markup checker][vnujar].
 
