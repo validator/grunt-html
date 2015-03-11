@@ -1,9 +1,9 @@
 <?php echo "bla"; ?>
 <html lang="en">
 <head>
-	<title>jQuery UI Autocomplete - Custom data and display</title>
-	<link rel="stylesheet" href="../../themes/base/jquery.ui.all.css">
-	<script src="../../jquery-1.7.2.js"></script>
+    <title>jQuery UI Autocomplete - Custom data and display</title>
+    <link rel="stylesheet" href="../../themes/base/jquery.ui.all.css">
+    <script src="../../jquery-1.7.2.js"></script>
 </head>
 <body>
 

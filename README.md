@@ -25,9 +25,9 @@ Then specify what files to validate in your config:
 
 ```js
 grunt.initConfig({
-	htmllint: {
-		all: ["demos/**/*.html", "tests/**/*.html"]
-	}
+  htmllint: {
+    all: ["demos/**/*.html", "tests/**/*.html"]
+  }
 });
 ```
 
@@ -44,10 +44,10 @@ Use this to specify the error message(s) to ignore. For example:
 
 ```js
 all: {
-	options: {
-		ignore: 'The “clear” attribute on the “br” element is obsolete. Use CSS instead.'
-	},
-	src: "html4.html"
+  options: {
+    ignore: 'The “clear” attribute on the “br” element is obsolete. Use CSS instead.'
+  },
+  src: "html4.html"
 }
 ```
 
@@ -55,10 +55,10 @@ The ignore option also supports regular expressions. For example, to ignore Angu
 
 ```js
 all: {
-	options: {
-		ignore: /attribute “ng-[a-z-]+” not allowed/
-	},
-	src: "app.html"
+  options: {
+    ignore: /attribute “ng-[a-z-]+” not allowed/
+  },
+  src: "app.html"
 }
 ```
 
