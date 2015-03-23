@@ -12,9 +12,12 @@ jdk:
 
 before_install:
   - nvm install "$NODE_VERSION"
+  - node --version
+  - npm --version
 
 install:
   - npm install -g grunt-cli
+  - grunt --version
   - npm install
 
 script:
