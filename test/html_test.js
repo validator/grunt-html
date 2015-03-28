@@ -68,5 +68,27 @@ exports.htmllint = {
         file: path.join('test', 'invalid.html')
       }
     ], 'one error from test/invalid.html, other three were ignored');
+  },
+  'java environment': {
+    setUp: function(cb) {
+      process.env.JAVA_TOOL_OPTIONS = '-Dfile.encoding=UTF8';
+      cb();
+    },
+    tearDown: function(cb) {
+      delete process.env.JAVA_TOOL_OPTIONS;
+      cb();
+    },
+    'throws useful error message if invalid JSON': function(test) {
+      test.expect(1);
+
+      var config = {
+        files: ['test/invalid.html']
+      };
+
+      htmllint(config, function(error) {
+        test.ok(error && /Invalid JSON output/.test(error.message), 'improved invalid json error');
+        test.done();
+      });
+    }
   }
 };
