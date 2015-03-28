@@ -78,7 +78,7 @@ exports.htmllint = {
       delete process.env.JAVA_TOOL_OPTIONS;
       cb();
     },
-    'throws useful error message if invalid JSON': function(test) {
+    'nicely handles java environment variables': function(test) {
       test.expect(1);
 
       var config = {
@@ -86,7 +86,7 @@ exports.htmllint = {
       };
 
       htmllint(config, function(error) {
-        test.ok(error && /Invalid JSON output/.test(error.message), 'improved invalid json error');
+        test.ok(!error, 'no error');
         test.done();
       });
     }
