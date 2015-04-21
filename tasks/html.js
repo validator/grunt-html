@@ -61,7 +61,7 @@ module.exports = function(grunt) {
       }
 
       // Write the output of the reporter if wanted
-      if (reporterOutput) {
+      if (reporterOutput && result.length > 0) {
         reporterOutput = grunt.template.process(reporterOutput);
         var destDir = path.dirname(reporterOutput);
         if (!grunt.file.exists(destDir)) {
