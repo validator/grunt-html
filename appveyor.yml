@@ -21,7 +21,10 @@ install:
 build: off
 
 test_script:
-  - node --version && npm --version && java -version
+  - node --version
+  - npm --version
+  - java -version
+  - grunt --version
   - npm test
 
 matrix:
@@ -29,5 +32,4 @@ matrix:
 
 cache:
   - '%APPDATA%\npm\node_modules -> package.json'    # global npm modules
-  - '%APPDATA%\npm-cache -> package.json'           # npm cache
   - 'node_modules -> package.json'                  # local npm modules
