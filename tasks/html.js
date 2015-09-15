@@ -18,13 +18,38 @@ module.exports = function(grunt) {
     var done = this.async(),
       files = grunt.file.expand(this.filesSrc),
       options = this.options({
+        wrapPath: '',
         files: files,
         force: false,
         absoluteFilePathsForReporter: false
       }),
       force = options.force,
       reporterOutput = options.reporterOutput,
-      reporter;
+      reporter,
+      lineOffset = 0,
+      partialTmpDir = '.tmp-grunt-html';
+
+    function wrapPartials() {
+      var wrapTpl = grunt.file.read(options.wrapPath);
+      var content;
+      var path;
+      wrapTpl = wrapTpl.split('<!-- CONTENT -->');
+      lineOffset = wrapTpl[0].split(/\n/).length - 1;
+      options.$wrap = {lineOffset: lineOffset, tmpDir: partialTmpDir, files: {}};
+      options.files = [];
+      //grunt.log.ok('lineOffset ' + lineOffset);
+      for(var i = 0; i < files.length; i += 1) {
+        path = partialTmpDir + '/' + files[i].replace(/^(\.\.\/)+/, '');
+        content = wrapTpl[0] + grunt.file.read(files[i]) + wrapTpl[1];
+        grunt.file.write(path, content);
+        options.$wrap.files[path] = files[i];
+        options.files.push(path);
+      }
+    }
+
+    if (options.wrapPath) {
+      wrapPartials();
+    }
 
     htmllint(options, function(error, result) {
       var passed = true,
@@ -70,6 +95,8 @@ module.exports = function(grunt) {
         grunt.file.write(reporterOutput, output);
         grunt.log.ok('Report "' + reporterOutput + '" created.');
       }
+
+      grunt.file.delete(partialTmpDir);
 
       done(passed);
     });
