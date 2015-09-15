@@ -10,6 +10,7 @@
 
 var path = require( 'path' );
 var htmllint = require( '../lib/htmllint' );
+var partials = require( '../lib/partials' );
 var reporters = require( '../lib/reporters' );
 
 module.exports = function( grunt ) {
@@ -18,6 +19,7 @@ module.exports = function( grunt ) {
     var done = this.async(),
       files = grunt.file.expand( this.filesSrc ),
       options = this.options({
+        layout: '',
         files: files,
         force: false,
         absoluteFilePathsForReporter: false,
@@ -25,7 +27,17 @@ module.exports = function( grunt ) {
       }),
       force = options.force,
       reporterOutput = options.reporterOutput,
-      reporter;
+      reporter,
+      layoutData;
+
+    if ( options.layout ) {
+      layoutData = {
+        partialPath: options.layout,
+        lineOffset: 0,
+        tmpOutputDir: '.tmp-grunt-html'
+      };
+      partials( grunt, options, layoutData );
+    }
 
     htmllint( options, function( error, result ) {
       var passed = true,
@@ -45,7 +57,8 @@ module.exports = function( grunt ) {
         grunt.log.ok( files.length + ' ' + grunt.util.pluralize( files.length, 'file/files' ) + ' lint free.' );
       } else {
         passed = force;
-        output = reporter( result );
+
+        output = reporter( result, options );
         if ( !reporterOutput ) {
           grunt.log.writeln( output );
         }
@@ -57,8 +70,8 @@ module.exports = function( grunt ) {
             return resultFiles.indexOf( file ) === index;
           });
         grunt.log.error( files.length + ' ' + grunt.util.pluralize( files.length, 'file/files' ) + ' checked, ' +
-                        result.length + ' ' + grunt.util.pluralize( result.length, 'error/errors' ) + ' in ' +
-                        uniqueFiles.length + ' ' + grunt.util.pluralize( uniqueFiles.length, 'file/files' ) );
+          result.length + ' ' + grunt.util.pluralize( result.length, 'error/errors' ) + ' in ' +
+          uniqueFiles.length + ' ' + grunt.util.pluralize( uniqueFiles.length, 'file/files' ) );
       }
 
       // Write the output of the reporter if wanted
@@ -70,6 +83,10 @@ module.exports = function( grunt ) {
         }
         grunt.file.write( reporterOutput, output );
         grunt.log.ok( 'Report "' + reporterOutput + '" created.' );
+      }
+
+      if ( layoutData ) {
+        grunt.file.delete( layoutData.tmpOutputDir );
       }
 
       done( passed );

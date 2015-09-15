@@ -173,6 +173,36 @@ Since vnu.jar requires Java 8 environment, you might have trouble setting Travis
 In that case see [this patch](https://github.com/jquery/jquery-ui/commit/ff3769272bb5530b224297fa5d2add1865acbb7f)
 and the [Travis CI doc page](https://docs.travis-ci.com/user/trusty-ci-environment/).
 
+### `layout`
+
+* Type: `String`
+* Default: `null`
+
+Provide a path to wrap html partials for validation.
+
+```js
+all: {
+  options: {
+    layout: 'config/htmlValidationWrapper.html'
+  },
+  src: 'app.html'
+}
+```
+
+It will replace this tag specifically `<!-- CONTENT -->`. Here is an example of what your layout template should be like:
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+     <title>Wrapper</title>
+   </head>
+   <body>
+     <!-- CONTENT -->
+   </body>
+</html>
+```
+
 ## License
 
 Copyright Jörn Zaefferer.  
