@@ -113,8 +113,8 @@ all: {
 
 It will replace this tag specifically "<!-- CONTENT -->". Here is an example of what you template should be like.
 
-<pre>
-```<!DOCTYPE html>
+```html
+<!DOCTYPE html>
 <html>
  <head>
      <title>Wrapper</title>
@@ -123,7 +123,7 @@ It will replace this tag specifically "<!-- CONTENT -->". Here is an example of 
      <!-- CONTENT -->
  </body>
 </html>
- ```</pre>
+ ```
 
 ## License
 Copyright Jörn Zaefferer.  
