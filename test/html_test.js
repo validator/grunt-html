@@ -2,6 +2,7 @@
 
 var path = require('path');
 var htmllint = require('../lib/htmllint');
+var partials = require('../lib/partials');
 var expectedResults = require('./support/expected_results');
 
 function run(test, config, expected, message) {
@@ -68,5 +69,54 @@ exports.htmllint = {
         file: path.join('test', 'invalid.html')
       }
     ], 'one error from test/invalid.html, other three were ignored');
+  },
+  'partialWrapperTemplatePath': function(test) {
+    // mock up some data.
+    var content = {
+      'test/partialWrapper.html': '<!DOCTYPE html>\n<html lang="en">\n<head>\n<title>Wrapper</title>\n</head>\n<body>\n<!-- CONTENT -->\n</body>\n</html>',
+      'test/partialValid.html': '<img id="project-icon" src="images/transparent_1x1.png" class="ui-state-default" alt="default"><br style="clear:both" />'
+    };
+    var grunt = {
+      file: {
+        _written: {
+
+        },
+        read: function(path) {
+          return content[path];
+        },
+        write: function(path, content) {
+          this._written[path] = content;
+        }
+      }
+    };
+    var options = {
+      partialWrapperTemplatePath: 'test/partialWrapper.html',
+      files: ['test/partialValid.html']
+    };
+    var wrapData = {
+      partialPath: options.partialWrapperTemplatePath,
+      lineOffset: 0,
+      tmpOutputDir: '.tmp-grunt-html'
+    };
+    // perform the test on mock data.
+    var tmpPath = wrapData.tmpOutputDir + '/test/partialValid.html';
+    partials(grunt, options, wrapData);
+    // make sure contents are replaced correctly
+    test.deepEqual(grunt.file._written[tmpPath], content['test/partialWrapper.html'].split('<!-- CONTENT -->').join(content['test/partialValid.html']));
+    // make sure data is output correctly.
+    var expected = {
+      partialWrapperTemplatePath: 'test/partialWrapper.html',
+      files: [tmpPath],// tmp file path.
+      wrapData: {
+        partialPath: 'test/partialWrapper.html',
+        cache: {},
+        lineOffset: 6,
+        tmpOutputDir: '.tmp-grunt-html',
+        files: [tmpPath]
+      }
+    };
+    expected.wrapData.cache[tmpPath] = 'test/partialValid.html';
+    test.deepEqual(options, expected, 'Files should be wrapped correctly.');
+    test.done();
   }
 };

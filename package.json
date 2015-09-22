@@ -1,5 +1,5 @@
 {
-  "name": "grunt-html-2",
+  "name": "grunt-html",
   "description": "Grunt plugin for html validation, using vnu.jar for the actual validation",
   "version": "5.0.0",
   "homepage": "https://github.com/jzaefferer/grunt-html",
