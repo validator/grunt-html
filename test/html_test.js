@@ -51,6 +51,11 @@ exports.htmllint = {
       }, expected, 'four errors from test/invalid.html');
     }
   },
+  'empty': function(test) {
+    run(test, {
+      files: []
+    }, [], '0 errors from 0 files');
+  },
   'ignore': function(test) {
     run(test, {
       ignore: [
