@@ -94,6 +94,36 @@ Set `absoluteFilePathsForReporter` to `true` to use absolute file paths in gener
 [getting_started]: http://gruntjs.com/getting-started
 [vnujar]: https://validator.github.io/validator/
 
+### `partialWrapperTemplatePath`
+
+Type: `String`
+Default: `null`
+
+Provide a path to wrap html partials for validation.
+
+```js
+all: {
+  options: {
+    wrapPath: 'config/htmlValidationWrapper.html'
+  },
+  src: "app.html"
+}
+```
+
+It will replace this tag specifically "<!-- CONTENT -->". Here is an example of what you template should be like.
+
+```html
+<!DOCTYPE html>
+<html>
+ <head>
+     <title>Wrapper</title>
+ </head>
+ <body>
+     <!-- CONTENT -->
+ </body>
+</html>
+ ```
+
 ## License
 Copyright Jörn Zaefferer.  
 Licensed under the MIT license.
