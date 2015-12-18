@@ -20,7 +20,8 @@ module.exports = function(grunt) {
       options = this.options({
         files: files,
         force: false,
-        absoluteFilePathsForReporter: false
+        absoluteFilePathsForReporter: false,
+        errorlevels: ['info','warning','error']
       }),
       force = options.force,
       reporterOutput = options.reporterOutput,
