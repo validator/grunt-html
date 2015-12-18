@@ -61,6 +61,12 @@ all: {
   src: "app.html"
 }
 ```
+### `errorlevels`
+
+Type: `Array`  
+Default: `'info','warning','error'`
+
+Set `errorlevels` to control which error types are returned from the validator. Ignores all other returned types.
 
 ### `force`
 

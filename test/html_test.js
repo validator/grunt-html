@@ -32,7 +32,8 @@ exports.htmllint = {
     'with relative paths': function(test) {
       var expected = expectedResults.invalid;
       run(test, {
-        files: ['test/valid.html', 'test/invalid.html']
+        files: ['test/valid.html', 'test/invalid.html'],
+        errorlevels: ['info','warning','error']
       }, expected, 'four errors from test/invalid.html');
     },
     'with absolute paths': function(test) {
@@ -47,13 +48,15 @@ exports.htmllint = {
       });
       run(test, {
         files: ['test/valid.html', 'test/invalid.html'],
-        absoluteFilePathsForReporter: true
+        absoluteFilePathsForReporter: true,
+        errorlevels: ['info','warning','error']
       }, expected, 'four errors from test/invalid.html');
     }
   },
   'empty': function(test) {
     run(test, {
-      files: []
+      files: [],
+	  errorlevels: ['info','warning','error']
     }, [], '0 errors from 0 files');
   },
   'ignore': function(test) {
@@ -63,7 +66,8 @@ exports.htmllint = {
         'Start tag seen without seeing a doctype first. Expected “<!DOCTYPE html>”.',
         /attribute “[a-z]+” not allowed/i
       ],
-      files: ['test/valid.html', 'test/invalid.html']
+      files: ['test/valid.html', 'test/invalid.html'],
+      errorlevels: ['info','warning','error']
     }, [
       {
         lastLine: 9,
