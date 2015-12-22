@@ -1,0 +1,5 @@
+{
+	'preset': 'idiomatic',
+	'maximumLineLength': false,
+	'validateQuoteMarks': "'"
+}
