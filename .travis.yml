@@ -8,8 +8,6 @@ env:
   - NODE_VERSION=5
 
 jdk:
-  - openjdk7
-  - oraclejdk7
   - oraclejdk8
 
 before_install:
