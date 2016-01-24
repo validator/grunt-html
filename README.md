@@ -62,6 +62,13 @@ all: {
 }
 ```
 
+### `ignoreWarnings`
+
+Type: `Boolean`
+Default: `false`
+
+Set `ignoreWarnings` to `true` to ignore all warning level messages
+
 ### `force`
 
 Type: `Boolean`  
