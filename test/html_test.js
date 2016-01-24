@@ -80,5 +80,24 @@ exports.htmllint = {
         file: path.join('test', 'invalid.html')
       }
     ], 'one error and one warning from test/invalid.html, other three were ignored');
+  },
+  'ignoreWarnings': function(test) {
+    run(test, {
+      ignore: [
+        'The "clear" attribute on the "br" element is obsolete. Use CSS instead.',
+        'Start tag seen without seeing a doctype first. Expected “<!DOCTYPE html>”.',
+        /attribute “[a-z]+” not allowed/i
+      ],
+      ignoreWarnings : true,
+      files: ['test/valid.html', 'test/invalid.html']
+    }, [
+      {
+        lastLine: 9,
+        lastColumn: 96,
+        type: 'error',
+        message: 'An “img” element must have an “alt” attribute, except under certain conditions. For details, consult guidance on providing text alternatives for images.',
+        file: path.join('test', 'invalid.html')
+      }
+    ], 'one error and one warning from test/invalid.html, other three were ignored');
   }
 };

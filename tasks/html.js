@@ -47,13 +47,6 @@ module.exports = function(grunt) {
       } else {
         passed = force;
 
-        if(ignoreWarnings){
-          var tempResult = result.filter(function(message){
-            return message.type === 'error';
-          });
-          result = tempResult;
-        }
-
         var numWarnings = 0;
         result.forEach(function(message){
           numWarnings += (message.subType === 'warning') ? 1 : 0;
