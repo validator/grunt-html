@@ -71,10 +71,15 @@ module.exports = function(grunt) {
             return resultFiles.indexOf(file) === index;
           });
 
+        var warningMessage = '';
+        if (!ignoreWarnings) {
+          warningMessage = ' and ' + numWarnings + ' ' + grunt.util.pluralize(numWarnings, 'warning/warnings');
+        }
+
         grunt.log.error(files.length + ' ' + grunt.util.pluralize(files.length, 'file/files') + ' checked, ' +
-                        (result.length - numWarnings) + ' ' + grunt.util.pluralize(result.length, 'error/errors') + ' and ' +
-                        numWarnings + ' ' + grunt.util.pluralize(numWarnings, 'warning/warnings') + ' in ' +
-                        uniqueFiles.length + ' ' + grunt.util.pluralize(uniqueFiles.length, 'file/files'));
+                      (result.length - numWarnings) + ' ' + grunt.util.pluralize(result.length, 'error/errors') + 
+                      warningMessage + ' in ' +
+                      uniqueFiles.length + ' ' + grunt.util.pluralize(uniqueFiles.length, 'file/files'));
       }
 
       // Write the output of the reporter if wanted
@@ -91,5 +96,4 @@ module.exports = function(grunt) {
       done(passed);
     });
   });
-
 };
