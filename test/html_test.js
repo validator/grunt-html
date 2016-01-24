@@ -71,7 +71,14 @@ exports.htmllint = {
         type: 'error',
         message: 'An “img” element must have an “alt” attribute, except under certain conditions. For details, consult guidance on providing text alternatives for images.',
         file: path.join('test', 'invalid.html')
+      },
+      { 
+        file: 'test/invalid.html',
+        type: 'info',
+        message: 'Article lacks heading. Consider using “h2”-“h6” elements to add identifying headings to all articles.',
+        lastLine: 13,
+        lastColumn: 37 
       }
-    ], 'one error from test/invalid.html, other three were ignored');
+    ], 'one error and one warning from test/invalid.html, other three were ignored');
   }
 };
