@@ -20,10 +20,12 @@ module.exports = function(grunt) {
       options = this.options({
         files: files,
         force: false,
-        absoluteFilePathsForReporter: false
+        absoluteFilePathsForReporter: false,
+        ignoreWarnings: false
       }),
       force = options.force,
       reporterOutput = options.reporterOutput,
+      ignoreWarnings = options.ignoreWarnings,
       reporter;
 
     htmllint(options, function(error, result) {
@@ -44,6 +46,12 @@ module.exports = function(grunt) {
         grunt.log.ok(files.length + ' ' + grunt.util.pluralize(files.length, 'file/files') + ' lint free.');
       } else {
         passed = force;
+
+        var numWarnings = 0;
+        result.forEach(function(message){
+          numWarnings += (message.subType === 'warning') ? 1 : 0;
+        });
+
         output = reporter(result);
         if (!reporterOutput) {
           grunt.log.writeln(output);
@@ -55,9 +63,16 @@ module.exports = function(grunt) {
           .filter(function(file, index, resultFiles) {
             return resultFiles.indexOf(file) === index;
           });
+
+        var warningMessage = '';
+        if (!ignoreWarnings) {
+          warningMessage = ' and ' + numWarnings + ' ' + grunt.util.pluralize(numWarnings, 'warning/warnings');
+        }
+
         grunt.log.error(files.length + ' ' + grunt.util.pluralize(files.length, 'file/files') + ' checked, ' +
-                        result.length + ' ' + grunt.util.pluralize(result.length, 'error/errors') + ' in ' +
-                        uniqueFiles.length + ' ' + grunt.util.pluralize(uniqueFiles.length, 'file/files'));
+                      (result.length - numWarnings) + ' ' + grunt.util.pluralize(result.length, 'error/errors') + 
+                      warningMessage + ' in ' +
+                      uniqueFiles.length + ' ' + grunt.util.pluralize(uniqueFiles.length, 'file/files'));
       }
 
       // Write the output of the reporter if wanted
@@ -74,5 +89,4 @@ module.exports = function(grunt) {
       done(passed);
     });
   });
-
 };

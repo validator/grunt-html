@@ -32,6 +32,13 @@ module.exports = {
       type: 'error',
       message: 'The “clear” attribute on the “br” element is obsolete. Use CSS instead.',
       file: invalidHtml
+    },
+    { 
+      file: 'test/invalid.html',
+      type: 'info',
+      message: 'Article lacks heading. Consider using “h2”-“h6” elements to add identifying headings to all articles.',
+      lastLine: 13,
+      lastColumn: 37 
     }
   ]
 };

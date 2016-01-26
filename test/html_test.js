@@ -71,7 +71,33 @@ exports.htmllint = {
         type: 'error',
         message: 'An “img” element must have an “alt” attribute, except under certain conditions. For details, consult guidance on providing text alternatives for images.',
         file: path.join('test', 'invalid.html')
+      },
+      { 
+        lastLine: 13,
+        lastColumn: 37,
+        type: 'info',
+        message: 'Article lacks heading. Consider using “h2”-“h6” elements to add identifying headings to all articles.',
+        file: path.join('test', 'invalid.html')
       }
-    ], 'one error from test/invalid.html, other three were ignored');
+    ], 'one error and one warning from test/invalid.html, other three were ignored');
+  },
+  'ignoreWarnings': function(test) {
+    run(test, {
+      ignore: [
+        'The "clear" attribute on the "br" element is obsolete. Use CSS instead.',
+        'Start tag seen without seeing a doctype first. Expected “<!DOCTYPE html>”.',
+        /attribute “[a-z]+” not allowed/i
+      ],
+      ignoreWarnings : true,
+      files: ['test/valid.html', 'test/invalid.html']
+    }, [
+      {
+        lastLine: 9,
+        lastColumn: 96,
+        type: 'error',
+        message: 'An “img” element must have an “alt” attribute, except under certain conditions. For details, consult guidance on providing text alternatives for images.',
+        file: path.join('test', 'invalid.html')
+      }
+    ], 'one error and one warning from test/invalid.html, other three were ignored');
   }
 };

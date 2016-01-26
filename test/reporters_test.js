@@ -20,10 +20,11 @@ exports.reporters = {
         result = expectedResults.invalid,
         reporter = reporters.defaultReporter,
         expected = [
-          invalidHtml + ' [L1:C16] Start tag seen without seeing a doctype first. Expected “<!DOCTYPE html>”.',
-          invalidHtml + ' [L9:C96] Attribute “unknownattr” not allowed on element “img” at this point.',
-          invalidHtml + ' [L9:C96] An “img” element must have an “alt” attribute, except under certain conditions. For details, consult guidance on providing text alternatives for images.',
-          invalidHtml + ' [L11:C19] The “clear” attribute on the “br” element is obsolete. Use CSS instead.'
+          invalidHtml + ' [L1:C16] ERR: Start tag seen without seeing a doctype first. Expected “<!DOCTYPE html>”.',
+          invalidHtml + ' [L9:C96] ERR: Attribute “unknownattr” not allowed on element “img” at this point.',
+          invalidHtml + ' [L9:C96] ERR: An “img” element must have an “alt” attribute, except under certain conditions. For details, consult guidance on providing text alternatives for images.',
+          invalidHtml + ' [L11:C19] ERR: The “clear” attribute on the “br” element is obsolete. Use CSS instead.',
+          invalidHtml + ' [L13:C37] WARN: Article lacks heading. Consider using “h2”-“h6” elements to add identifying headings to all articles.'
         ].join('\n'),
         actual = stripColorCodes(reporter(result));
       test.equal(actual, expected, 'Should report errors as a String');
