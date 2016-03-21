@@ -1,18 +1,29 @@
 # http://www.appveyor.com/docs/appveyor-yml
 
-version: "{build}"
-
 clone_depth: 10
+
+version: "{build}"
 
 environment:
   matrix:
     - nodejs_version: "0.10"
+      platform: x86
+    - nodejs_version: "0.12"
+      platform: x86
     - nodejs_version: "4"
+      platform: x64
+    - nodejs_version: "4"
+      platform: x86
     - nodejs_version: "5"
+      platform: x86
 
 install:
-  - ps: Install-Product node $env:nodejs_version
-  - npm install -g grunt-cli
+  - ps: Install-Product node $env:nodejs_version $env:platform
+  - ps: >-
+      if ($env:nodejs_version -eq "0.10") {
+        npm -g install npm@2
+        $env:PATH="$env:APPDATA\npm;$env:PATH"
+      }
   - npm install
 
 build: off
@@ -21,12 +32,10 @@ test_script:
   - node --version
   - npm --version
   - java -version
-  - grunt --version
   - npm test
 
 matrix:
   fast_finish: true
 
 cache:
-  - '%APPDATA%\npm\node_modules -> package.json'    # global npm modules
-  - 'node_modules -> package.json'                  # local npm modules
+  - node_modules -> package.json
