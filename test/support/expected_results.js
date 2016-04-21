@@ -1,7 +1,7 @@
 'use strict';
 
-var path = require('path');
-var invalidHtml = path.join('test', 'invalid.html');
+var path = require( 'path' );
+var invalidHtml = path.join( 'test', 'invalid.html' );
 
 module.exports = {
   invalid: [
