@@ -80,7 +80,7 @@ Set `force` to `true` to report errors but not fail the `grunt` task.
 Type: `String`  
 Default: `null`
 
-Allows you to modify the output format. By default, this plugin will use a built-in Grunt reporter. Set the path to your own custom reporter or to one of the provided reporters: `checkstyle` or `json`.
+Allows you to modify the output format. By default, this plugin will use a built-in Grunt reporter. Set the path to your own custom reporter or to one of the provided reporters: `checkstyle`, `junit` or `json`.
 
 ### `reporterOutput`
 
