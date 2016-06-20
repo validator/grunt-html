@@ -1,9 +1,8 @@
-# http://www.appveyor.com/docs/appveyor-yml
-
 clone_depth: 10
 
 version: "{build}"
 
+# What combinations to test
 environment:
   matrix:
     - nodejs_version: "0.10"
@@ -15,6 +14,8 @@ environment:
     - nodejs_version: "4"
       platform: x86
     - nodejs_version: "5"
+      platform: x86
+    - nodejs_version: "6"
       platform: x86
 
 install:
