@@ -43,8 +43,7 @@ module.exports = function( grunt ) {
     jscs: {
       files: [ '<%= jshint.files %>' ],
       options: {
-        config: '.jscsrc',
-        verbose: true
+        config: '.jscsrc'
       }
     }
   });
