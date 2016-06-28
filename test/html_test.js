@@ -56,8 +56,36 @@ exports.htmllint = {
   'empty': function( test ) {
     run( test, {
       files: [],
-	  errorlevels: [ 'info', 'warning', 'error' ]
+      errorlevels: [ 'info', 'warning', 'error' ]
     }, [], '0 errors from 0 files' );
+  },
+  'bad-encoding': function( test ) {
+    run( test, {
+      files: [ 'test/invalid-encoding.html' ],
+      errorlevels: [ 'info', 'warning', 'error' ]
+    }, [
+      { file: undefined,
+         type: 'error',
+         message: 'Malformed byte sequence: “e1”.',
+         lastLine: 5,
+         lastColumn: 9 },
+      { file: undefined,
+         type: 'error',
+         message: 'Malformed byte sequence: “e1”.',
+         lastLine: 9,
+         lastColumn: 18 },
+      { file: 'test/invalid-encoding.html',
+         type: 'error',
+         message: 'Internal encoding declaration “iso-8859-1” disagrees with the actual encoding of the document (“utf-8”).',
+         lastLine: 4,
+         lastColumn: 74 },
+      { file: 'test/invalid-encoding.html',
+         type: 'error',
+         message: 'Bad value “text/html; charset=iso-8859-1” for attribute “content” on element “meta”: “iso-8859-1” is not a preferred encoding name. The preferred label for this encoding is “windows-1252”.',
+         lastLine: 4,
+         lastColumn: 74
+      }
+    ]);
   },
   'ignore': function( test ) {
     run( test, {
