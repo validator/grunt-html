@@ -64,12 +64,12 @@ exports.htmllint = {
       files: [ 'test/invalid-encoding.html' ],
       errorlevels: [ 'info', 'warning', 'error' ]
     }, [
-      { file: undefined,
+      { file: path.join( 'test', 'invalid-encoding.html' ),
          type: 'error',
          message: 'Malformed byte sequence: “e1”.',
          lastLine: 5,
          lastColumn: 9 },
-      { file: undefined,
+      { file: path.join( 'test', 'invalid-encoding.html' ),
          type: 'error',
          message: 'Malformed byte sequence: “e1”.',
          lastLine: 9,
