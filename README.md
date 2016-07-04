@@ -96,10 +96,16 @@ Default: `false`
 
 Set `absoluteFilePathsForReporter` to `true` to use absolute file paths in generated reports.
 
-[grunt]: http://gruntjs.com/
-[getting_started]: http://gruntjs.com/getting-started
-[vnujar]: https://validator.github.io/validator/
+## Travis CI potential pitfalls
+
+Since vnu.jar requires Java 8 environment, you might have trouble setting Travis CI to work with grunt-html.
+In that case see [this patch](https://github.com/jquery/jquery-ui/commit/ff3769272bb5530b224297fa5d2add1865acbb7f)
+and the [Travis CI doc page](https://docs.travis-ci.com/user/trusty-ci-environment/).
 
 ## License
 Copyright Jörn Zaefferer.  
 Licensed under the MIT license.
+
+[grunt]: http://gruntjs.com/
+[getting_started]: http://gruntjs.com/getting-started
+[vnujar]: https://validator.github.io/validator/
