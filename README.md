@@ -6,9 +6,10 @@
 [![Dependency Status](https://img.shields.io/david/jzaefferer/grunt-html.svg)](https://david-dm.org/jzaefferer/grunt-html)
 [![devDependency Status](https://img.shields.io/david/dev/jzaefferer/grunt-html.svg)](https://david-dm.org/jzaefferer/grunt-html#info=devDependencies)
 
-[Grunt][grunt] plugin for html validation, using the [vnu.jar markup checker][vnujar].
+[Grunt][grunt] plugin for HTML validation, using the [vnu.jar markup checker][vnujar].
 
 ## Getting Started
+
 Install this grunt plugin next to your project's [Gruntfile.js][getting_started] with:
 
 ```bash
@@ -37,8 +38,8 @@ For fast validation, keep that in a single group, as the validator initializatio
 
 ### `ignore`
 
-Type: `Array`, `String`, or `RegExp`  
-Default: `null`
+* Type: `Array`, `String`, or `RegExp`
+* Default: `null`
 
 Use this to specify the error message(s) to ignore. For example:
 
@@ -51,7 +52,7 @@ all: {
 }
 ```
 
-The ignore option also supports regular expressions. For example, to ignore AngularJS directive attributes:
+The `ignore` option also supports regular expressions. For example, to ignore AngularJS directive attributes:
 
 ```js
 all: {
@@ -61,38 +62,39 @@ all: {
   src: "app.html"
 }
 ```
+
 ### `errorlevels`
 
-Type: `Array`  
-Default: `'info','warning','error'`
+* Type: `Array`
+* Default: `'info','warning','error'`
 
 Set `errorlevels` to control which error types are returned from the validator. Ignores all other returned types.
 
 ### `force`
 
-Type: `Boolean`  
-Default: `false`
+* Type: `Boolean`
+* Default: `false`
 
 Set `force` to `true` to report errors but not fail the `grunt` task.
 
 ### `reporter`
 
-Type: `String`  
-Default: `null`
+* Type: `String`
+* Default: `null`
 
 Allows you to modify the output format. By default, this plugin will use a built-in Grunt reporter. Set the path to your own custom reporter or to one of the provided reporters: `checkstyle`, `junit` or `json`.
 
 ### `reporterOutput`
 
-Type: `String`  
-Default: `null`
+* Type: `String`
+* Default: `null`
 
 Specify a filepath to output the results of a reporter. If `reporterOutput` is specified then all output will be written to the given filepath rather than printed to `stdout`.
 
 ### `absoluteFilePathsForReporter`
 
-Type: `Boolean`  
-Default: `false`
+* Type: `Boolean`
+* Default: `false`
 
 Set `absoluteFilePathsForReporter` to `true` to use absolute file paths in generated reports.
 
@@ -103,6 +105,7 @@ In that case see [this patch](https://github.com/jquery/jquery-ui/commit/ff37692
 and the [Travis CI doc page](https://docs.travis-ci.com/user/trusty-ci-environment/).
 
 ## License
+
 Copyright Jörn Zaefferer.  
 Licensed under the MIT license.
 
