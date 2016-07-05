@@ -39,8 +39,8 @@ exports.reporters = {
     },
     'when checkstyle reporter is specified': function( test ) {
       var options = {
-        reporter: 'checkstyle'
-      },
+          reporter: 'checkstyle'
+        },
         reporter = reporters.selectReporter( options ),
         checkstyleReporter = require( '../lib/reporters/checkstyle' );
       test.equal( reporter, checkstyleReporter, 'Should return checkstyle reporter' );
@@ -48,8 +48,8 @@ exports.reporters = {
     },
     'when json reporter is specified': function( test ) {
       var options = {
-        reporter: 'json'
-      },
+          reporter: 'json'
+        },
         reporter = reporters.selectReporter( options ),
         jsonReporter = require( '../lib/reporters/json' );
       test.equal( reporter, jsonReporter, 'Should return json reporter' );
@@ -57,8 +57,8 @@ exports.reporters = {
     },
     'when valid custom reporter is specified': function( test ) {
       var options = {
-        reporter: 'test/support/custom_reporter.js'
-      },
+          reporter: 'test/support/custom_reporter.js'
+        },
         reporter = reporters.selectReporter( options ),
         customReporter = require( './support/custom_reporter' );
       test.equal( reporter, customReporter, 'Should return custom reporter' );
