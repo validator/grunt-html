@@ -19,7 +19,7 @@
     "test": "grunt test"
   },
   "dependencies": {
-    "async": "1.5.2",
+    "async": "2.1.2",
     "chalk": "1.1.3",
     "vnu-jar": "16.6.29"
   },
