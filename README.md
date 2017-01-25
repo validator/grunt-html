@@ -34,9 +34,7 @@ grunt.initConfig({
 
 For fast validation, keep that in a single group, as the validator initialization takes a few seconds.
 
-When combined with a watching task (such as [grunt-contrib-watch][watch]), even faster validation can be achieved by starting the validator in client mode and connecting to an already-running instance of the validator in server mode.
-This removes the time required by repeated initializations.
-See the `server` option below.
+When combined with a watching task (such as [grunt-contrib-watch][watch]), even faster validation can be achieved by starting the validator in client mode and connecting to an already-running instance of the validator in server mode. This removes the time required by repeated initializations. See the `server` option below.
 
 ## Options
 
@@ -80,7 +78,8 @@ To start the validator in server mode, use `java -cp "path/to/vnu.jar" nu.valida
 ```js
 all: {
   options: {
-    server: {} // connect to a validator instance running in server mode on localhost:8888
+    // connect to a validator instance running in server mode on localhost:8888
+    server: {}
   },
   src: "app.html"
 }
@@ -92,7 +91,8 @@ The `server` object also accepts the `host` and `port` keys, specifying the loca
 all: {
   options: {
     server: {
-      host: '192.168.0.5', // your team's local dev tool machine, for example
+      // your team's local dev tool machine, for example
+      host: '192.168.0.5',
       port: 8877
     }
   },
@@ -100,21 +100,36 @@ all: {
 }
 ```
 
-In the following example, a watching task (such as [grunt-contrib-watch][watch]) will complete significantly faster when executing `htmllint:client` as opposed to `htmllint:normal`.
+The following configuration in Gruntfile.js uses [grunt-vnuserver][vnuserver] to start the validator in server mode and sets up a watch task to run `htmllint` every time the source file changes.
+By starting the validator in server mode once using the `vnuserver` task, validations by `htmllint` can be performed much faster by simply connecting to this already-running server.
 
 ```js
-htmllint: {
-  normal: {
-    src: "app.html"
-  },
-  client: {
-    options: {
-      server: {}
-    },
-    src: "app.html"
-  }
-}
+module.exports = function (grunt) {
+    grunt.initConfig({
+        vnuserver: {
+        },
+        htmllint: {
+            all: {
+                options: {
+                    server: {}
+                },
+                src: "app.html"
+            }
+        },
+        watch: {
+            all: {
+                tasks: ['htmllint'],
+                files: "app.html"
+            }
+        },
+    });
 
+    grunt.loadNpmTasks('grunt-vnuserver');
+    grunt.loadNpmTasks('grunt-html');
+    grunt.loadNpmTasks('grunt-contrib-watch');
+
+    grunt.registerTask('default', ['vnuserver', 'watch']);
+};
 ```
 
 ### `errorlevels`
@@ -167,3 +182,4 @@ Licensed under the MIT license.
 [getting_started]: http://gruntjs.com/getting-started
 [vnujar]: https://validator.github.io/validator/
 [watch]: https://github.com/gruntjs/grunt-contrib-watch
+[vnuserver]: https://www.npmjs.com/package/grunt-vnuserver
