@@ -34,6 +34,10 @@ grunt.initConfig({
 
 For fast validation, keep that in a single group, as the validator initialization takes a few seconds.
 
+When combined with a watching task (such as [grunt-contrib-watch][watch]), even faster validation can be achieved by starting the validator in client mode and connecting to an already-running instance of the validator in server mode.
+This removes the time required by repeated initializations.
+See the `server` option below.
+
 ## Options
 
 ### `ignore`
@@ -61,6 +65,56 @@ all: {
   },
   src: "app.html"
 }
+```
+
+### `server`
+
+* Type: `Object`, or a falsy value
+* Default: `false`
+
+When `server` is set to a falsy value, the validator is invoked using `java -jar`, which can be considered normal operation.
+
+Set `server` to an object to start the validator in client mode and connect to an already-running instance of the validator in server mode.
+To start the validator in server mode, use `java -cp "path/to/vnu.jar" nu.validator.servlet.Main <port>`.
+
+```js
+all: {
+  options: {
+    server: {} // connect to a validator instance running in server mode on localhost:8888
+  },
+  src: "app.html"
+}
+```
+
+The `server` object also accepts the `host` and `port` keys, specifying the location of the server.
+
+```js
+all: {
+  options: {
+    server: {
+      host: '192.168.0.5', // your team's local dev tool machine, for example
+      port: 8877
+    }
+  },
+  src: "app.html"
+}
+```
+
+In the following example, a watching task (such as [grunt-contrib-watch][watch]) will complete significantly faster when executing `htmllint:client` as opposed to `htmllint:normal`.
+
+```js
+htmllint: {
+  normal: {
+    src: "app.html"
+  },
+  client: {
+    options: {
+      server: {}
+    },
+    src: "app.html"
+  }
+}
+
 ```
 
 ### `errorlevels`
@@ -112,3 +166,4 @@ Licensed under the MIT license.
 [grunt]: http://gruntjs.com/
 [getting_started]: http://gruntjs.com/getting-started
 [vnujar]: https://validator.github.io/validator/
+[watch]: https://github.com/gruntjs/grunt-contrib-watch
