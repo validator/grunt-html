@@ -105,30 +105,30 @@ By starting the validator in server mode once using the `vnuserver` task, valida
 
 ```js
 module.exports = function (grunt) {
-    grunt.initConfig({
-        vnuserver: {
+  grunt.initConfig({
+    vnuserver: {
+    },
+    htmllint: {
+      all: {
+        options: {
+          server: {}
         },
-        htmllint: {
-            all: {
-                options: {
-                    server: {}
-                },
-                src: "app.html"
-            }
-        },
-        watch: {
-            all: {
-                tasks: ['htmllint'],
-                files: "app.html"
-            }
-        },
-    });
+        src: "app.html"
+      }
+    },
+    watch: {
+      all: {
+        tasks: ['htmllint'],
+        files: "app.html"
+      }
+    }
+  });
 
-    grunt.loadNpmTasks('grunt-vnuserver');
-    grunt.loadNpmTasks('grunt-html');
-    grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-vnuserver');
+  grunt.loadNpmTasks('grunt-html');
+  grunt.loadNpmTasks('grunt-contrib-watch');
 
-    grunt.registerTask('default', ['vnuserver', 'watch']);
+  grunt.registerTask('default', ['vnuserver', 'watch']);
 };
 ```
 
