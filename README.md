@@ -27,7 +27,7 @@ Then specify what files to validate in your config:
 ```js
 grunt.initConfig({
   htmllint: {
-    all: ["demos/**/*.html", "tests/**/*.html"]
+    all: ['demos/**/*.html', 'tests/**/*.html']
   }
 });
 ```
@@ -50,7 +50,7 @@ all: {
   options: {
     ignore: 'The “clear” attribute on the “br” element is obsolete. Use CSS instead.'
   },
-  src: "html4.html"
+  src: 'html4.html'
 }
 ```
 
@@ -61,7 +61,7 @@ all: {
   options: {
     ignore: /attribute “ng-[a-z-]+” not allowed/
   },
-  src: "app.html"
+  src: 'app.html'
 }
 ```
 
@@ -81,7 +81,7 @@ all: {
     // connect to a validator instance running in server mode on localhost:8888
     server: {}
   },
-  src: "app.html"
+  src: 'app.html'
 }
 ```
 
@@ -96,7 +96,7 @@ all: {
       port: 8877
     }
   },
-  src: "app.html"
+  src: 'app.html'
 }
 ```
 
@@ -113,13 +113,13 @@ module.exports = function (grunt) {
         options: {
           server: {}
         },
-        src: "app.html"
+        src: 'app.html'
       }
     },
     watch: {
       all: {
         tasks: ['htmllint'],
-        files: "app.html"
+        files: 'app.html'
       }
     }
   });
