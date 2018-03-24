@@ -1,0 +1,16 @@
+{
+  "root": true,
+  "env": {
+    "node": true
+  },
+  "extends": ["eslint:recommended", "jquery"],
+  "rules": {
+    "linebreak-style": "off",
+    "max-len": "off",
+    "lines-around-comment": "off",
+    "quotes": [
+      "error",
+      "single"
+    ]
+  }
+}
