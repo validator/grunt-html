@@ -17,12 +17,12 @@ module.exports = function( grunt ) {
   grunt.registerMultiTask( 'htmllint', 'Validate html files', function() {
     var done = this.async(),
       files = grunt.file.expand( this.filesSrc ),
-      options = this.options({
+      options = this.options( {
         files: files,
         force: false,
         absoluteFilePathsForReporter: false,
         errorlevels: [ 'info', 'warning', 'error' ]
-      }),
+      } ),
       force = options.force,
       reporterOutput = options.reporterOutput,
       reporter;
@@ -50,12 +50,12 @@ module.exports = function( grunt ) {
           grunt.log.writeln( output );
         }
         uniqueFiles = result
-          .map(function( elem ) {
+          .map( function( elem ) {
             return elem.file;
-          })
-          .filter(function( file, index, resultFiles ) {
+          } )
+          .filter( function( file, index, resultFiles ) {
             return resultFiles.indexOf( file ) === index;
-          });
+          } );
         grunt.log.error( files.length + ' ' + grunt.util.pluralize( files.length, 'file/files' ) + ' checked, ' +
                         result.length + ' ' + grunt.util.pluralize( result.length, 'error/errors' ) + ' in ' +
                         uniqueFiles.length + ' ' + grunt.util.pluralize( uniqueFiles.length, 'file/files' ) );
@@ -73,7 +73,7 @@ module.exports = function( grunt ) {
       }
 
       done( passed );
-    });
-  });
+    } );
+  } );
 
 };

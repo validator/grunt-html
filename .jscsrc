@@ -1,7 +1,0 @@
-{
-  'preset': 'idiomatic',
-  'maximumLineLength': false,
-  'validateIndentation': 2,
-  'validateLineBreaks': false,
-  'validateQuoteMarks': "'"
-}

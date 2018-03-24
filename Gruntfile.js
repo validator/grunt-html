@@ -2,7 +2,7 @@
 
 module.exports = function( grunt ) {
 
-  grunt.initConfig({
+  grunt.initConfig( {
     htmllint: {
       valid: 'test/valid.html',
       invalid: 'test/*.html',
@@ -34,26 +34,19 @@ module.exports = function( grunt ) {
     nodeunit: {
       files: [ 'test/**/*.js', '!test/support/**/*.js' ]
     },
-    jshint: {
+    eslint: {
       files: [ 'Gruntfile.js', 'lib/**/*.js', 'tasks/**/*.js', 'test/**/*.js' ],
       options: {
-        jshintrc: '.jshintrc'
-      }
-    },
-    jscs: {
-      files: [ '<%= jshint.files %>' ],
-      options: {
-        config: '.jscsrc'
+        configFile: '.eslintrc.json'
       }
     }
-  });
+  } );
 
   grunt.loadTasks( 'tasks' );
-  grunt.loadNpmTasks( 'grunt-contrib-jshint' );
+  grunt.loadNpmTasks( 'grunt-eslint' );
   grunt.loadNpmTasks( 'grunt-contrib-nodeunit' );
-  grunt.loadNpmTasks( 'grunt-jscs' );
 
-  grunt.registerTask( 'test', [ 'jscs', 'jshint', 'nodeunit' ]);
+  grunt.registerTask( 'test', [ 'eslint', 'nodeunit' ] );
   grunt.registerTask( 'default', 'test' );
 
 };

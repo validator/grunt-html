@@ -13,7 +13,7 @@ function run( test, config, expected, message ) {
     }
     // copy only the properties we want to test
     // url property is absolute, system-dependend path
-    result = result.map(function( msg ) {
+    result = result.map( function( msg ) {
       return {
         file: msg.file,
         type: msg.type,
@@ -21,10 +21,10 @@ function run( test, config, expected, message ) {
         lastLine: msg.lastLine,
         lastColumn: msg.lastColumn
       };
-    });
+    } );
     test.deepEqual( result, expected, message );
     test.done();
-  });
+  } );
 }
 
 exports.htmllint = {
@@ -37,7 +37,7 @@ exports.htmllint = {
       }, expected, 'four errors from test/invalid.html' );
     },
     'with absolute paths': function( test ) {
-      var expected = expectedResults.invalid.map(function( result ) {
+      var expected = expectedResults.invalid.map( function( result ) {
         return {
           file: path.resolve( result.file ),
           type: result.type,
@@ -45,7 +45,7 @@ exports.htmllint = {
           lastLine: result.lastLine,
           lastColumn: result.lastColumn
         };
-      });
+      } );
       run( test, {
         files: [ 'test/valid.html', 'test/invalid.html' ],
         absoluteFilePathsForReporter: true,
@@ -92,7 +92,7 @@ exports.htmllint = {
         lastLine: 4,
         lastColumn: 74
       }
-    ]);
+    ] );
   },
   'ignore': function( test ) {
     run( test, {
