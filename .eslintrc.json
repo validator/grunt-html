@@ -5,9 +5,8 @@
   },
   "extends": ["eslint:recommended", "jquery"],
   "rules": {
-    "linebreak-style": "off",
-    "max-len": "off",
     "lines-around-comment": "off",
+    "max-len": "off",
     "quotes": [
       "error",
       "single"
