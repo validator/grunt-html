@@ -88,7 +88,7 @@ exports.htmllint = {
       {
         file: path.join( 'test', 'invalid-encoding.html' ),
         type: 'error',
-        message: 'Bad value “text/html; charset=iso-8859-1” for attribute “content” on element “meta”: “iso-8859-1” is not a preferred encoding name. The preferred label for this encoding is “windows-1252”.',
+        message: 'Bad value “text/html; charset=iso-8859-1” for attribute “content” on element “meta”: “charset=” must be followed by “utf-8”.',
         lastLine: 4,
         lastColumn: 74
       }
