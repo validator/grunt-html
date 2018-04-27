@@ -21,7 +21,8 @@ module.exports = function( grunt ) {
         files: files,
         force: false,
         absoluteFilePathsForReporter: false,
-        errorlevels: [ 'info', 'warning', 'error' ]
+        errorlevels: [ 'info', 'warning', 'error' ],
+        noLangDetect: false
       } ),
       force = options.force,
       reporterOutput = options.reporterOutput,

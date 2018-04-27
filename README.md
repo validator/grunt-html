@@ -167,6 +167,13 @@ Specify a filepath to output the results of a reporter. If `reporterOutput` is s
 
 Set `absoluteFilePathsForReporter` to `true` to use absolute file paths in generated reports.
 
+### `noLangDetect`
+
+* Type: `Boolean`
+* Default: `false`
+
+Set `noLangDetect` to `true` to [skip the checking of the language of the page](https://github.com/validator/validator#--no-langdetect).
+
 ## Travis CI potential pitfalls
 
 Since vnu.jar requires Java 8 environment, you might have trouble setting Travis CI to work with grunt-html.
@@ -175,7 +182,7 @@ and the [Travis CI doc page](https://docs.travis-ci.com/user/trusty-ci-environme
 
 ## License
 
-Copyright Jörn Zaefferer.  
+Copyright Jörn Zaefferer.
 Licensed under the MIT license.
 
 [grunt]: http://gruntjs.com/
