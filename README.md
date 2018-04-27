@@ -182,7 +182,7 @@ and the [Travis CI doc page](https://docs.travis-ci.com/user/trusty-ci-environme
 
 ## License
 
-Copyright Jörn Zaefferer.
+Copyright Jörn Zaefferer.  
 Licensed under the MIT license.
 
 [grunt]: http://gruntjs.com/
