@@ -9,6 +9,11 @@ node_js:
   - "8"
   - "10"
 
+script: npm run test:coveralls
+
+after_success:
+  - npm run coveralls
+
 matrix:
   fast_finish: true
 
