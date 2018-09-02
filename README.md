@@ -2,7 +2,7 @@
 
 [![Linux Build Status](https://img.shields.io/travis/jzaefferer/grunt-html/master.svg?label=Linux%20build)](https://travis-ci.org/jzaefferer/grunt-html)
 [![Windows Build status](https://img.shields.io/appveyor/ci/jzaefferer/grunt-html/master.svg?label=Windows%20build)](https://ci.appveyor.com/project/jzaefferer/grunt-html/branch/master)
-[![Code Climate](https://img.shields.io/codeclimate/github/jzaefferer/grunt-html.svg)](https://codeclimate.com/github/jzaefferer/grunt-html)
+[![Coverage Status](https://img.shields.io/coveralls/github/jzaefferer/grunt-html.svg)](https://coveralls.io/github/jzaefferer/grunt-html)
 [![Dependency Status](https://img.shields.io/david/jzaefferer/grunt-html.svg)](https://david-dm.org/jzaefferer/grunt-html)
 [![devDependency Status](https://img.shields.io/david/dev/jzaefferer/grunt-html.svg)](https://david-dm.org/jzaefferer/grunt-html#info=devDependencies)
 

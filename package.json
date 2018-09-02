@@ -16,7 +16,9 @@
     "node": ">=6"
   },
   "scripts": {
-    "test": "grunt test"
+    "coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "test": "grunt test",
+    "test:coveralls": "nyc npm test"
   },
   "dependencies": {
     "async": "2.6.1",
@@ -24,10 +26,12 @@
     "vnu-jar": "18.8.29"
   },
   "devDependencies": {
+    "coveralls": "^3.0.2",
     "eslint-config-jquery": "1.0.1",
     "grunt": "1.0.3",
     "grunt-contrib-nodeunit": "2.0.0",
     "grunt-eslint": "21.0.0",
+    "nyc": "^13.0.1",
     "stripcolorcodes": "0.1.0"
   },
   "peerDependencies": {
@@ -39,5 +43,14 @@
   "files": [
     "{lib,tasks}/**/*.js",
     "LICENSE-MIT"
-  ]
+  ],
+  "nyc": {
+    "include": [
+      "lib/**/*.js"
+    ],
+    "reporter": [
+      "html",
+      "text-summary"
+    ]
+  }
 }
