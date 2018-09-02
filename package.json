@@ -37,8 +37,7 @@
     "gruntplugin"
   ],
   "files": [
-    "lib",
-    "tasks",
+    "{lib,tasks}/**/*.js",
     "LICENSE-MIT"
   ]
 }
