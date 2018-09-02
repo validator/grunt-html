@@ -1,8 +1,5 @@
-'use strict';
-
-module.exports = function( grunt ) {
-
-  grunt.initConfig( {
+module.exports = function(grunt) {
+  grunt.initConfig({
     htmllint: {
       valid: 'test/valid.html',
       invalid: 'test/*.html',
@@ -32,21 +29,20 @@ module.exports = function( grunt ) {
       }
     },
     nodeunit: {
-      files: [ 'test/**/*.js', '!test/support/**/*.js' ]
+      files: ['test/**/*.js', '!test/support/**/*.js']
     },
     eslint: {
-      files: [ 'Gruntfile.js', 'lib/**/*.js', 'tasks/**/*.js', 'test/**/*.js' ],
+      files: ['Gruntfile.js', 'lib/**/*.js', 'tasks/**/*.js', 'test/**/*.js'],
       options: {
         configFile: '.eslintrc.json'
       }
     }
-  } );
+  });
 
-  grunt.loadTasks( 'tasks' );
-  grunt.loadNpmTasks( 'grunt-eslint' );
-  grunt.loadNpmTasks( 'grunt-contrib-nodeunit' );
+  grunt.loadTasks('tasks');
+  grunt.loadNpmTasks('grunt-eslint');
+  grunt.loadNpmTasks('grunt-contrib-nodeunit');
 
-  grunt.registerTask( 'test', [ 'eslint', 'nodeunit' ] );
-  grunt.registerTask( 'default', 'test' );
-
+  grunt.registerTask('test', ['eslint', 'nodeunit']);
+  grunt.registerTask('default', 'test');
 };

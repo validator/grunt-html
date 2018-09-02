@@ -26,12 +26,11 @@
     "vnu-jar": "18.8.29"
   },
   "devDependencies": {
-    "coveralls": "^3.0.2",
-    "eslint-config-jquery": "1.0.1",
+    "coveralls": "3.0.2",
     "grunt": "1.0.3",
     "grunt-contrib-nodeunit": "2.0.0",
     "grunt-eslint": "21.0.0",
-    "nyc": "^13.0.1",
+    "nyc": "13.0.1",
     "stripcolorcodes": "0.1.0"
   },
   "peerDependencies": {
