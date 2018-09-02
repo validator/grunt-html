@@ -13,7 +13,7 @@
   },
   "license": "MIT",
   "engines": {
-    "node": ">=4"
+    "node": ">=6"
   },
   "scripts": {
     "test": "grunt test"
@@ -27,7 +27,7 @@
     "eslint-config-jquery": "1.0.1",
     "grunt": "1.0.3",
     "grunt-contrib-nodeunit": "2.0.0",
-    "grunt-eslint": "20.2.0",
+    "grunt-eslint": "21.0.0",
     "stripcolorcodes": "0.1.0"
   },
   "peerDependencies": {
