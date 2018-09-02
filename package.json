@@ -1,7 +1,7 @@
 {
   "name": "grunt-html",
-  "description": "Grunt plugin for html validation, using vnu.jar for the actual validation",
-  "version": "9.2.0",
+  "description": "Grunt plugin for HTML validation, using vnu.jar for the actual validation",
+  "version": "9.3.0",
   "homepage": "https://github.com/jzaefferer/grunt-html",
   "author": "Jörn Zaefferer <joern.zaefferer@gmail.com>",
   "repository": {
@@ -21,7 +21,7 @@
   "dependencies": {
     "async": "2.6.1",
     "chalk": "2.4.1",
-    "vnu-jar": "18.7.23"
+    "vnu-jar": "18.8.29"
   },
   "devDependencies": {
     "eslint-config-jquery": "1.0.1",
