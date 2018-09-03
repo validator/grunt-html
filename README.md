@@ -6,7 +6,7 @@
 [![Dependency Status](https://img.shields.io/david/jzaefferer/grunt-html.svg)](https://david-dm.org/jzaefferer/grunt-html)
 [![devDependency Status](https://img.shields.io/david/dev/jzaefferer/grunt-html.svg)](https://david-dm.org/jzaefferer/grunt-html#info=devDependencies)
 
-[Grunt][grunt] plugin for HTML validation, using the [vnu.jar markup checker][vnujar].
+[Grunt][grunt] plugin for HTML validation, using the [Nu Html Checker (v.Nu)][vnujar].
 
 ## Getting Started
 
@@ -183,8 +183,8 @@ Set `noLangDetect` to `true` to [skip the checking of the language of the page](
 Copyright Jörn Zaefferer.  
 Licensed under the MIT license.
 
-[grunt]: http://gruntjs.com/
-[getting_started]: http://gruntjs.com/getting-started
+[grunt]: https://gruntjs.com/
+[getting_started]: https://gruntjs.com/getting-started
 [vnujar]: https://validator.github.io/validator/
 [watch]: https://github.com/gruntjs/grunt-contrib-watch
 [vnuserver]: https://www.npmjs.com/package/grunt-vnuserver
