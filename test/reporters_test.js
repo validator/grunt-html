@@ -3,6 +3,7 @@ const stripColorCodes = require('stripcolorcodes');
 const reporters = require('../lib/reporters');
 const checkstyleReporter = require('../lib/reporters/checkstyle');
 const jsonReporter = require('../lib/reporters/json');
+const junitReporter = require('../lib/reporters/junit');
 const customReporter = require('./support/custom_reporter');
 const expectedResults = require('./support/expected_results');
 
@@ -57,6 +58,15 @@ exports.reporters = {
       const reporter = reporters.selectReporter(options);
 
       test.equal(reporter, jsonReporter, 'Should return json reporter');
+      test.done();
+    },
+    'when junit reporter is specified': (test) => {
+      const options = {
+        reporter: 'junit'
+      };
+      const reporter = reporters.selectReporter(options);
+
+      test.equal(reporter, junitReporter, 'Should return junit reporter');
       test.done();
     },
     'when valid custom reporter is specified': (test) => {
