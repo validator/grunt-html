@@ -1,10 +1,10 @@
 # grunt-html
 
-[![Linux Build Status](https://img.shields.io/travis/jzaefferer/grunt-html/master.svg?label=Linux%20build)](https://travis-ci.org/jzaefferer/grunt-html)
-[![Windows Build status](https://img.shields.io/appveyor/ci/jzaefferer/grunt-html/master.svg?label=Windows%20build)](https://ci.appveyor.com/project/jzaefferer/grunt-html/branch/master)
-[![Coverage Status](https://img.shields.io/coveralls/github/jzaefferer/grunt-html.svg)](https://coveralls.io/github/jzaefferer/grunt-html)
-[![Dependency Status](https://img.shields.io/david/jzaefferer/grunt-html.svg)](https://david-dm.org/jzaefferer/grunt-html)
-[![devDependency Status](https://img.shields.io/david/dev/jzaefferer/grunt-html.svg)](https://david-dm.org/jzaefferer/grunt-html#info=devDependencies)
+[![Linux Build Status](https://img.shields.io/travis/validator/grunt-html/master.svg?label=Linux%20build)](https://travis-ci.org/validator/grunt-html)
+[![Windows Build status](https://img.shields.io/appveyor/ci/sideshowbarker/grunt-html/master.svg?label=Windows%20build)](https://ci.appveyor.com/project/sideshowbarker/grunt-html/branch/master)
+[![Coverage Status](https://img.shields.io/coveralls/github/validator/grunt-html.svg)](https://coveralls.io/github/validator/grunt-html)
+[![dependencies Status](https://img.shields.io/david/validator/grunt-html.svg)](https://david-dm.org/validator/grunt-html)
+[![devDependencies Status](https://img.shields.io/david/dev/validator/grunt-html.svg)](https://david-dm.org/validator/grunt-html?type=dev)
 
 [Grunt][grunt] plugin for HTML validation, using the [Nu Html Checker (v.Nu)][vnujar].
 
