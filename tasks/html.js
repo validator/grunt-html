@@ -1,6 +1,6 @@
 /*
  * grunt-html
- * https://github.com/jzaefferer/grunt-html
+ * https://github.com/validator/grunt-html
  *
  * Copyright Jörn Zaefferer
  * Licensed under the MIT license.
