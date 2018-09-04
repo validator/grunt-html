@@ -181,7 +181,7 @@ Set `noLangDetect` to `true` to [skip the checking of the language of the page](
 ## License
 
 Copyright Jörn Zaefferer.  
-Licensed under the MIT license.
+Licensed under the [MIT license](LICENSE).
 
 [grunt]: https://gruntjs.com/
 [getting_started]: https://gruntjs.com/getting-started

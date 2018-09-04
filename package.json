@@ -40,8 +40,7 @@
     "gruntplugin"
   ],
   "files": [
-    "{lib,tasks}/**/*.js",
-    "LICENSE-MIT"
+    "{lib,tasks}/**/*.js"
   ],
   "nyc": {
     "include": [
