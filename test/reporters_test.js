@@ -19,7 +19,7 @@ exports.reporters = {
       test.done();
     },
     'when given non-empty result': (test) => {
-      const invalidHtml = path.join('test', 'invalid.html');
+      const invalidHtml = path.normalize('test/fixtures/invalid.html');
       const result = expectedResults.invalid;
       const reporter = reporters.defaultReporter;
       const expected = [

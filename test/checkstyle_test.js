@@ -14,7 +14,7 @@ exports.checkstyle = {
     },
     'when given non-empty result': (test) => {
       const result = expectedResults.invalid;
-      const filename = path.normalize('test/invalid.html');
+      const filename = path.normalize('test/fixtures/invalid.html');
       const expected = [
         '<?xml version="1.0" encoding="utf-8"?><checkstyle>',
         `\t<file name="${filename}">`,
