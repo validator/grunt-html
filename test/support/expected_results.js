@@ -1,5 +1,5 @@
 const path = require('path');
-const invalidHtml = path.join('test', 'invalid.html');
+const invalidHtml = path.normalize('test/fixtures/invalid.html');
 
 module.exports = {
   invalid: [

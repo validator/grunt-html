@@ -7,29 +7,29 @@ module.exports = function(grunt) {
         options: {
           ignore: 'The “clear” attribute on the “br” element is obsolete. Use CSS instead.'
         },
-        src: 'test/*.html'
+        src: 'test/fixtures/*.html'
       },
       invalidPhp: {
         options: {
           ignore: /XML processing instructions/
         },
-        src: 'test/*.php'
+        src: 'test/fixtures/*.php'
       },
       checkstyle: {
         options: {
           reporter: 'checkstyle'
         },
-        src: 'test/*.html'
+        src: 'test/fixtures/*.html'
       },
       json: {
         options: {
           reporter: 'json'
         },
-        src: 'test/*.html'
+        src: 'test/fixtures/*.html'
       }
     },
     nodeunit: {
-      files: ['test/**/*.js', '!test/support/**/*.js']
+      files: ['test/*_test.js']
     },
     eslint: {
       files: ['Gruntfile.js', 'lib/**/*.js', 'tasks/**/*.js', 'test/**/*.js'],

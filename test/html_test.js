@@ -31,9 +31,9 @@ exports.htmllint = {
       const expected = expectedResults.invalid;
 
       run(test, {
-        files: ['test/valid.html', 'test/invalid.html'],
+        files: ['test/fixtures/valid.html', 'test/fixtures/invalid.html'],
         errorlevels: ['info', 'warning', 'error']
-      }, expected, 'four errors from test/invalid.html');
+      }, expected, 'four errors from test/fixtures/invalid.html');
     },
     'with absolute paths': (test) => {
       const expected = expectedResults.invalid.map((result) => {
@@ -47,10 +47,10 @@ exports.htmllint = {
       });
 
       run(test, {
-        files: ['test/valid.html', 'test/invalid.html'],
+        files: ['test/fixtures/valid.html', 'test/fixtures/invalid.html'],
         absoluteFilePathsForReporter: true,
         errorlevels: ['info', 'warning', 'error']
-      }, expected, 'four errors from test/invalid.html');
+      }, expected, 'four errors from test/fixtures/invalid.html');
     }
   },
   'empty': (test) => {
@@ -61,32 +61,32 @@ exports.htmllint = {
   },
   'bad-encoding': (test) => {
     run(test, {
-      files: [path.join('test', 'invalid-encoding.html')],
+      files: [path.normalize('test/fixtures/invalid-encoding.html')],
       errorlevels: ['info', 'warning', 'error']
     }, [
       {
-        file: path.join('test', 'invalid-encoding.html'),
+        file: path.normalize('test/fixtures/invalid-encoding.html'),
         type: 'error',
         message: 'Malformed byte sequence: “e1”.',
         lastLine: 5,
         lastColumn: 9
       },
       {
-        file: path.join('test', 'invalid-encoding.html'),
+        file: path.normalize('test/fixtures/invalid-encoding.html'),
         type: 'error',
         message: 'Malformed byte sequence: “e1”.',
         lastLine: 9,
         lastColumn: 18
       },
       {
-        file: path.join('test', 'invalid-encoding.html'),
+        file: path.normalize('test/fixtures/invalid-encoding.html'),
         type: 'error',
         message: 'Internal encoding declaration “iso-8859-1” disagrees with the actual encoding of the document (“utf-8”).',
         lastLine: 4,
         lastColumn: 74
       },
       {
-        file: path.join('test', 'invalid-encoding.html'),
+        file: path.normalize('test/fixtures/invalid-encoding.html'),
         type: 'error',
         message: 'Bad value “text/html; charset=iso-8859-1” for attribute “content” on element “meta”: “charset=” must be followed by “utf-8”.',
         lastLine: 4,
@@ -101,16 +101,19 @@ exports.htmllint = {
         'Start tag seen without seeing a doctype first. Expected “<!DOCTYPE html>”.',
         /attribute “[a-z]+” not allowed/i
       ],
-      files: ['test/valid.html', 'test/invalid.html'],
+      files: [
+        path.normalize('test/fixtures/valid.html'),
+        path.normalize('test/fixtures/invalid.html')
+      ],
       errorlevels: ['info', 'warning', 'error']
     }, [
       {
-        lastLine: 9,
-        lastColumn: 96,
+        file: path.normalize('test/fixtures/invalid.html'),
         type: 'error',
         message: 'An “img” element must have an “alt” attribute, except under certain conditions. For details, consult guidance on providing text alternatives for images.',
-        file: path.join('test', 'invalid.html')
+        lastLine: 9,
+        lastColumn: 96
       }
-    ], 'one error from test/invalid.html, other three were ignored');
+    ], 'one error from test/fixtures/invalid.html, other three were ignored');
   }
 };
