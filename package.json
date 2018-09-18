@@ -21,17 +21,17 @@
     "test:coveralls": "nyc npm test"
   },
   "dependencies": {
-    "async": "2.6.1",
-    "chalk": "2.4.1",
+    "async": "^2.6.1",
+    "chalk": "^2.4.1",
     "vnu-jar": "18.8.29"
   },
   "devDependencies": {
-    "coveralls": "3.0.2",
-    "grunt": "1.0.3",
-    "grunt-contrib-nodeunit": "2.0.0",
-    "grunt-eslint": "21.0.0",
-    "nyc": "13.0.1",
-    "stripcolorcodes": "0.1.0"
+    "coveralls": "^3.0.2",
+    "grunt": "^1.0.3",
+    "grunt-contrib-nodeunit": "^2.0.0",
+    "grunt-eslint": "^21.0.0",
+    "nyc": "^13.0.1",
+    "stripcolorcodes": "^0.1.0"
   },
   "peerDependencies": {
     "grunt": ">=0.4.0"
