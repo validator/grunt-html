@@ -1,6 +1,6 @@
+const path = require('path');
 const reporter = require('../lib/reporters/junit');
 const expectedResults = require('./helpers/expected_results');
-const path = require('path');
 
 exports.junit = {
   'junit reporter': {

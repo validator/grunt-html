@@ -32,8 +32,8 @@ module.exports = function(grunt) {
 
       try {
         reporter = reporters.selectReporter(options);
-      } catch (err) {
-        grunt.fatal(err);
+      } catch (error2) {
+        grunt.fatal(error2);
       }
 
       if (error) {
@@ -72,5 +72,4 @@ module.exports = function(grunt) {
       done(passed);
     });
   });
-
 };
