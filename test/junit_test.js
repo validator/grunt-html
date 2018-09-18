@@ -1,5 +1,5 @@
 const reporter = require('../lib/reporters/junit');
-const expectedResults = require('./support/expected_results');
+const expectedResults = require('./helpers/expected_results');
 const path = require('path');
 
 exports.junit = {

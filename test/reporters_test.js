@@ -4,8 +4,8 @@ const reporters = require('../lib/reporters');
 const checkstyleReporter = require('../lib/reporters/checkstyle');
 const jsonReporter = require('../lib/reporters/json');
 const junitReporter = require('../lib/reporters/junit');
-const customReporter = require('./support/custom_reporter');
-const expectedResults = require('./support/expected_results');
+const customReporter = require('./helpers/custom_reporter');
+const expectedResults = require('./helpers/expected_results');
 
 exports.reporters = {
   defaultReporter: {
@@ -71,7 +71,7 @@ exports.reporters = {
     },
     'when valid custom reporter is specified': (test) => {
       const options = {
-        reporter: 'test/support/custom_reporter.js'
+        reporter: 'test/helpers/custom_reporter.js'
       };
       const reporter = reporters.selectReporter(options);
 

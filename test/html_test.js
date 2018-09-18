@@ -1,6 +1,6 @@
 const path = require('path');
 const htmllint = require('../lib/htmllint');
-const expectedResults = require('./support/expected_results');
+const expectedResults = require('./helpers/expected_results');
 
 function run(test, config, expected, message) {
   test.expect(1);

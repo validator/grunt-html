@@ -1,5 +1,5 @@
 const reporter = require('../lib/reporters/json');
-const expectedResults = require('./support/expected_results');
+const expectedResults = require('./helpers/expected_results');
 
 exports.json = {
   'json reporter': {
