@@ -4,7 +4,7 @@ const expectedResults = require('./helpers/expected_results');
 
 exports.junit = {
   'junit reporter': {
-    'when given empty result': (test) => {
+    'when given empty result': test => {
       const result = [];
       const expected = [
         '<?xml version="1.0" encoding="utf-8"?>',
@@ -16,7 +16,7 @@ exports.junit = {
       test.equal(actual, expected, 'Should return empty JUnit XML for empty result');
       test.done();
     },
-    'when given non-empty result': (test) => {
+    'when given non-empty result': test => {
       const result = expectedResults.invalid;
       const filename = path.normalize('test/fixtures/invalid.html');
       const expected = [

@@ -11,7 +11,7 @@ function run(test, config, expected, message) {
     }
     // copy only the properties we want to test
     // url property is absolute, system-dependend path
-    result = result.map((msg) => {
+    result = result.map(msg => {
       return {
         file: msg.file,
         type: msg.type,
@@ -27,7 +27,7 @@ function run(test, config, expected, message) {
 
 exports.htmllint = {
   'all': {
-    'with relative paths': (test) => {
+    'with relative paths': test => {
       const expected = expectedResults.invalid;
 
       run(test, {
@@ -35,8 +35,8 @@ exports.htmllint = {
         errorlevels: ['info', 'warning', 'error']
       }, expected, 'four errors from test/fixtures/invalid.html');
     },
-    'with absolute paths': (test) => {
-      const expected = expectedResults.invalid.map((result) => {
+    'with absolute paths': test => {
+      const expected = expectedResults.invalid.map(result => {
         return {
           file: path.resolve(result.file),
           type: result.type,
@@ -53,13 +53,13 @@ exports.htmllint = {
       }, expected, 'four errors from test/fixtures/invalid.html');
     }
   },
-  'empty': (test) => {
+  'empty': test => {
     run(test, {
       files: [],
       errorlevels: ['info', 'warning', 'error']
     }, [], '0 errors from 0 files');
   },
-  'bad-encoding': (test) => {
+  'bad-encoding': test => {
     run(test, {
       files: [path.normalize('test/fixtures/invalid-encoding.html')],
       errorlevels: ['info', 'warning', 'error']
@@ -94,7 +94,7 @@ exports.htmllint = {
       }
     ]);
   },
-  'ignore': (test) => {
+  'ignore': test => {
     run(test, {
       ignore: [
         'The "clear" attribute on the "br" element is obsolete. Use CSS instead.',

@@ -48,7 +48,7 @@ module.exports = function(grunt) {
           grunt.log.writeln(output);
         }
         uniqueFiles = result
-          .map((elem) => {
+          .map(elem => {
             return elem.file;
           })
           .filter((file, index, resultFiles) => {

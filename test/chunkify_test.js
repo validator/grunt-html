@@ -1,7 +1,7 @@
 const chunkify = require('../lib/chunkify');
 
 exports.chunkify = {
-  'default': (test) => {
+  'default': test => {
     const files = ['./some/long/path/to/1/file.html', './some/long/path/to/2/file.html', './some/long/path/to/3/file.html'];
     const chunked = ['"./some/long/path/to/1/file.html" "./some/long/path/to/2/file.html"', '"./some/long/path/to/3/file.html"'];
     const all = ['"./some/long/path/to/1/file.html" "./some/long/path/to/2/file.html" "./some/long/path/to/3/file.html"'];

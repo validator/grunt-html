@@ -12,7 +12,7 @@
     "array-bracket-spacing": ["error", "never"],
     "array-callback-return": "error",
     "arrow-body-style": ["error", "always"],
-    "arrow-parens": ["error", "always"],
+    "arrow-parens": ["error", "as-needed"],
     "arrow-spacing": "error",
     "block-scoped-var": "error",
     "block-spacing": "error",
@@ -121,7 +121,13 @@
     "no-eval": "error",
     "no-extra-bind": "error",
     "no-extra-label": "error",
-    "no-extra-parens": "error",
+    "no-extra-parens": [
+      "error",
+      "all",
+      {
+        "nestedBinaryExpressions": false
+      }
+    ],
     "no-floating-decimal": "error",
     "no-global-assign": "error",
     "no-implicit-coercion": "error",
@@ -244,6 +250,7 @@
       "error",
       "always"
     ],
+    "space-before-function-paren": ["error", "never"],
     "spaced-comment": [
       "off",
       "always"
