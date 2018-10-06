@@ -3,13 +3,11 @@ clone_depth: 10
 version: "{build}"
 
 environment:
+  PLATFORM: x64
   matrix:
     - NODEJS_VERSION: "6"
-      PLATFORM: x64
     - NODEJS_VERSION: "8"
-      PLATFORM: x64
     - NODEJS_VERSION: "10"
-      PLATFORM: x64
 
 install:
   - ps: Install-Product node $env:NODEJS_VERSION $env:PLATFORM
