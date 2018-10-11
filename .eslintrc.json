@@ -9,10 +9,19 @@
   },
   "extends": "eslint:recommended",
   "rules": {
-    "array-bracket-spacing": ["error", "never"],
+    "array-bracket-spacing": [
+      "error",
+      "never"
+    ],
     "array-callback-return": "error",
-    "arrow-body-style": ["error", "always"],
-    "arrow-parens": ["error", "as-needed"],
+    "arrow-body-style": [
+      "error",
+      "always"
+    ],
+    "arrow-parens": [
+      "error",
+      "as-needed"
+    ],
     "arrow-spacing": "error",
     "block-scoped-var": "error",
     "block-spacing": "error",
@@ -39,7 +48,10 @@
       "error",
       "last"
     ],
-    "computed-property-spacing": ["error", "never"],
+    "computed-property-spacing": [
+      "error",
+      "never"
+    ],
     "consistent-return": "off",
     "consistent-this": [
       "error",
@@ -51,7 +63,10 @@
     "eol-last": "error",
     "eqeqeq": "error",
     "func-call-spacing": "error",
-    "func-names": "off",
+    "func-names": [
+      "error",
+      "never"
+    ],
     "func-style": [
       "error",
       "declaration"
@@ -91,8 +106,16 @@
         "max": 1
       }
     ],
-    "multiline-ternary": "off",
-    "new-cap": "error",
+    "multiline-ternary": [
+      "error",
+      "always-multiline"
+    ],
+    "new-cap": [
+      "error",
+      {
+        "properties": false
+      }
+    ],
     "newline-after-var": [
       "error",
       "always"
@@ -144,7 +167,7 @@
         "ignoreArrayIndexes": true
       }
     ],
-    "no-mixed-operators": "off",
+    "no-mixed-operators": "error",
     "no-mixed-requires": "error",
     "no-multiple-empty-lines": "error",
     "no-multi-spaces": [
@@ -239,7 +262,10 @@
       "single"
     ],
     "radix": "error",
-    "rest-spread-spacing": ["error", "never"],
+    "rest-spread-spacing": [
+      "error",
+      "never"
+    ],
     "semi": [
       "error",
       "always"
@@ -250,7 +276,10 @@
       "error",
       "always"
     ],
-    "space-before-function-paren": ["error", "never"],
+    "space-before-function-paren": [
+      "error",
+      "never"
+    ],
     "spaced-comment": [
       "off",
       "always"
