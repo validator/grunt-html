@@ -1,7 +1,5 @@
 sudo: required
 
-dist: trusty
-
 language: node_js
 
 git:
@@ -23,3 +21,6 @@ matrix:
 cache:
   directories:
     - node_modules
+
+notifications:
+  email: false
