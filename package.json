@@ -23,14 +23,14 @@
   "dependencies": {
     "async": "^2.6.1",
     "chalk": "^2.4.1",
-    "vnu-jar": "18.8.29"
+    "vnu-jar": "18.11.5"
   },
   "devDependencies": {
     "coveralls": "^3.0.2",
     "grunt": "^1.0.3",
     "grunt-contrib-nodeunit": "^2.0.0",
     "grunt-eslint": "^21.0.0",
-    "nyc": "^13.0.1",
+    "nyc": "^13.1.0",
     "stripcolorcodes": "^0.1.0"
   },
   "peerDependencies": {
