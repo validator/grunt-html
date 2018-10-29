@@ -21,8 +21,8 @@ module.exports = function(grunt) {
       errorlevels: ['info', 'warning', 'error'],
       noLangDetect: false
     });
-    const force = options.force;
-    let reporterOutput = options.reporterOutput;
+    const { force } = options;
+    let { reporterOutput } = options;
     let reporter;
 
     htmllint(options, (error, result) => {

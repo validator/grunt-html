@@ -250,7 +250,7 @@
     ],
     "prefer-arrow-callback": "error",
     "prefer-const": "error",
-    "prefer-destructuring": "off",
+    "prefer-destructuring": "error",
     "prefer-spread": "error",
     "prefer-template": "error",
     "quote-props": [
