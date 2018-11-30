@@ -1,3 +1,5 @@
+'use strict';
+
 const path = require('path');
 const stripColorCodes = require('stripcolorcodes');
 const reporters = require('../lib/reporters');

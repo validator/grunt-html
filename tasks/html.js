@@ -6,6 +6,8 @@
  * Licensed under the MIT license.
  */
 
+'use strict';
+
 const path = require('path');
 const htmllint = require('../lib/htmllint');
 const reporters = require('../lib/reporters');

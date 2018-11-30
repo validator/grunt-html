@@ -1,3 +1,5 @@
+'use strict';
+
 const path = require('path');
 
 const invalidHtml = path.normalize('test/fixtures/invalid.html');

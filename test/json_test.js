@@ -1,3 +1,5 @@
+'use strict';
+
 const reporter = require('../lib/reporters/json');
 const expectedResults = require('./helpers/expected_results');
 

@@ -1,3 +1,5 @@
+'use strict';
+
 const path = require('path');
 const htmllint = require('../lib/htmllint');
 const expectedResults = require('./helpers/expected_results');

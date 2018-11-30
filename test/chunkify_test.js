@@ -1,3 +1,5 @@
+'use strict';
+
 const chunkify = require('../lib/chunkify');
 
 exports.chunkify = {

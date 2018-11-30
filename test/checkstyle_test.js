@@ -1,3 +1,5 @@
+'use strict';
+
 const path = require('path');
 const reporter = require('../lib/reporters/checkstyle');
 const expectedResults = require('./helpers/expected_results');
