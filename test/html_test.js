@@ -11,6 +11,7 @@ function run(test, config, expected, message) {
     if (error) {
       throw error;
     }
+
     // copy only the properties we want to test
     // url property is absolute, system-dependend path
     result = result.map(msg => {

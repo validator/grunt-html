@@ -49,6 +49,7 @@ module.exports = function(grunt) {
         if (!reporterOutput) {
           grunt.log.writeln(output);
         }
+
         uniqueFiles = result
           .map(elem => {
             return elem.file;
@@ -67,6 +68,7 @@ module.exports = function(grunt) {
         if (!grunt.file.exists(destDir)) {
           grunt.file.mkdir(destDir);
         }
+
         grunt.file.write(reporterOutput, output);
         grunt.log.ok(`Report "${reporterOutput}" created.`);
       }
