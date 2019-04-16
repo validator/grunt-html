@@ -33,18 +33,20 @@ module.exports = function(grunt) {
     nodeunit: {
       files: ['test/*_test.js']
     },
-    eslint: {
-      files: ['Gruntfile.js', 'lib/**/*.js', 'tasks/**/*.js', 'test/**/*.js'],
-      options: {
-        configFile: '.eslintrc.json'
-      }
+    xo: {
+      target: [
+        'Gruntfile.js',
+        'lib/**/*.js',
+        'tasks/**/*.js',
+        'test/**/*.js'
+      ]
     }
   });
 
   grunt.loadTasks('tasks');
-  grunt.loadNpmTasks('grunt-eslint');
   grunt.loadNpmTasks('grunt-contrib-nodeunit');
+  grunt.loadNpmTasks('grunt-xo');
 
-  grunt.registerTask('test', ['eslint', 'nodeunit']);
+  grunt.registerTask('test', ['xo', 'nodeunit']);
   grunt.registerTask('default', 'test');
 };

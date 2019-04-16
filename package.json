@@ -27,7 +27,7 @@
   "devDependencies": {
     "grunt": "^1.0.4",
     "grunt-contrib-nodeunit": "^2.0.0",
-    "grunt-eslint": "^22.0.0",
+    "grunt-xo": "^0.21.0",
     "nyc": "^14.1.1",
     "stripcolorcodes": "^0.1.0"
   },
@@ -49,5 +49,25 @@
       "lcov",
       "text-summary"
     ]
+  },
+  "xo": {
+    "esnext": true,
+    "space": true,
+    "rules": {
+      "capitalized-comments": "off",
+      "object-curly-spacing": [
+        "error",
+        "always"
+      ],
+      "quote-props": [
+        "error",
+        "consistent"
+      ],
+      "space-before-function-paren": [
+        "error",
+        "never"
+      ],
+      "unicorn/filename-case": "off"
+    }
   }
 }
