@@ -118,5 +118,12 @@ exports.htmllint = {
         lastColumn: 96
       }
     ], 'one error from test/fixtures/invalid.html, other three were ignored');
+  },
+  'no-lang': test => {
+    run(test, {
+      files: ['test/fixtures/no-lang.html'],
+      errorlevels: ['info', 'warning', 'error'],
+      noLangDetect: true
+    }, [], '0 errors from 0 files');
   }
 };
