@@ -27,10 +27,10 @@
   },
   "devDependencies": {
     "coveralls": "^3.0.3",
-    "grunt": "^1.0.3",
+    "grunt": "^1.0.4",
     "grunt-contrib-nodeunit": "^2.0.0",
     "grunt-eslint": "^21.0.0",
-    "nyc": "^13.3.0",
+    "nyc": "^14.0.0",
     "stripcolorcodes": "^0.1.0"
   },
   "peerDependencies": {
