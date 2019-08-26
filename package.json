@@ -26,7 +26,7 @@
     "vnu-jar": "19.6.7"
   },
   "devDependencies": {
-    "coveralls": "^3.0.4",
+    "coveralls": "^3.0.6",
     "grunt": "^1.0.4",
     "grunt-contrib-nodeunit": "^2.0.0",
     "grunt-eslint": "^21.1.0",
