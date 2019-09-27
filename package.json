@@ -13,7 +13,7 @@
   },
   "license": "MIT",
   "engines": {
-    "node": ">=6"
+    "node": ">=8"
   },
   "scripts": {
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
@@ -29,7 +29,7 @@
     "coveralls": "^3.0.6",
     "grunt": "^1.0.4",
     "grunt-contrib-nodeunit": "^2.0.0",
-    "grunt-eslint": "^21.1.0",
+    "grunt-eslint": "^22.0.0",
     "nyc": "^14.1.1",
     "stripcolorcodes": "^0.1.0"
   },
