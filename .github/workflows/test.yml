@@ -34,8 +34,7 @@ jobs:
         run: npm run test:coveralls
 
       - name: Run Coveralls
-        run: npm run coveralls
-        if: startsWith(matrix.os, 'ubuntu') && matrix.node == 10 && github.repository == 'validator/grunt-html' && github.event_name == 'push'
-        env:
-          COVERALLS_REPO_TOKEN: "${{ secrets.COVERALLS_REPO_TOKEN }}"
-          COVERALLS_GIT_BRANCH: "${{ github.ref }}"
+        uses: coverallsapp/github-action@master
+        if: startsWith(matrix.os, 'ubuntu') && matrix.node == 10
+        with:
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
