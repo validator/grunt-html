@@ -16,7 +16,8 @@
     "node": ">=8"
   },
   "scripts": {
-    "test": "grunt test",
+    "xo": "xo",
+    "test": "npm run xo && grunt test",
     "test:coveralls": "nyc npm test"
   },
   "dependencies": {
@@ -27,9 +28,9 @@
   "devDependencies": {
     "grunt": "^1.0.4",
     "grunt-contrib-nodeunit": "^2.0.0",
-    "grunt-xo": "^0.21.0",
     "nyc": "^14.1.1",
-    "stripcolorcodes": "^0.1.0"
+    "stripcolorcodes": "^0.1.0",
+    "xo": "^0.25.3"
   },
   "peerDependencies": {
     "grunt": ">=0.4.0"
