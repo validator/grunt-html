@@ -21,13 +21,14 @@
     "test:coveralls": "nyc npm test"
   },
   "dependencies": {
-    "async": "^3.1.0",
     "chalk": "^3.0.0",
     "vnu-jar": "19.9.4"
   },
   "devDependencies": {
     "grunt": "^1.0.4",
     "grunt-contrib-nodeunit": "^2.0.0",
+    "grunt-mocha-cli": "^5.0.0",
+    "grunt-vnuserver": "^1.0.3",
     "nyc": "^14.1.1",
     "stripcolorcodes": "^0.1.0",
     "xo": "^0.25.3"
@@ -69,6 +70,12 @@
         "never"
       ],
       "unicorn/filename-case": "off"
-    }
+    },
+    "globals": [
+      "describe",
+      "xdescribe",
+      "it",
+      "xit"
+    ]
   }
 }

@@ -2,42 +2,30 @@
 
 module.exports = function(grunt) {
   grunt.initConfig({
-    htmllint: {
-      valid: 'test/valid.html',
-      invalid: 'test/*.html',
-      ignore: {
-        options: {
-          ignore: 'The “clear” attribute on the “br” element is obsolete. Use CSS instead.'
-        },
-        src: 'test/fixtures/*.html'
-      },
-      invalidPhp: {
-        options: {
-          ignore: /XML processing instructions/
-        },
-        src: 'test/fixtures/*.php'
-      },
-      checkstyle: {
-        options: {
-          reporter: 'checkstyle'
-        },
-        src: 'test/fixtures/*.html'
-      },
-      json: {
-        options: {
-          reporter: 'json'
-        },
-        src: 'test/fixtures/*.html'
+    vnuserver: {
+      options: {
+        port: 8877,
+        skippable: true
       }
     },
-    nodeunit: {
-      files: ['test/*_test.js']
+    mochacli: {
+      options: {
+        require: ['assert'],
+        reporter: 'spec',
+        bail: false,
+        timeout: 10000,
+        sort: true,
+        files: ['tests/**/*.js']
+      },
+      local: {
+        timeout: 25000
+      }
     }
   });
 
   grunt.loadTasks('tasks');
-  grunt.loadNpmTasks('grunt-contrib-nodeunit');
-
-  grunt.registerTask('test', ['nodeunit']);
+  grunt.loadNpmTasks('grunt-mocha-cli');
+  grunt.loadNpmTasks('grunt-vnuserver');
+  grunt.registerTask('test', ['vnuserver', 'mochacli:local']);
   grunt.registerTask('default', 'test');
 };
