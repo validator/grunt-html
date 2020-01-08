@@ -1,7 +1,7 @@
 {
   "name": "grunt-html",
   "description": "Grunt plugin for HTML validation, using the Nu Html Checker (v.Nu)",
-  "version": "12.0.0",
+  "version": "12.1.0",
   "homepage": "https://github.com/validator/grunt-html",
   "author": "Jörn Zaefferer <joern.zaefferer@gmail.com>",
   "repository": {
@@ -23,12 +23,12 @@
   "dependencies": {
     "async": "^3.1.0",
     "chalk": "^3.0.0",
-    "vnu-jar": "19.9.4"
+    "vnu-jar": "20.1.2"
   },
   "devDependencies": {
     "grunt": "^1.0.4",
     "grunt-contrib-nodeunit": "^2.0.0",
-    "nyc": "^14.1.1",
+    "nyc": "^15.0.0",
     "stripcolorcodes": "^0.1.0",
     "xo": "^0.25.3"
   },
