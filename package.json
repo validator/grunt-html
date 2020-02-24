@@ -21,13 +21,13 @@
     "test:coveralls": "nyc npm test"
   },
   "dependencies": {
-    "async": "^3.1.0",
+    "async": "^3.2.0",
     "chalk": "^3.0.0",
-    "vnu-jar": "20.1.2"
+    "vnu-jar": "20.2.25"
   },
   "devDependencies": {
     "grunt": "^1.0.4",
-    "grunt-contrib-nodeunit": "^2.0.0",
+    "grunt-contrib-nodeunit": "^2.1.0",
     "nyc": "^15.0.0",
     "stripcolorcodes": "^0.1.0",
     "xo": "^0.25.3"
