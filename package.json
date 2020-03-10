@@ -23,7 +23,7 @@
   "dependencies": {
     "async": "^3.2.0",
     "chalk": "^3.0.0",
-    "vnu-jar": "20.2.25"
+    "vnu-jar": "20.2.28"
   },
   "devDependencies": {
     "grunt": "^1.0.4",
