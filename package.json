@@ -13,7 +13,7 @@
   },
   "license": "MIT",
   "engines": {
-    "node": ">=8"
+    "node": ">=10"
   },
   "scripts": {
     "xo": "xo",
@@ -22,15 +22,15 @@
   },
   "dependencies": {
     "async": "^3.2.0",
-    "chalk": "^3.0.0",
+    "chalk": "^4.0.0",
     "vnu-jar": "20.3.16"
   },
   "devDependencies": {
     "grunt": "^1.1.0",
     "grunt-contrib-nodeunit": "^2.1.0",
-    "nyc": "^15.0.0",
+    "nyc": "^15.0.1",
     "stripcolorcodes": "^0.1.0",
-    "xo": "^0.25.3"
+    "xo": "^0.29.1"
   },
   "peerDependencies": {
     "grunt": ">=0.4.0"
@@ -68,7 +68,8 @@
         "error",
         "never"
       ],
-      "unicorn/filename-case": "off"
+      "unicorn/filename-case": "off",
+      "unicorn/prevent-abbreviations": "off"
     }
   }
 }
