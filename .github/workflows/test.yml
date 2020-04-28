@@ -11,7 +11,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        node: [10, 12]
+        node: [10, 12, 14]
         os: [ubuntu-latest, windows-latest]
 
     steps:
@@ -23,8 +23,6 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
 
-      - run: node --version
-      - run: npm --version
       - run: java -version
 
       - name: Install npm dependencies
