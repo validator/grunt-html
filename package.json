@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "async": "^3.2.0",
-    "chalk": "^4.0.0",
+    "chalk": "^4.1.0",
     "vnu-jar": "20.5.29"
   },
   "devDependencies": {
@@ -30,7 +30,7 @@
     "grunt-contrib-nodeunit": "^2.1.0",
     "nyc": "^15.1.0",
     "stripcolorcodes": "^0.1.0",
-    "xo": "^0.30.0"
+    "xo": "^0.32.0"
   },
   "peerDependencies": {
     "grunt": ">=0.4.0"
