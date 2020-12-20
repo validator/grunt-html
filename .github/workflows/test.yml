@@ -1,7 +1,10 @@
 name: Tests
+
 on: [push, pull_request]
+
 env:
   CI: true
+  FORCE_COLOR: 2
 
 jobs:
   run:
@@ -18,7 +21,7 @@ jobs:
       - name: Clone repository
         uses: actions/checkout@v2
 
-      - name: Set Node.js version
+      - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node }}
