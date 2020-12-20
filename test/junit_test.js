@@ -15,7 +15,7 @@ exports.junit = {
       ].join('\n');
       const actual = reporter(result);
 
-      test.equal(actual, expected, 'Should return empty JUnit XML for empty result');
+      test.strictEqual(actual, expected, 'Should return empty JUnit XML for empty result');
       test.done();
     },
     'when given non-empty result': test => {
@@ -36,7 +36,7 @@ exports.junit = {
       ].join('\n');
       const actual = reporter(result);
 
-      test.equal(actual, expected, 'Should report errors as JUnit XML');
+      test.strictEqual(actual, expected, 'Should report errors as JUnit XML');
       test.done();
     }
   }

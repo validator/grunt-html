@@ -17,7 +17,7 @@ exports.reporters = {
       const expected = '';
       const actual = reporter(result);
 
-      test.equal(actual, expected, 'Should return empty String for empty result');
+      test.strictEqual(actual, expected, 'Should return empty String for empty result');
       test.done();
     },
     'when given non-empty result': test => {
@@ -32,7 +32,7 @@ exports.reporters = {
       ].join('\n');
       const actual = stripColorCodes(reporter(result));
 
-      test.equal(actual, expected, 'Should report errors as a String');
+      test.strictEqual(actual, expected, 'Should report errors as a String');
       test.done();
     }
   },
@@ -41,7 +41,7 @@ exports.reporters = {
       const options = {};
       const reporter = reporters.selectReporter(options);
 
-      test.equal(reporter, reporters.defaultReporter, 'Should return default reporter');
+      test.strictEqual(reporter, reporters.defaultReporter, 'Should return default reporter');
       test.done();
     },
     'when checkstyle reporter is specified': test => {
@@ -50,7 +50,7 @@ exports.reporters = {
       };
       const reporter = reporters.selectReporter(options);
 
-      test.equal(reporter, checkstyleReporter, 'Should return checkstyle reporter');
+      test.strictEqual(reporter, checkstyleReporter, 'Should return checkstyle reporter');
       test.done();
     },
     'when json reporter is specified': test => {
@@ -59,7 +59,7 @@ exports.reporters = {
       };
       const reporter = reporters.selectReporter(options);
 
-      test.equal(reporter, jsonReporter, 'Should return json reporter');
+      test.strictEqual(reporter, jsonReporter, 'Should return json reporter');
       test.done();
     },
     'when junit reporter is specified': test => {
@@ -68,7 +68,7 @@ exports.reporters = {
       };
       const reporter = reporters.selectReporter(options);
 
-      test.equal(reporter, junitReporter, 'Should return junit reporter');
+      test.strictEqual(reporter, junitReporter, 'Should return junit reporter');
       test.done();
     },
     'when valid custom reporter is specified': test => {
@@ -77,7 +77,7 @@ exports.reporters = {
       };
       const reporter = reporters.selectReporter(options);
 
-      test.equal(reporter, customReporter, 'Should return custom reporter');
+      test.strictEqual(reporter, customReporter, 'Should return custom reporter');
       test.done();
     },
     'when invalid custom reporter is specified': test => {

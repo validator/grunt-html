@@ -11,7 +11,7 @@ exports.checkstyle = {
       const expected = '<?xml version="1.0" encoding="utf-8"?><checkstyle>\n</checkstyle>';
       const actual = reporter(result);
 
-      test.equal(actual, expected, 'Should return empty checkstyle XML for empty result');
+      test.strictEqual(actual, expected, 'Should return empty checkstyle XML for empty result');
       test.done();
     },
     'when given non-empty result': test => {
@@ -29,7 +29,7 @@ exports.checkstyle = {
       ].join('\n');
       const actual = reporter(result);
 
-      test.equal(actual, expected, 'Should report errors as checkstyle XML');
+      test.strictEqual(actual, expected, 'Should report errors as checkstyle XML');
       test.done();
     }
   }

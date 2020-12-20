@@ -10,7 +10,7 @@ exports.json = {
       const expected = '[]';
       const actual = reporter(result);
 
-      test.equal(actual, expected, 'Should return empty json array for empty result');
+      test.strictEqual(actual, expected, 'Should return empty json array for empty result');
       test.done();
     },
     'when given non-empty result': test => {
@@ -18,7 +18,7 @@ exports.json = {
       const expected = JSON.stringify(result);
       const actual = reporter(result);
 
-      test.equal(actual, expected, 'Should report errors as json array');
+      test.strictEqual(actual, expected, 'Should report errors as json array');
       test.done();
     }
   }
