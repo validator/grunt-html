@@ -3,7 +3,6 @@ name: Tests
 on: [push, pull_request]
 
 env:
-  CI: true
   FORCE_COLOR: 2
 
 jobs:
