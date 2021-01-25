@@ -13,14 +13,14 @@ function run(test, config, expected, message) {
     }
 
     // copy only the properties we want to test
-    // url property is absolute, system-dependend path
-    result = result.map(msg => {
+    // url property is absolute, system-dependent path
+    result = result.map(message_ => {
       return {
-        file: msg.file,
-        type: msg.type,
-        message: msg.message,
-        lastLine: msg.lastLine,
-        lastColumn: msg.lastColumn
+        file: message_.file,
+        type: message_.type,
+        message: message_.message,
+        lastLine: message_.lastLine,
+        lastColumn: message_.lastColumn
       };
     });
     test.deepEqual(result, expected, message);
