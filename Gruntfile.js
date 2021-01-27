@@ -29,15 +29,11 @@ module.exports = function(grunt) {
         },
         src: 'test/fixtures/*.html'
       }
-    },
-    nodeunit: {
-      files: ['test/*_test.js']
     }
   });
 
   grunt.loadTasks('tasks');
-  grunt.loadNpmTasks('grunt-contrib-nodeunit');
 
-  grunt.registerTask('test', ['nodeunit']);
+  grunt.registerTask('test', 'htmllint');
   grunt.registerTask('default', 'test');
 };

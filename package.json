@@ -16,9 +16,10 @@
     "node": ">=10"
   },
   "scripts": {
+    "mocha": "mocha",
     "xo": "xo",
-    "test": "npm run xo && grunt test",
-    "test:coveralls": "nyc npm test"
+    "test": "npm run xo && npm run mocha",
+    "test:coveralls": "nyc npm run mocha"
   },
   "dependencies": {
     "async": "^3.2.0",
@@ -27,7 +28,7 @@
   },
   "devDependencies": {
     "grunt": "^1.1.0",
-    "grunt-contrib-nodeunit": "^2.1.0",
+    "mocha": "^8.2.1",
     "nyc": "^15.1.0",
     "strip-ansi": "^6.0.0",
     "xo": "^0.37.1"
@@ -70,6 +71,14 @@
       ],
       "unicorn/filename-case": "off",
       "unicorn/prevent-abbreviations": "off"
-    }
+    },
+    "overrides": [
+      {
+        "files": "test/*.js",
+        "envs": [
+          "mocha"
+        ]
+      }
+    ]
   }
 }

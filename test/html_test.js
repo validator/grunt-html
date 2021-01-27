@@ -1,11 +1,11 @@
 'use strict';
 
+const assert = require('assert');
 const path = require('path');
 const htmllint = require('../lib/htmllint');
 const expectedResults = require('./helpers/expected_results');
 
-function run(test, config, expected, message) {
-  test.expect(1);
+function run(config, expected, message, done) {
   // tests here
   htmllint(config, (error, result) => {
     if (error) {
@@ -23,22 +23,31 @@ function run(test, config, expected, message) {
         lastColumn: message_.lastColumn
       };
     });
-    test.deepEqual(result, expected, message);
-    test.done();
+    assert.deepStrictEqual(result, expected, message);
+    done();
   });
 }
 
-exports.htmllint = {
-  'all': {
-    'with relative paths': test => {
-      const expected = expectedResults.invalid;
+describe('htmllint', function() {
+  this.timeout('20000');
 
-      run(test, {
+  describe('all', () => {
+    it('with relative paths', done => {
+      const options = {
         files: ['test/fixtures/valid.html', 'test/fixtures/invalid.html'],
         errorlevels: ['info', 'warning', 'error']
-      }, expected, 'four errors from test/fixtures/invalid.html');
-    },
-    'with absolute paths': test => {
+      };
+      const expected = expectedResults.invalid;
+
+      run(options, expected, 'four errors from test/fixtures/invalid.html', done);
+    });
+
+    it('with absolute paths', done => {
+      const options = {
+        files: ['test/fixtures/valid.html', 'test/fixtures/invalid.html'],
+        absoluteFilePathsForReporter: true,
+        errorlevels: ['info', 'warning', 'error']
+      };
       const expected = expectedResults.invalid.map(result => {
         return {
           file: path.resolve(result.file),
@@ -49,25 +58,29 @@ exports.htmllint = {
         };
       });
 
-      run(test, {
-        files: ['test/fixtures/valid.html', 'test/fixtures/invalid.html'],
-        absoluteFilePathsForReporter: true,
+      run(options, expected, 'four errors from test/fixtures/invalid.html', done);
+    });
+  });
+
+  describe('empty', () => {
+    it('with relative paths', done => {
+      const options = {
+        files: [],
         errorlevels: ['info', 'warning', 'error']
-      }, expected, 'four errors from test/fixtures/invalid.html');
-    }
-  },
-  'empty': test => {
-    run(test, {
-      files: [],
-      errorlevels: ['info', 'warning', 'error']
-    }, [], '0 errors from 0 files');
-  },
-  'bad-encoding': test => {
-    run(test, {
-      files: [path.normalize('test/fixtures/invalid-encoding.html')],
-      errorlevels: ['info', 'warning', 'error']
-    }, [
-      {
+      };
+      const expected = [];
+
+      run(options, expected, '0 errors from 0 files', done);
+    });
+  });
+
+  describe('bad-encoding', () => {
+    it('with relative paths', done => {
+      const options = {
+        files: [path.normalize('test/fixtures/invalid-encoding.html')],
+        errorlevels: ['info', 'warning', 'error']
+      };
+      const expected = [{
         file: path.normalize('test/fixtures/invalid-encoding.html'),
         type: 'error',
         message: 'Malformed byte sequence: “e1”.',
@@ -94,36 +107,48 @@ exports.htmllint = {
         message: 'Bad value “text/html; charset=iso-8859-1” for attribute “content” on element “meta”: “charset=” must be followed by “utf-8”.',
         lastLine: 4,
         lastColumn: 74
-      }
-    ]);
-  },
-  'ignore': test => {
-    run(test, {
-      ignore: [
-        'The "clear" attribute on the "br" element is obsolete. Use CSS instead.',
-        'Start tag seen without seeing a doctype first. Expected “<!DOCTYPE html>”.',
-        /attribute “[a-z]+” not allowed/i
-      ],
-      files: [
-        path.normalize('test/fixtures/valid.html'),
-        path.normalize('test/fixtures/invalid.html')
-      ],
-      errorlevels: ['info', 'warning', 'error']
-    }, [
-      {
+      }];
+
+      run(options, expected, '', done);
+    });
+  });
+
+  describe('ignore', () => {
+    it('with relative paths', done => {
+      const options = {
+        ignore: [
+          'The "clear" attribute on the "br" element is obsolete. Use CSS instead.',
+          'Start tag seen without seeing a doctype first. Expected “<!DOCTYPE html>”.',
+          /attribute “[a-z]+” not allowed/i
+        ],
+        files: [
+          path.normalize('test/fixtures/valid.html'),
+          path.normalize('test/fixtures/invalid.html')
+        ],
+        errorlevels: ['info', 'warning', 'error']
+      };
+      const expected = [{
         file: path.normalize('test/fixtures/invalid.html'),
         type: 'error',
         message: 'An “img” element must have an “alt” attribute, except under certain conditions. For details, consult guidance on providing text alternatives for images.',
         lastLine: 9,
         lastColumn: 96
-      }
-    ], 'one error from test/fixtures/invalid.html, other three were ignored');
-  },
-  'no-lang': test => {
-    run(test, {
-      files: ['test/fixtures/no-lang.html'],
-      errorlevels: ['info', 'warning', 'error'],
-      noLangDetect: true
-    }, [], '0 errors from 0 files');
-  }
-};
+      }];
+
+      run(options, expected, 'one error from test/fixtures/invalid.html, other three were ignored', done);
+    });
+  });
+
+  describe('no-lang', () => {
+    it('with relative paths', done => {
+      const options = {
+        files: ['test/fixtures/no-lang.html'],
+        errorlevels: ['info', 'warning', 'error'],
+        noLangDetect: true
+      };
+      const expected = [];
+
+      run(options, expected, '0 errors from 0 files', done);
+    });
+  });
+});
