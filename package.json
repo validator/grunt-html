@@ -29,7 +29,7 @@
     "grunt": "^1.1.0",
     "grunt-contrib-nodeunit": "^2.1.0",
     "nyc": "^15.1.0",
-    "stripcolorcodes": "^0.1.0",
+    "strip-ansi": "^6.0.0",
     "xo": "^0.37.1"
   },
   "peerDependencies": {

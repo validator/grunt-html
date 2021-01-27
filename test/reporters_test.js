@@ -1,7 +1,7 @@
 'use strict';
 
 const path = require('path');
-const stripColorCodes = require('stripcolorcodes');
+const stripAnsi = require('strip-ansi');
 const reporters = require('../lib/reporters');
 const checkstyleReporter = require('../lib/reporters/checkstyle');
 const jsonReporter = require('../lib/reporters/json');
@@ -30,7 +30,7 @@ exports.reporters = {
         `${invalidHtml} [L9:C96] An “img” element must have an “alt” attribute, except under certain conditions. For details, consult guidance on providing text alternatives for images.`,
         `${invalidHtml} [L11:C19] The “clear” attribute on the “br” element is obsolete. Use CSS instead.`
       ].join('\n');
-      const actual = stripColorCodes(reporter(result));
+      const actual = stripAnsi(reporter(result));
 
       test.strictEqual(actual, expected, 'Should report errors as a String');
       test.done();
