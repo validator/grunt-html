@@ -1,5 +1,6 @@
 'use strict';
 
+const assert = require('assert');
 const path = require('path');
 const stripAnsi = require('strip-ansi');
 const reporters = require('../lib/reporters');
@@ -9,18 +10,19 @@ const junitReporter = require('../lib/reporters/junit');
 const customReporter = require('./helpers/custom_reporter');
 const expectedResults = require('./helpers/expected_results');
 
-exports.reporters = {
-  defaultReporter: {
-    'when given empty result': test => {
+describe('reporters', () => {
+  describe('default reporter', () => {
+    it('when given empty result', done => {
       const result = [];
       const reporter = reporters.defaultReporter;
       const expected = '';
       const actual = reporter(result);
 
-      test.strictEqual(actual, expected, 'Should return empty String for empty result');
-      test.done();
-    },
-    'when given non-empty result': test => {
+      assert.strictEqual(actual, expected, 'Should return empty String for empty result');
+      done();
+    });
+
+    it('when given non-empty result', done => {
       const invalidHtml = path.normalize('test/fixtures/invalid.html');
       const result = expectedResults.invalid;
       const reporter = reporters.defaultReporter;
@@ -32,66 +34,72 @@ exports.reporters = {
       ].join('\n');
       const actual = stripAnsi(reporter(result));
 
-      test.strictEqual(actual, expected, 'Should report errors as a String');
-      test.done();
-    }
-  },
-  selectReporter: {
-    'when no reporter is specified': test => {
+      assert.strictEqual(actual, expected, 'Should report errors as a String');
+      done();
+    });
+  });
+
+  describe('select reporter', () => {
+    it('when no reporter is specified', done => {
       const options = {};
       const reporter = reporters.selectReporter(options);
 
-      test.strictEqual(reporter, reporters.defaultReporter, 'Should return default reporter');
-      test.done();
-    },
-    'when checkstyle reporter is specified': test => {
+      assert.strictEqual(reporter, reporters.defaultReporter, 'Should return default reporter');
+      done();
+    });
+
+    it('when checkstyle reporter is specified', done => {
       const options = {
         reporter: 'checkstyle'
       };
       const reporter = reporters.selectReporter(options);
 
-      test.strictEqual(reporter, checkstyleReporter, 'Should return checkstyle reporter');
-      test.done();
-    },
-    'when json reporter is specified': test => {
+      assert.strictEqual(reporter, checkstyleReporter, 'Should return checkstyle reporter');
+      done();
+    });
+
+    it('when json reporter is specified', done => {
       const options = {
         reporter: 'json'
       };
       const reporter = reporters.selectReporter(options);
 
-      test.strictEqual(reporter, jsonReporter, 'Should return json reporter');
-      test.done();
-    },
-    'when junit reporter is specified': test => {
+      assert.strictEqual(reporter, jsonReporter, 'Should return json reporter');
+      done();
+    });
+
+    it('when junit reporter is specified', done => {
       const options = {
         reporter: 'junit'
       };
       const reporter = reporters.selectReporter(options);
 
-      test.strictEqual(reporter, junitReporter, 'Should return junit reporter');
-      test.done();
-    },
-    'when valid custom reporter is specified': test => {
+      assert.strictEqual(reporter, junitReporter, 'Should return junit reporter');
+      done();
+    });
+
+    it('when valid custom reporter is specified', done => {
       const options = {
         reporter: 'test/helpers/custom_reporter.js'
       };
       const reporter = reporters.selectReporter(options);
 
-      test.strictEqual(reporter, customReporter, 'Should return custom reporter');
-      test.done();
-    },
-    'when invalid custom reporter is specified': test => {
+      assert.strictEqual(reporter, customReporter, 'Should return custom reporter');
+      done();
+    });
+
+    it('when invalid custom reporter is specified', done => {
       const options = {
         reporter: 'does/not/exist.js'
       };
 
-      test.throws(
+      assert.throws(
         () => {
           reporters.selectReporter(options);
         },
         Error, 'Should throw an error'
       );
-      test.done();
-    }
-  }
-};
+      done();
+    });
+  });
+});
