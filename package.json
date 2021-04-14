@@ -24,12 +24,12 @@
   "dependencies": {
     "async": "^3.2.0",
     "chalk": "^4.1.0",
-    "vnu-jar": "21.2.5"
+    "vnu-jar": "21.4.9"
   },
   "devDependencies": {
-    "c8": "^7.6.0",
+    "c8": "^7.7.1",
     "grunt": "^1.1.0",
-    "mocha": "^8.3.0",
+    "mocha": "^8.3.2",
     "strip-ansi": "^6.0.0",
     "xo": "^0.38.2"
   },
