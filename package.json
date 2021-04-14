@@ -70,7 +70,6 @@
         "never"
       ],
       "unicorn/filename-case": "off",
-      "unicorn/no-array-for-each": "off",
       "unicorn/prevent-abbreviations": "off"
     },
     "overrides": [
