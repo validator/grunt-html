@@ -1,6 +1,6 @@
 # grunt-html
 
-[![NPM version](https://img.shields.io/npm/v/grunt-html.svg)](https://www.npmjs.com/package/grunt-html)
+[![npm version](https://img.shields.io/npm/v/grunt-html.svg)](https://www.npmjs.com/package/grunt-html)
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/validator/grunt-html.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/validator/grunt-html/alerts/)
 [![Build Status](https://img.shields.io/github/workflow/status/validator/grunt-html/Tests/main)](https://github.com/validator/grunt-html/actions?query=workflow%3ATests+branch%3Amain)
 [![Coverage Status](https://img.shields.io/coveralls/github/validator/grunt-html/main)](https://coveralls.io/github/validator/grunt-html?branch=main)
@@ -181,8 +181,7 @@ Set `noLangDetect` to `true` to [skip the checking of the language of the page](
 
 ## License
 
-Copyright Jörn Zaefferer.  
-Licensed under the [MIT license](LICENSE).
+Copyright Jörn Zaefferer. Licensed under the [MIT license](https://github.com/validator/grunt-html/blob/main/LICENSE).
 
 [grunt]: https://gruntjs.com/
 [getting_started]: https://gruntjs.com/getting-started
