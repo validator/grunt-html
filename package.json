@@ -56,7 +56,6 @@
     "space": true,
     "rules": {
       "capitalized-comments": "off",
-      "import/extensions": "off",
       "object-curly-spacing": [
         "error",
         "always"

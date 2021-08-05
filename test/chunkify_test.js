@@ -1,7 +1,7 @@
 'use strict';
 
 const assert = require('assert');
-const chunkify = require('../lib/chunkify');
+const chunkify = require('../lib/chunkify.js');
 
 describe('chunkify', () => {
   it('should chunkify results', done => {

@@ -2,8 +2,8 @@
 
 const assert = require('assert');
 const path = require('path');
-const reporter = require('../lib/reporters/junit');
-const expectedResults = require('./helpers/expected_results');
+const reporter = require('../lib/reporters/junit.js');
+const expectedResults = require('./helpers/expected_results.js');
 
 describe('junit reporter', () => {
   it('when given empty result', done => {

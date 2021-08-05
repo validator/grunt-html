@@ -2,8 +2,8 @@
 
 const assert = require('assert');
 const path = require('path');
-const htmllint = require('../lib/htmllint');
-const expectedResults = require('./helpers/expected_results');
+const htmllint = require('../lib/htmllint.js');
+const expectedResults = require('./helpers/expected_results.js');
 
 function run(config, expected, message, done) {
   // tests here

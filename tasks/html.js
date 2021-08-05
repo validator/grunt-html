@@ -9,8 +9,8 @@
 'use strict';
 
 const path = require('path');
-const htmllint = require('../lib/htmllint');
-const reporters = require('../lib/reporters');
+const htmllint = require('../lib/htmllint.js');
+const reporters = require('../lib/reporters.js');
 
 module.exports = function(grunt) {
   grunt.registerMultiTask('htmllint', 'Validate html files', function() {

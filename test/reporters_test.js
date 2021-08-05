@@ -3,12 +3,12 @@
 const assert = require('assert');
 const path = require('path');
 const stripAnsi = require('strip-ansi');
-const reporters = require('../lib/reporters');
-const checkstyleReporter = require('../lib/reporters/checkstyle');
-const jsonReporter = require('../lib/reporters/json');
-const junitReporter = require('../lib/reporters/junit');
-const customReporter = require('./helpers/custom_reporter');
-const expectedResults = require('./helpers/expected_results');
+const reporters = require('../lib/reporters.js');
+const checkstyleReporter = require('../lib/reporters/checkstyle.js');
+const jsonReporter = require('../lib/reporters/json.js');
+const junitReporter = require('../lib/reporters/junit.js');
+const customReporter = require('./helpers/custom_reporter.js');
+const expectedResults = require('./helpers/expected_results.js');
 
 describe('reporters', () => {
   describe('default reporter', () => {
