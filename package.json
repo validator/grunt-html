@@ -29,9 +29,9 @@
   "devDependencies": {
     "c8": "^7.8.0",
     "grunt": "^1.1.0",
-    "mocha": "^8.4.0",
+    "mocha": "^9.1.1",
     "strip-ansi": "^6.0.0",
-    "xo": "^0.39.1"
+    "xo": "^0.44.0"
   },
   "peerDependencies": {
     "grunt": ">=0.4.0"
@@ -52,20 +52,26 @@
   "xo": {
     "space": true,
     "rules": {
+      "arrow-body-style": "off",
       "capitalized-comments": "off",
+      "comma-dangle": [
+        "error",
+        "never"
+      ],
       "object-curly-spacing": [
         "error",
         "always"
       ],
-      "quote-props": [
+      "operator-linebreak": [
         "error",
-        "consistent"
+        "after"
       ],
       "space-before-function-paren": [
         "error",
         "never"
       ],
       "unicorn/filename-case": "off",
+      "unicorn/prefer-module": "off",
       "unicorn/prevent-abbreviations": "off"
     },
     "overrides": [
