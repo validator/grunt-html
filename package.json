@@ -13,7 +13,7 @@
   },
   "license": "MIT",
   "engines": {
-    "node": ">=10"
+    "node": ">=12"
   },
   "scripts": {
     "mocha": "mocha --timeout 10000",
