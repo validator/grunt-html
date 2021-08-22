@@ -137,10 +137,40 @@ describe('htmllint', function() {
 
       run(options, expected, 'one error from test/fixtures/invalid.html, other three were ignored', done);
     });
+
+    it('with string ignore', done => {
+      const options = {
+        ignore: 'Start tag seen without seeing a doctype first. Expected “<!DOCTYPE html>”.',
+        files: [
+          path.normalize('test/fixtures/valid.html'),
+          path.normalize('test/fixtures/no-doctype.html')
+        ],
+        errorlevels: ['info', 'warning', 'error']
+      };
+      const expected = [];
+
+      run(options, expected, '0 errors from 0 files', done);
+    });
   });
 
   describe('no-lang', () => {
-    it('with relative paths', done => {
+    it('default options', done => {
+      const options = {
+        files: ['test/fixtures/no-lang.html'],
+        errorlevels: ['info', 'warning', 'error']
+      };
+      const expected = [{
+        file: path.normalize('test/fixtures/no-lang.html'),
+        type: 'info',
+        message: 'Consider adding a “lang” attribute to the “html” start tag to declare the language of this document.',
+        lastLine: 2,
+        lastColumn: 6
+      }];
+
+      run(options, expected, '1 errors from 1 files', done);
+    });
+
+    it('noLangDetect: true', done => {
       const options = {
         files: ['test/fixtures/no-lang.html'],
         errorlevels: ['info', 'warning', 'error'],
