@@ -43,9 +43,6 @@
     "{lib,tasks}/**/*.js"
   ],
   "c8": {
-    "include": [
-      "lib/**/*.js"
-    ],
     "reporter": [
       "html",
       "lcovonly",
