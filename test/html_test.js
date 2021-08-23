@@ -28,9 +28,7 @@ function run(config, expected, message, done) {
   });
 }
 
-describe('htmllint', function() {
-  this.timeout('20000');
-
+describe('htmllint', () => {
   describe('all', () => {
     it('with relative paths', done => {
       const options = {

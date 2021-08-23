@@ -16,7 +16,7 @@
     "node": ">=10"
   },
   "scripts": {
-    "mocha": "mocha",
+    "mocha": "mocha --timeout 10000",
     "xo": "xo",
     "test": "npm run xo && npm run mocha",
     "test:coverage": "c8 npm run mocha"
