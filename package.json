@@ -19,7 +19,9 @@
     "mocha": "mocha --timeout 10000",
     "xo": "xo",
     "test": "npm run xo && npm run mocha",
-    "test:coverage": "c8 npm run mocha"
+    "test:grunt": "grunt ci --force",
+    "test:ci": "npm run mocha && npm run test:grunt",
+    "test:coverage": "c8 npm run test:ci"
   },
   "dependencies": {
     "async": "^3.2.1",

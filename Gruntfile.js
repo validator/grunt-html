@@ -3,8 +3,8 @@
 module.exports = function(grunt) {
   grunt.initConfig({
     htmllint: {
-      valid: 'test/valid.html',
-      invalid: 'test/*.html',
+      valid: 'test/fixtures/valid.html',
+      invalid: 'test/fixtures/*.html',
       ignore: {
         options: {
           ignore: 'The “clear” attribute on the “br” element is obsolete. Use CSS instead.'
@@ -27,7 +27,14 @@ module.exports = function(grunt) {
         options: {
           reporter: 'json'
         },
-        src: 'test/fixtures/*.html'
+        src: 'test/fixtures/no-doctype.html'
+      },
+      jsonReporterOutput: {
+        options: {
+          reporter: 'json',
+          reporterOutput: '.tmp/reporterOutput.json'
+        },
+        src: 'test/fixtures/no-doctype.html'
       }
     }
   });
@@ -35,5 +42,10 @@ module.exports = function(grunt) {
   grunt.loadTasks('tasks');
 
   grunt.registerTask('test', 'htmllint');
+  grunt.registerTask('ci', [
+    'htmllint:valid',
+    'htmllint:json',
+    'htmllint:jsonReporterOutput'
+  ]);
   grunt.registerTask('default', 'test');
 };
