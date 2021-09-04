@@ -33,6 +33,7 @@
     "grunt": "^1.1.0",
     "mocha": "^9.1.1",
     "strip-ansi": "^6.0.0",
+    "time-grunt": "^2.0.0",
     "xo": "^0.44.0"
   },
   "peerDependencies": {
