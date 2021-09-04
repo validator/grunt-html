@@ -16,7 +16,7 @@
     "node": ">=12"
   },
   "scripts": {
-    "mocha": "mocha --timeout 10000",
+    "mocha": "mocha",
     "xo": "xo",
     "test": "npm run xo && npm run mocha",
     "test:grunt": "grunt ci --force",
@@ -50,6 +50,14 @@
       "lcovonly",
       "text-summary"
     ]
+  },
+  "mocha": {
+    "timeout": 10000,
+    "check-leaks": true,
+    "throw-deprecation": true,
+    "trace-deprecation": true,
+    "trace-warnings": true,
+    "use_strict": true
   },
   "xo": {
     "space": true,
