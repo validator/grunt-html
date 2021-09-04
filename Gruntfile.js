@@ -5,6 +5,7 @@ module.exports = function(grunt) {
     htmllint: {
       valid: 'test/fixtures/valid.html',
       invalid: 'test/fixtures/*.html',
+      manyFiles: 'test/fixtures/many-files/*.html',
       ignore: {
         options: {
           ignore: 'The “clear” attribute on the “br” element is obsolete. Use CSS instead.'
