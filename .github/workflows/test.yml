@@ -6,15 +6,22 @@ env:
   FORCE_COLOR: 2
 
 jobs:
-  run:
-    name: Node ${{ matrix.node }} on ${{ matrix.os }}
+  test:
+    name: Node ${{ matrix.node }} - ${{ matrix.architecture }} on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
 
     strategy:
       fail-fast: false
       matrix:
-        node: [12, 14, 16]
         os: [ubuntu-latest, windows-latest]
+        node: [12, 14, 16]
+        java: [8]
+        architecture: [x64]
+        include:
+          - os: windows-latest
+            node: 14
+            java: 8
+            architecture: x86
 
     steps:
       - name: Clone repository
@@ -24,9 +31,15 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node }}
+          architecture: ${{ matrix.architecture }}
           cache: npm
 
-      - run: java -version
+      - name: Set up Java
+        uses: actions/setup-java@v2
+        with:
+          distribution: "temurin"
+          architecture: ${{ matrix.architecture }}
+          java-version: ${{ matrix.java }}
 
       - name: Install npm dependencies
         run: npm ci
@@ -36,6 +49,16 @@ jobs:
 
       - name: Run Coveralls
         uses: coverallsapp/github-action@1.1.3
-        if: startsWith(matrix.os, 'ubuntu') && matrix.node == 14
         with:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
+          parallel: true
+
+  finish:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Coveralls Finished
+        uses: coverallsapp/github-action@1.1.3
+        with:
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
+          parallel-finished: true
