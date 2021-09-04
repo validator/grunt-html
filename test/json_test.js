@@ -16,7 +16,7 @@ describe('json reporter', () => {
 
   it('when given non-empty result', done => {
     const result = expectedResults.invalid;
-    const expected = JSON.stringify(result);
+    const expected = JSON.stringify(result, null, 2);
     const actual = reporter(result);
 
     assert.equal(actual, expected, 'Should report errors as json array');
