@@ -1,6 +1,6 @@
 'use strict';
 
-const assert = require('assert');
+const assert = require('assert').strict;
 const chunkify = require('../lib/chunkify.js');
 
 describe('chunkify', () => {
@@ -16,8 +16,8 @@ describe('chunkify', () => {
     ];
     const all = ['"./some/long/path/to/1/file.html" "./some/long/path/to/2/file.html" "./some/long/path/to/3/file.html"'];
 
-    assert.deepStrictEqual(chunkify(files, 70), chunked, 'Should split the file list of file in 2 chunks');
-    assert.deepStrictEqual(chunkify(files, 120), all, 'Should do a single chunk');
+    assert.deepEqual(chunkify(files, 70), chunked, 'Should split the file list of file in 2 chunks');
+    assert.deepEqual(chunkify(files, 120), all, 'Should do a single chunk');
     done();
   });
 });

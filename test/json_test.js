@@ -1,6 +1,6 @@
 'use strict';
 
-const assert = require('assert');
+const assert = require('assert').strict;
 const reporter = require('../lib/reporters/json.js');
 const expectedResults = require('./helpers/expected_results.js');
 
@@ -10,7 +10,7 @@ describe('json reporter', () => {
     const expected = '[]';
     const actual = reporter(result);
 
-    assert.strictEqual(actual, expected, 'Should return empty json array for empty result');
+    assert.equal(actual, expected, 'Should return empty json array for empty result');
     done();
   });
 
@@ -19,7 +19,7 @@ describe('json reporter', () => {
     const expected = JSON.stringify(result);
     const actual = reporter(result);
 
-    assert.strictEqual(actual, expected, 'Should report errors as json array');
+    assert.equal(actual, expected, 'Should report errors as json array');
     done();
   });
 });

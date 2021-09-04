@@ -1,6 +1,6 @@
 'use strict';
 
-const assert = require('assert');
+const assert = require('assert').strict;
 const path = require('path');
 const stripAnsi = require('strip-ansi');
 const reporters = require('../lib/reporters.js');
@@ -18,7 +18,7 @@ describe('reporters', () => {
       const expected = '';
       const actual = reporter(result);
 
-      assert.strictEqual(actual, expected, 'Should return empty String for empty result');
+      assert.equal(actual, expected, 'Should return empty String for empty result');
       done();
     });
 
@@ -34,7 +34,7 @@ describe('reporters', () => {
       ].join('\n');
       const actual = stripAnsi(reporter(result));
 
-      assert.strictEqual(actual, expected, 'Should report errors as a String');
+      assert.equal(actual, expected, 'Should report errors as a String');
       done();
     });
   });
@@ -44,7 +44,7 @@ describe('reporters', () => {
       const options = {};
       const reporter = reporters.selectReporter(options);
 
-      assert.strictEqual(reporter, reporters.defaultReporter, 'Should return default reporter');
+      assert.equal(reporter, reporters.defaultReporter, 'Should return default reporter');
       done();
     });
 
@@ -54,7 +54,7 @@ describe('reporters', () => {
       };
       const reporter = reporters.selectReporter(options);
 
-      assert.strictEqual(reporter, checkstyleReporter, 'Should return checkstyle reporter');
+      assert.equal(reporter, checkstyleReporter, 'Should return checkstyle reporter');
       done();
     });
 
@@ -64,7 +64,7 @@ describe('reporters', () => {
       };
       const reporter = reporters.selectReporter(options);
 
-      assert.strictEqual(reporter, jsonReporter, 'Should return json reporter');
+      assert.equal(reporter, jsonReporter, 'Should return json reporter');
       done();
     });
 
@@ -74,7 +74,7 @@ describe('reporters', () => {
       };
       const reporter = reporters.selectReporter(options);
 
-      assert.strictEqual(reporter, junitReporter, 'Should return junit reporter');
+      assert.equal(reporter, junitReporter, 'Should return junit reporter');
       done();
     });
 
@@ -84,11 +84,11 @@ describe('reporters', () => {
       };
       const reporter = reporters.selectReporter(options);
 
-      assert.strictEqual(reporter, customReporter, 'Should return custom reporter');
+      assert.equal(reporter, customReporter, 'Should return custom reporter');
       done();
     });
 
-    it('when invalid custom reporter is specified', done => {
+    it('when an invalid custom reporter is specified', done => {
       const options = {
         reporter: 'does/not/exist.js'
       };
@@ -97,7 +97,8 @@ describe('reporters', () => {
         () => {
           reporters.selectReporter(options);
         },
-        Error, 'Should throw an error'
+        Error,
+        'Should throw an error'
       );
       done();
     });

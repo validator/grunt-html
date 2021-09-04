@@ -1,6 +1,6 @@
 'use strict';
 
-const assert = require('assert');
+const assert = require('assert').strict;
 const path = require('path');
 const reporter = require('../lib/reporters/junit.js');
 const expectedResults = require('./helpers/expected_results.js');
@@ -15,7 +15,7 @@ describe('junit reporter', () => {
     ].join('\n');
     const actual = reporter(result);
 
-    assert.strictEqual(actual, expected, 'Should return empty JUnit XML for empty result');
+    assert.equal(actual, expected, 'Should return empty JUnit XML for empty result');
     done();
   });
 
@@ -37,7 +37,7 @@ describe('junit reporter', () => {
     ].join('\n');
     const actual = reporter(result);
 
-    assert.strictEqual(actual, expected, 'Should report errors as JUnit XML');
+    assert.equal(actual, expected, 'Should report errors as JUnit XML');
     done();
   });
 });

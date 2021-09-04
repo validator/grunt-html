@@ -1,6 +1,6 @@
 'use strict';
 
-const assert = require('assert');
+const assert = require('assert').strict;
 const path = require('path');
 const reporter = require('../lib/reporters/checkstyle.js');
 const expectedResults = require('./helpers/expected_results.js');
@@ -11,7 +11,7 @@ describe('checkstyle reporter', () => {
     const expected = '<?xml version="1.0" encoding="utf-8"?><checkstyle>\n</checkstyle>';
     const actual = reporter(result);
 
-    assert.strictEqual(actual, expected, 'Should return empty checkstyle XML for empty result');
+    assert.equal(actual, expected, 'Should return empty checkstyle XML for empty result');
     done();
   });
 
@@ -30,7 +30,7 @@ describe('checkstyle reporter', () => {
     ].join('\n');
     const actual = reporter(result);
 
-    assert.strictEqual(actual, expected, 'Should report errors as checkstyle XML');
+    assert.equal(actual, expected, 'Should report errors as checkstyle XML');
     done();
   });
 });

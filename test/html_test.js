@@ -1,6 +1,6 @@
 'use strict';
 
-const assert = require('assert');
+const assert = require('assert').strict;
 const path = require('path');
 const htmllint = require('../lib/htmllint.js');
 const expectedResults = require('./helpers/expected_results.js');
@@ -23,7 +23,7 @@ function run(config, expected, message, done) {
         lastColumn: message_.lastColumn
       };
     });
-    assert.deepStrictEqual(result, expected, message);
+    assert.deepEqual(result, expected, message);
     done();
   });
 }
