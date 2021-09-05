@@ -1,8 +1,8 @@
 'use strict';
 
 const assert = require('assert').strict;
+const fs = require('fs');
 const path = require('path');
-const glob = require('glob');
 const htmllint = require('../lib/htmllint.js');
 const expectedResults = require('./helpers/expected_results.js');
 
@@ -183,8 +183,13 @@ describe('htmllint', () => {
 
   describe('many files', () => {
     it('many files to test if results are overwritten', done => {
+      const dir = path.normalize('./test/fixtures/many-files/');
+      const files = fs.readdirSync(dir)
+        .filter(file => path.extname(file) === '.html')
+        .map(file => path.join(dir, file));
+
       const options = {
-        files: glob.sync('test/fixtures/many-files/*.html'),
+        files,
         errorlevels: ['info', 'warning', 'error']
       };
       const expected = ['001', '050', '100'].map(num => ({
