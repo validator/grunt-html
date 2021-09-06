@@ -7,24 +7,15 @@ const htmllint = require('../lib/htmllint.js');
 const expectedResults = require('./helpers/expected_results.js');
 
 function run(config, expected, message, done) {
-  // tests here
   htmllint(config, (error, result) => {
     if (error) {
       throw error;
     }
 
-    // copy only the properties we want to test
-    // url property is absolute, system-dependent path
-    result = result.map(message_ => {
-      return {
-        file: message_.file,
-        type: message_.type,
-        message: message_.message,
-        lastLine: message_.lastLine,
-        lastColumn: message_.lastColumn
-      };
-    });
-    assert.deepEqual(result, expected, message);
+    // Only keep the properties we want to test;
+    // the url property is an absolute, system-dependent path
+    const newResult = result.map(({ file, type, message, lastLine, lastColumn }) => ({ file, type, message, lastLine, lastColumn }));
+    assert.deepEqual(newResult, expected, message);
     done();
   });
 }
