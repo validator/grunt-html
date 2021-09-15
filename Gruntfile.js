@@ -1,6 +1,8 @@
 'use strict';
 
 module.exports = function(grunt) {
+  require('time-grunt')(grunt);
+
   grunt.initConfig({
     htmllint: {
       valid: 'test/fixtures/valid.html',
