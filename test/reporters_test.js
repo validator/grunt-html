@@ -3,7 +3,7 @@
 const assert = require('assert').strict;
 const path = require('path');
 const stripAnsi = require('strip-ansi');
-const reporters = require('../lib/reporters.js');
+const { defaultReporter, selectReporter } = require('../lib/reporters.js');
 const checkstyleReporter = require('../lib/reporters/checkstyle.js');
 const jsonReporter = require('../lib/reporters/json.js');
 const junitReporter = require('../lib/reporters/junit.js');
@@ -14,7 +14,7 @@ describe('reporters', () => {
   describe('default reporter', () => {
     it('when given empty result', done => {
       const result = [];
-      const reporter = reporters.defaultReporter;
+      const reporter = defaultReporter;
       const expected = '';
       const actual = reporter(result);
 
@@ -25,7 +25,7 @@ describe('reporters', () => {
     it('when given non-empty result', done => {
       const invalidHtml = path.normalize('test/fixtures/invalid.html');
       const result = expectedResults.invalid;
-      const reporter = reporters.defaultReporter;
+      const reporter = defaultReporter;
       const expected = [
         `${invalidHtml} [L1:C16] Start tag seen without seeing a doctype first. Expected “<!DOCTYPE html>”.`,
         `${invalidHtml} [L9:C96] Attribute “unknownattr” not allowed on element “img” at this point.`,
@@ -42,9 +42,9 @@ describe('reporters', () => {
   describe('select reporter', () => {
     it('when no reporter is specified', done => {
       const options = {};
-      const reporter = reporters.selectReporter(options);
+      const reporter = selectReporter(options);
 
-      assert.equal(reporter, reporters.defaultReporter, 'Should return default reporter');
+      assert.equal(reporter, defaultReporter, 'Should return default reporter');
       done();
     });
 
@@ -52,7 +52,7 @@ describe('reporters', () => {
       const options = {
         reporter: 'checkstyle'
       };
-      const reporter = reporters.selectReporter(options);
+      const reporter = selectReporter(options);
 
       assert.equal(reporter, checkstyleReporter, 'Should return checkstyle reporter');
       done();
@@ -62,7 +62,7 @@ describe('reporters', () => {
       const options = {
         reporter: 'json'
       };
-      const reporter = reporters.selectReporter(options);
+      const reporter = selectReporter(options);
 
       assert.equal(reporter, jsonReporter, 'Should return json reporter');
       done();
@@ -72,7 +72,7 @@ describe('reporters', () => {
       const options = {
         reporter: 'junit'
       };
-      const reporter = reporters.selectReporter(options);
+      const reporter = selectReporter(options);
 
       assert.equal(reporter, junitReporter, 'Should return junit reporter');
       done();
@@ -82,7 +82,7 @@ describe('reporters', () => {
       const options = {
         reporter: 'test/helpers/custom_reporter.js'
       };
-      const reporter = reporters.selectReporter(options);
+      const reporter = selectReporter(options);
 
       assert.equal(reporter, customReporter, 'Should return custom reporter');
       done();
@@ -95,7 +95,7 @@ describe('reporters', () => {
 
       assert.throws(
         () => {
-          reporters.selectReporter(options);
+          selectReporter(options);
         },
         Error,
         'Should throw an error'
