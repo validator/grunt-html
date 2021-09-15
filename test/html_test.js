@@ -1,6 +1,7 @@
 'use strict';
 
 const assert = require('assert').strict;
+const fs = require('fs');
 const path = require('path');
 const htmllint = require('../lib/htmllint.js');
 const expectedResults = require('./helpers/expected_results.js');
@@ -177,6 +178,29 @@ describe('htmllint', () => {
       const expected = [];
 
       run(options, expected, '0 errors from 0 files', done);
+    });
+  });
+
+  describe('many files', () => {
+    it('many files to test if results are overwritten', done => {
+      const dir = path.normalize('./test/fixtures/many-files/');
+      const files = fs.readdirSync(dir)
+        .filter(file => path.extname(file) === '.html')
+        .map(file => path.join(dir, file));
+
+      const options = {
+        files,
+        errorlevels: ['info', 'warning', 'error']
+      };
+      const expected = ['001', '050', '100'].map(num => ({
+        file: path.normalize(`test/fixtures/many-files/test-file-with-a-pretty-long-name-to-reach-maximum-length-sooner-${num}.html`),
+        type: 'error',
+        message: 'Element “title” must not be empty.',
+        lastLine: 3,
+        lastColumn: 15
+      }));
+
+      run(options, expected, '3 errors from 3 files', done);
     });
   });
 });
