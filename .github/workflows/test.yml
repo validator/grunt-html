@@ -19,7 +19,7 @@ jobs:
         architecture: [x64]
         include:
           - os: windows-latest
-            node: 14
+            node: 16
             java: 8
             architecture: x86
 
