@@ -37,6 +37,13 @@ When combined with a watching task (such as [grunt-contrib-watch][watch]), even 
 
 ## Options
 
+### `threads`
+
+* Type: `String`, `Boolean`, `Number`
+* Default: `auto`, which is the number of threads -1
+
+Use this option to control the number of threads that grunt-htmllint will use when validating a big number of files. This will spawn as many Java processes as the number of threads.
+
 ### `ignore`
 
 * Type: `Array`, `String`, or `RegExp`
