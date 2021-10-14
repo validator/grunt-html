@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function(grunt) {
+module.exports = grunt => {
   require('time-grunt')(grunt);
 
   grunt.initConfig({

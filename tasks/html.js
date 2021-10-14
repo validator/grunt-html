@@ -12,7 +12,7 @@ const path = require('path');
 const htmllint = require('../lib/htmllint.js');
 const reporters = require('../lib/reporters.js');
 
-module.exports = function(grunt) {
+module.exports = grunt => {
   grunt.registerMultiTask('htmllint', 'Validate html files', function() {
     const done = this.async();
     const files = grunt.file.expand(this.filesSrc);
