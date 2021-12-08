@@ -32,6 +32,17 @@ describe('htmllint', () => {
       run(options, expected, 'four errors from test/fixtures/invalid.html', done);
     });
 
+    it('with relative paths using server', done => {
+      const options = {
+        files: ['test/fixtures/valid.html', 'test/fixtures/invalid.html'],
+        server: {},
+        errorlevels: ['info', 'warning', 'error']
+      };
+      const expected = expectedResults.server.invalid;
+
+      run(options, expected, 'four errors from test/fixtures/invalid.html', done);
+    });
+
     it('with absolute paths', done => {
       const options = {
         files: ['test/fixtures/valid.html', 'test/fixtures/invalid.html'],

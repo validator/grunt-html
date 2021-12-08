@@ -21,8 +21,10 @@
     "fix": "xo --fix",
     "test": "npm run lint && npm run mocha",
     "test:grunt": "grunt ci --force",
-    "test:ci": "npm run mocha && npm run test:grunt",
-    "test:coverage": "c8 npm run test:ci"
+    "test:ci": "npm run test:server && npm run test:grunt",
+    "test:coverage": "c8 npm run test:ci",
+    "test:server": "start-server-and-test start:server http://localhost:8888 mocha",
+    "start:server": "java -cp ./node_modules/vnu-jar/build/dist/vnu.jar nu.validator.servlet.Main"
   },
   "dependencies": {
     "async": "^3.2.3",
@@ -34,6 +36,7 @@
     "c8": "^7.11.0",
     "grunt": "^1.4.1",
     "mocha": "^9.2.0",
+    "start-server-and-test": "^1.14.0",
     "strip-ansi": "^6.0.1",
     "xo": "^0.47.0"
   },
