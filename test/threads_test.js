@@ -12,7 +12,7 @@ describe('getThreads', () => {
   it('should use the number of available threads -1', done => {
     const config = {};
 
-    for (const option of ['auto', true, -1, '', null, undefined]) {
+    for (const option of ['auto', -1, '', true, null, undefined]) {
       config.threads = option;
       const expected = THREADS;
       const actual = getThreads(config);
@@ -23,14 +23,16 @@ describe('getThreads', () => {
     done();
   });
 
-  it('should return 1 with `threads: false`', done => {
-    const config = {
-      threads: false
-    };
-    const expected = 1;
-    const actual = getThreads(config);
+  it('should return 1 with false, 0, or 1', done => {
+    const config = {};
 
-    assert.equal(actual, expected);
+    for (const option of [0, 1, false]) {
+      config.threads = option;
+      const expected = 1;
+      const actual = getThreads(config);
+      assert.equal(actual, expected);
+    }
+
     done();
   });
 
@@ -42,18 +44,6 @@ describe('getThreads', () => {
     const actual = getThreads(config);
 
     assert.equal(actual, expected);
-    done();
-  });
-
-  it('should throw an error with invalid threads option', done => {
-    const config = {};
-
-    for (const option of [-2, 'foo']) {
-      config.threads = option;
-      const expected = () => getThreads(config);
-      assert.throws(expected, /^Error: Invalid threads/, `"thread: ${option}" failed!`);
-    }
-
     done();
   });
 });
