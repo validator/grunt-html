@@ -4,8 +4,6 @@
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/validator/grunt-html.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/validator/grunt-html/alerts/)
 [![Build Status](https://img.shields.io/github/workflow/status/validator/grunt-html/Tests/main)](https://github.com/validator/grunt-html/actions?query=workflow%3ATests+branch%3Amain)
 [![Coverage Status](https://img.shields.io/coveralls/github/validator/grunt-html/main)](https://coveralls.io/github/validator/grunt-html?branch=main)
-[![dependencies Status](https://img.shields.io/david/validator/grunt-html.svg)](https://david-dm.org/validator/grunt-html)
-[![devDependencies Status](https://img.shields.io/david/dev/validator/grunt-html.svg)](https://david-dm.org/validator/grunt-html?type=dev)
 
 [Grunt][grunt] plugin for HTML validation, using the [Nu Html Checker (v.Nu)][vnujar].
 
