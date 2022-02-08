@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = grunt => {
-  require('time-grunt')(grunt);
+  require('@lodder/time-grunt')(grunt);
 
   grunt.initConfig({
     htmllint: {
