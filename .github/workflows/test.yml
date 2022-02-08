@@ -15,12 +15,12 @@ jobs:
       matrix:
         os: [ubuntu-latest, windows-latest]
         node: [12, 14, 16]
-        java: [8]
+        java: [17]
         architecture: [x64]
         include:
           - os: windows-latest
             node: 16
-            java: 8
+            java: 17
             architecture: x86
 
     steps:
