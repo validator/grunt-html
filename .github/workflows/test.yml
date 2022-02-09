@@ -13,11 +13,15 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, windows-latest]
+        os: [ubuntu-latest]
         node: [12, 14, 16]
         java: [17]
         architecture: [x64]
         include:
+          - os: windows-latest
+            node: 16
+            java: 17
+            architecture: x64
           - os: windows-latest
             node: 16
             java: 17
@@ -51,6 +55,7 @@ jobs:
         uses: coverallsapp/github-action@1.1.3
         with:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
+          flag-name: run-${{ matrix.test_number }}
           parallel: true
 
   finish:
