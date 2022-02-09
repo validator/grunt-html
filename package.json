@@ -47,10 +47,14 @@
     "{lib,tasks}/**/*.js"
   ],
   "c8": {
+    "include": [
+      "lib",
+      "tasks"
+    ],
     "reporter": [
       "html",
       "lcovonly",
-      "text-summary"
+      "text"
     ]
   },
   "mocha": {
@@ -59,7 +63,7 @@
     "throw-deprecation": true,
     "trace-deprecation": true,
     "trace-warnings": true,
-    "use_strict": true
+    "use-strict": true
   },
   "xo": {
     "space": true,
