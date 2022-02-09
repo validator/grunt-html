@@ -21,7 +21,8 @@ module.exports = grunt => {
       force: false,
       absoluteFilePathsForReporter: false,
       errorlevels: ['info', 'warning', 'error'],
-      noLangDetect: false
+      noLangDetect: false,
+      threads: 'auto'
     });
     const { force } = options;
     let { reporterOutput } = options;
