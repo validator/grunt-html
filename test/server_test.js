@@ -8,7 +8,10 @@ describe('htmllint', () => {
     it('with relative paths using server', done => {
       const options = {
         files: ['test/fixtures/valid.html', 'test/fixtures/invalid.html'],
-        server: {},
+        server: {
+          host: '127.0.0.1',
+          port: 8080
+        },
         errorlevels: ['info', 'warning', 'error']
       };
       const expected = expectedResults.server.invalid;

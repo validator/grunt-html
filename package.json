@@ -23,8 +23,8 @@
     "test:grunt": "grunt ci --force",
     "test:ci": "npm run mocha && npm run test:server && npm run test:grunt",
     "test:coverage": "c8 npm run test:ci",
-    "test:server": "start-server-and-test start:server http://localhost:8888 \"mocha --fgrep=server\"",
-    "start:server": "java -cp ./node_modules/vnu-jar/build/dist/vnu.jar nu.validator.servlet.Main"
+    "test:server": "start-server-and-test start:server http://127.0.0.1:8080 \"mocha --fgrep=server\"",
+    "start:server": "java -Dnu.validator.servlet.bind-address=127.0.0.1 -cp ./node_modules/vnu-jar/build/dist/vnu.jar nu.validator.servlet.Main 8080"
   },
   "dependencies": {
     "async": "^3.2.3",
