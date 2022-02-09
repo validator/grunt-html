@@ -1,24 +1,9 @@
 'use strict';
 
-const assert = require('assert').strict;
 const fs = require('fs');
 const path = require('path');
-const htmllint = require('../lib/htmllint.js');
 const expectedResults = require('./helpers/expected_results.js');
-
-function run(config, expected, message, done) {
-  htmllint(config, (error, result) => {
-    if (error) {
-      throw error;
-    }
-
-    // Only keep the properties we want to test;
-    // the url property is an absolute, system-dependent path
-    const newResult = result.map(({ file, type, message, lastLine, lastColumn }) => ({ file, type, message, lastLine, lastColumn }));
-    assert.deepEqual(newResult, expected, message);
-    done();
-  });
-}
+const run = require('./helpers/run.js');
 
 describe('htmllint', () => {
   describe('all', () => {
@@ -28,17 +13,6 @@ describe('htmllint', () => {
         errorlevels: ['info', 'warning', 'error']
       };
       const expected = expectedResults.invalid;
-
-      run(options, expected, 'four errors from test/fixtures/invalid.html', done);
-    });
-
-    it('with relative paths using server', done => {
-      const options = {
-        files: ['test/fixtures/valid.html', 'test/fixtures/invalid.html'],
-        server: {},
-        errorlevels: ['info', 'warning', 'error']
-      };
-      const expected = expectedResults.server.invalid;
 
       run(options, expected, 'four errors from test/fixtures/invalid.html', done);
     });
