@@ -1,7 +1,7 @@
 'use strict';
 
-const expectedResults = require('./helpers/expected_results.js');
-const run = require('./helpers/run.js');
+const expectedResults = require('../helpers/expected_results.js');
+const run = require('../helpers/run.js');
 
 describe('htmllint', () => {
   describe('server', () => {

@@ -16,14 +16,14 @@
     "node": ">=12"
   },
   "scripts": {
-    "mocha": "mocha -i --fgrep=server",
+    "mocha": "mocha",
     "lint": "xo",
     "fix": "xo --fix",
     "test": "npm run lint && npm run mocha",
     "test:grunt": "grunt ci --force",
     "test:ci": "npm run mocha && npm run test:server && npm run test:grunt",
     "test:coverage": "c8 npm run test:ci",
-    "test:server": "start-server-and-test start:server http://127.0.0.1:8080 \"mocha --fgrep=server\"",
+    "test:server": "start-server-and-test start:server http://127.0.0.1:8080 \"npm run mocha -- test/server/\"",
     "start:server": "java -Dnu.validator.servlet.bind-address=127.0.0.1 -cp ./node_modules/vnu-jar/build/dist/vnu.jar nu.validator.servlet.Main 8080"
   },
   "dependencies": {
@@ -76,7 +76,7 @@
     },
     "overrides": [
       {
-        "files": "test/*.js",
+        "files": "test/**/*.js",
         "envs": [
           "mocha"
         ]

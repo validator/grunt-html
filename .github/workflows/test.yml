@@ -53,7 +53,7 @@ jobs:
         if: matrix.os == 'ubuntu-latest'
 
       - name: Run tests
-        run: npm run test
+        run: npm run mocha
         if: matrix.os == 'windows-latest'
 
       - name: Run Coveralls
