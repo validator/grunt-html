@@ -16,14 +16,14 @@
     "node": ">=12"
   },
   "scripts": {
-    "mocha": "mocha",
+    "mocha": "mocha -i --fgrep=server",
     "lint": "xo",
     "fix": "xo --fix",
     "test": "npm run lint && npm run mocha",
     "test:grunt": "grunt ci --force",
-    "test:ci": "npm run test:server && npm run test:grunt",
+    "test:ci": "npm run mocha && npm run test:server && npm run test:grunt",
     "test:coverage": "c8 npm run test:ci",
-    "test:server": "start-server-and-test start:server http://localhost:8888 mocha",
+    "test:server": "start-server-and-test start:server http://localhost:8888 \"mocha --fgrep=server\"",
     "start:server": "java -cp ./node_modules/vnu-jar/build/dist/vnu.jar nu.validator.servlet.Main"
   },
   "dependencies": {
