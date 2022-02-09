@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "async": "^3.2.3",
-    "chalk": "^4.1.2",
+    "picocolors": "^1.0.0",
     "vnu-jar": "21.10.12"
   },
   "devDependencies": {
