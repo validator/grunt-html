@@ -49,25 +49,6 @@
   "files": [
     "{lib,tasks}/**/*.js"
   ],
-  "c8": {
-    "include": [
-      "lib",
-      "tasks"
-    ],
-    "reporter": [
-      "html",
-      "lcovonly",
-      "text"
-    ]
-  },
-  "mocha": {
-    "timeout": 20000,
-    "check-leaks": true,
-    "throw-deprecation": true,
-    "trace-deprecation": true,
-    "trace-warnings": true,
-    "use-strict": true
-  },
   "xo": {
     "space": true,
     "rules": {
