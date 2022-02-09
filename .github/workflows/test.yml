@@ -55,15 +55,4 @@ jobs:
         uses: coverallsapp/github-action@1.1.3
         with:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
-          flag-name: run-${{ matrix.test_number }}
-          parallel: true
-
-  finish:
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
-      - name: Coveralls Finished
-        uses: coverallsapp/github-action@1.1.3
-        with:
-          github-token: "${{ secrets.GITHUB_TOKEN }}"
-          parallel-finished: true
+          if: matrix.architecture == ubuntu-latest && matrix.node == 16
