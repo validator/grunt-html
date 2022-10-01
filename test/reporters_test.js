@@ -30,7 +30,7 @@ describe('reporters', () => {
         `${invalidHtml} [L1:C16] Start tag seen without seeing a doctype first. Expected “<!DOCTYPE html>”.`,
         `${invalidHtml} [L9:C96] Attribute “unknownattr” not allowed on element “img” at this point.`,
         `${invalidHtml} [L9:C96] An “img” element must have an “alt” attribute, except under certain conditions. For details, consult guidance on providing text alternatives for images.`,
-        `${invalidHtml} [L11:C19] The “clear” attribute on the “br” element is obsolete. Use CSS instead.`
+        `${invalidHtml} [L11:C17] The “clear” attribute on the “br” element is obsolete. Use CSS instead.`
       ].join('\n');
       const actual = stripAnsi(reporter(result));
 

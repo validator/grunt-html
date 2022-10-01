@@ -30,7 +30,7 @@ describe('junit reporter', () => {
       '1 line 1, char 16: Start tag seen without seeing a doctype first. Expected “&lt;!DOCTYPE html&gt;”.',
       '2 line 9, char 96: Attribute “unknownattr” not allowed on element “img” at this point.',
       '3 line 9, char 96: An “img” element must have an “alt” attribute, except under certain conditions. For details, consult guidance on providing text alternatives for images.',
-      '4 line 11, char 19: The “clear” attribute on the “br” element is obsolete. Use CSS instead.',
+      '4 line 11, char 17: The “clear” attribute on the “br” element is obsolete. Use CSS instead.',
       '</error>',
       '</testcase>',
       '</testsuite>'

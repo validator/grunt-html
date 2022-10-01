@@ -29,7 +29,7 @@ module.exports = {
     },
     {
       lastLine: 11,
-      lastColumn: 19,
+      lastColumn: 17,
       type: 'error',
       message: 'The “clear” attribute on the “br” element is obsolete. Use CSS instead.',
       file
@@ -67,7 +67,7 @@ module.exports = {
       },
       {
         lastLine: 11,
-        lastColumn: 19,
+        lastColumn: 17,
         type: 'error',
         message: 'The \'clear\' attribute on the \'br\' element is obsolete. Use CSS instead.',
         file

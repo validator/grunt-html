@@ -74,14 +74,14 @@ describe('htmllint', () => {
         type: 'error',
         message: 'Internal encoding declaration “iso-8859-1” disagrees with the actual encoding of the document (“utf-8”).',
         lastLine: 4,
-        lastColumn: 74
+        lastColumn: 72
       },
       {
         file: path.normalize('test/fixtures/invalid-encoding.html'),
         type: 'error',
         message: 'Bad value “text/html; charset=iso-8859-1” for attribute “content” on element “meta”: “charset=” must be followed by “utf-8”.',
         lastLine: 4,
-        lastColumn: 74
+        lastColumn: 72
       }];
 
       run(options, expected, '', done);
