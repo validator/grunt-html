@@ -13,7 +13,7 @@ const htmllint = require('../lib/htmllint.js');
 const reporters = require('../lib/reporters.js');
 
 module.exports = grunt => {
-  grunt.registerMultiTask('htmllint', 'Validate html files', function() {
+  grunt.registerMultiTask('htmllint', 'Validate HTML files', function() {
     const done = this.async();
     const files = grunt.file.expand(this.filesSrc);
     const options = this.options({
