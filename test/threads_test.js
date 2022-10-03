@@ -4,9 +4,7 @@ const assert = require('assert').strict;
 const os = require('os');
 const getThreads = require('../lib/getThreads.js');
 
-// eslint-disable-next-line unicorn/explicit-length-check
-const CPUS = os.cpus() && os.cpus().length;
-const THREADS = CPUS > 2 ? CPUS - 1 : 1;
+const THREADS = Math.max(os.cpus().length - 1, 1);
 
 describe('getThreads', () => {
   it('should use the number of available threads -1', done => {
@@ -30,6 +28,7 @@ describe('getThreads', () => {
       config.threads = option;
       const expected = 1;
       const actual = getThreads(config);
+
       assert.equal(actual, expected);
     }
 
