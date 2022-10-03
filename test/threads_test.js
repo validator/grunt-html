@@ -28,6 +28,7 @@ describe('getThreads', () => {
       config.threads = option;
       const expected = 1;
       const actual = getThreads(config);
+
       assert.equal(actual, expected);
     }
 
