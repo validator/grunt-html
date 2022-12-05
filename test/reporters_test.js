@@ -1,7 +1,7 @@
 'use strict';
 
-const assert = require('assert').strict;
-const path = require('path');
+const assert = require('node:assert').strict;
+const path = require('node:path');
 const stripAnsi = require('strip-ansi');
 const { defaultReporter, selectReporter } = require('../lib/reporters.js');
 const checkstyleReporter = require('../lib/reporters/checkstyle.js');

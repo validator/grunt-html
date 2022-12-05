@@ -1,7 +1,7 @@
 'use strict';
 
-const assert = require('assert').strict;
-const path = require('path');
+const assert = require('node:assert').strict;
+const path = require('node:path');
 const reporter = require('../lib/reporters/junit.js');
 const expectedResults = require('./helpers/expected_results.js');
 

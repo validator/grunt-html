@@ -1,6 +1,6 @@
 'use strict';
 
-const assert = require('assert').strict;
+const assert = require('node:assert').strict;
 const reporter = require('../lib/reporters/json.js');
 const expectedResults = require('./helpers/expected_results.js');
 

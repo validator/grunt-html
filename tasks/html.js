@@ -8,7 +8,7 @@
 
 'use strict';
 
-const path = require('path');
+const path = require('node:path');
 const htmllint = require('../lib/htmllint.js');
 const reporters = require('../lib/reporters.js');
 

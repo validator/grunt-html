@@ -1,7 +1,7 @@
 'use strict';
 
-const assert = require('assert').strict;
-const os = require('os');
+const assert = require('node:assert').strict;
+const os = require('node:os');
 const getThreads = require('../lib/getThreads.js');
 
 const THREADS = Math.max(os.cpus().length - 1, 1);

@@ -1,7 +1,7 @@
 'use strict';
 
-const fs = require('fs');
-const path = require('path');
+const fs = require('node:fs');
+const path = require('node:path');
 const expectedResults = require('./helpers/expected_results.js');
 const run = require('./helpers/run.js');
 
