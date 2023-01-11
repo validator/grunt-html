@@ -1,8 +1,8 @@
 # grunt-html
 
-[![npm version](https://img.shields.io/npm/v/grunt-html)](https://www.npmjs.com/package/grunt-html)
-[![Build Status](https://img.shields.io/github/workflow/status/validator/grunt-html/Tests/main?logo=github&label=Tests)](https://github.com/validator/grunt-html/actions/workflows/test.yml?query=branch%3Amain)
-[![Coverage Status](https://img.shields.io/coveralls/github/validator/grunt-html/main)](https://coveralls.io/github/validator/grunt-html?branch=main)
+[![npm version](https://img.shields.io/npm/v/grunt-html?logo=npm&logoColor=fff)](https://www.npmjs.com/package/grunt-html)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/validator/grunt-html/test.yml?branch=main&label=Tests&logo=github)](https://github.com/validator/grunt-html/actions/workflows/test.yml?query=branch%3Amain)
+[![Coverage Status](https://img.shields.io/coveralls/github/validator/grunt-html/main?logo=coveralls&logoColor=fff)](https://coveralls.io/github/validator/grunt-html?branch=main)
 
 [Grunt][grunt] plugin for HTML validation, using the [Nu Html Checker (v.Nu)][vnujar].
 
