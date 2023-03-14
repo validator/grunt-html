@@ -19,6 +19,10 @@ jobs:
         java: [17]
         architecture: [x64]
         include:
+          - os: macos-latest
+            node: 18
+            java: 17
+            architecture: x64
           - os: windows-latest
             node: 18
             java: 17
