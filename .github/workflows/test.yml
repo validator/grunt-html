@@ -15,16 +15,16 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest]
-        node: [14, 16, 18]
+        node: [14.18, 16, 18]
         java: [17]
         architecture: [x64]
         include:
           - os: windows-latest
-            node: 16
+            node: 18
             java: 17
             architecture: x64
           - os: windows-latest
-            node: 16
+            node: 18
             java: 17
             architecture: x86
 
