@@ -57,7 +57,7 @@ jobs:
 
       - name: Run full tests
         run: npm run test:coverage
-        if: startsWith(matrix.os, 'ubuntu')
+        if: "!startsWith(matrix.os, 'windows')"
 
       - name: Run tests
         run: npm run mocha
