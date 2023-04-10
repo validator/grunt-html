@@ -11,7 +11,7 @@
 Install this grunt plugin next to your project's [Gruntfile.js][getting_started] with:
 
 ```bash
-npm install grunt-html --save-dev
+npm install grunt-html -D
 ```
 
 Then add this line to your project's `Gruntfile.js`:
@@ -36,12 +36,19 @@ When combined with a watching task (such as [grunt-contrib-watch][watch]), even 
 
 ## Options
 
-### `threads`
+### `errorlevels`
 
-* Type: `String`, `Boolean`, `Number`
-* Default: `auto`, which is the number of threads -1
+* Type: `Array`
+* Default: `['info', 'warning', 'error']`
 
-Use this option to control the number of threads that grunt-html will use when validating a big number of files. This will spawn as many Java processes as the number of threads.
+Set `errorlevels` to control which error types are returned from the validator. Ignores all other returned types.
+
+### `force`
+
+* Type: `Boolean`
+* Default: `false`
+
+Set `force` to `true` to report errors but not fail the `grunt` task.
 
 ### `ignore`
 
@@ -70,6 +77,34 @@ all: {
 }
 ```
 
+### `noLangDetect`
+
+* Type: `Boolean`
+* Default: `false`
+
+Set `noLangDetect` to `true` to [skip the checking of the language of the page](https://github.com/validator/validator#--no-langdetect).
+
+### `reporter`
+
+* Type: `String`
+* Default: `null`
+
+Allows you to modify the output format. By default, this plugin will use a built-in Grunt reporter. Set the path to your own custom reporter or to one of the provided reporters: `checkstyle`, `junit` or `json`.
+
+### `reporterOutput`
+
+* Type: `String`
+* Default: `null`
+
+Specify a filepath to output the results of a reporter. If `reporterOutput` is specified then all output will be written to the given filepath rather than printed to `stdout`.
+
+### `absoluteFilePathsForReporter`
+
+* Type: `Boolean`
+* Default: `false`
+
+Set `absoluteFilePathsForReporter` to `true` to use absolute file paths in generated reports.
+
 ### `server`
 
 * Type: `Object`, or a falsy value
@@ -78,6 +113,7 @@ all: {
 When `server` is set to a falsy value, the validator is invoked using `java -jar`, which can be considered normal operation.
 
 Set `server` to an object to start the validator in client mode and connect to an already-running instance of the validator in server mode.
+
 To start the validator in server mode, use `java -cp "path/to/vnu.jar" nu.validator.servlet.Main <port>`.
 
 ```js
@@ -137,47 +173,12 @@ module.exports = function (grunt) {
 };
 ```
 
-### `errorlevels`
+### `threads`
 
-* Type: `Array`
-* Default: `'info','warning','error'`
+* Type: `String`, `Boolean`, `Number`
+* Default: `auto`, which is the number of threads -1
 
-Set `errorlevels` to control which error types are returned from the validator. Ignores all other returned types.
-
-### `force`
-
-* Type: `Boolean`
-* Default: `false`
-
-Set `force` to `true` to report errors but not fail the `grunt` task.
-
-### `reporter`
-
-* Type: `String`
-* Default: `null`
-
-Allows you to modify the output format. By default, this plugin will use a built-in Grunt reporter. Set the path to your own custom reporter or to one of the provided reporters: `checkstyle`, `junit` or `json`.
-
-### `reporterOutput`
-
-* Type: `String`
-* Default: `null`
-
-Specify a filepath to output the results of a reporter. If `reporterOutput` is specified then all output will be written to the given filepath rather than printed to `stdout`.
-
-### `absoluteFilePathsForReporter`
-
-* Type: `Boolean`
-* Default: `false`
-
-Set `absoluteFilePathsForReporter` to `true` to use absolute file paths in generated reports.
-
-### `noLangDetect`
-
-* Type: `Boolean`
-* Default: `false`
-
-Set `noLangDetect` to `true` to [skip the checking of the language of the page](https://github.com/validator/validator#--no-langdetect).
+Use this option to control the number of threads that grunt-html will use when validating a big number of files. This will spawn as many Java processes as the number of threads.
 
 ## Potential pitfalls
 
@@ -185,7 +186,7 @@ Set `noLangDetect` to `true` to [skip the checking of the language of the page](
 
 ## License
 
-Copyright Jörn Zaefferer. Licensed under the [MIT license](https://github.com/validator/grunt-html/blob/main/LICENSE).
+Copyright Jörn Zaefferer. Licensed under the [MIT license](LICENSE).
 
 [grunt]: https://gruntjs.com/
 [getting_started]: https://gruntjs.com/getting-started
