@@ -11,7 +11,18 @@ function run(config, expected, message, done) {
 
     // Only keep the properties we want to test;
     // the url property is an absolute, system-dependent path
-    const newResult = result.map(({ file, type, message, lastLine, lastColumn }) => ({ file, type, message, lastLine, lastColumn }));
+    const newResult = result.map(
+      ({ file, type, message, lastLine, lastColumn }) => {
+        return {
+          file,
+          type,
+          message,
+          lastLine,
+          lastColumn
+        };
+      }
+    );
+
     assert.deepEqual(newResult, expected, message);
     done();
   });
