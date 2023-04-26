@@ -15,7 +15,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest]
-        node: [14.18, 16, 18]
+        node: [14.18, 16, 18, 20]
         java: [17]
         architecture: [x64]
         include:
