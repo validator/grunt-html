@@ -27,18 +27,18 @@
     "start:server": "java -Dnu.validator.servlet.bind-address=127.0.0.1 -cp ./node_modules/vnu-jar/build/dist/vnu.jar nu.validator.servlet.Main 8080"
   },
   "dependencies": {
-    "async": "^3.2.4",
+    "async": "^3.2.5",
     "picocolors": "^1.0.0",
     "vnu-jar": "23.4.11"
   },
   "devDependencies": {
     "@lodder/time-grunt": "^4.0.0",
-    "c8": "^7.13.0",
+    "c8": "^9.1.0",
     "grunt": "^1.6.1",
-    "mocha": "^10.2.0",
-    "start-server-and-test": "^2.0.0",
+    "mocha": "^10.3.0",
+    "start-server-and-test": "^2.0.3",
     "strip-ansi": "^6.0.1",
-    "xo": "^0.54.1"
+    "xo": "^0.54.2"
   },
   "peerDependencies": {
     "grunt": ">=0.4.0"
