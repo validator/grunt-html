@@ -1,7 +1,7 @@
 {
   "name": "grunt-html",
   "description": "Grunt plugin for HTML validation, using the Nu Html Checker (v.Nu)",
-  "version": "17.0.0",
+  "version": "17.0.1",
   "homepage": "https://github.com/validator/grunt-html",
   "author": "Jörn Zaefferer <joern.zaefferer@gmail.com>",
   "repository": {
