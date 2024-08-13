@@ -28,15 +28,15 @@
   },
   "dependencies": {
     "async": "^3.2.5",
-    "picocolors": "^1.0.0",
+    "picocolors": "^1.0.1",
     "vnu-jar": "23.4.11"
   },
   "devDependencies": {
     "@lodder/time-grunt": "^4.0.0",
-    "c8": "^9.1.0",
+    "c8": "^10.1.2",
     "grunt": "^1.6.1",
-    "mocha": "^10.3.0",
-    "start-server-and-test": "^2.0.3",
+    "mocha": "^10.7.3",
+    "start-server-and-test": "^2.0.5",
     "strip-ansi": "^6.0.1",
     "xo": "^0.54.2"
   },
