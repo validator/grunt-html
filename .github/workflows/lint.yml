@@ -4,7 +4,7 @@ on: [push, pull_request, workflow_dispatch]
 
 env:
   FORCE_COLOR: 2
-  NODE: 20 # The Node.js version to run lint on
+  NODE: 22 # The Node.js version to run lint on
 
 jobs:
   run:
