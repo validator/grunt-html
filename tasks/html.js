@@ -54,9 +54,11 @@ module.exports = grunt => {
         const uniqueFiles = result.map(element => element.file)
           .filter((file, index, resultFiles) => resultFiles.indexOf(file) === index);
 
-        grunt.log.error(`${files.length} ${grunt.util.pluralize(files.length, 'file/files')} checked, ` +
-                        `${result.length} ${grunt.util.pluralize(result.length, 'error/errors')} in ${uniqueFiles.length} ` +
-                        `${grunt.util.pluralize(uniqueFiles.length, 'file/files')}`);
+        grunt.log.error(
+          `${files.length} ${grunt.util.pluralize(files.length, 'file/files')} checked, ` +
+          `${result.length} ${grunt.util.pluralize(result.length, 'error/errors')} in ${uniqueFiles.length} ` +
+          `${grunt.util.pluralize(uniqueFiles.length, 'file/files')}`
+        );
       }
 
       // Write the output of the reporter if wanted
