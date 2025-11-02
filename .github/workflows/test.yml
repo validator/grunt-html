@@ -4,7 +4,7 @@ on: [push, pull_request, workflow_dispatch]
 
 env:
   FORCE_COLOR: 2
-  NODE_COV: 22 # The Node.js version to run coveralls on
+  NODE_COV: 24 # The Node.js version to run coveralls on
 
 jobs:
   test:
@@ -15,17 +15,17 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest]
-        node: [18, 20, 22]
-        java: [17]
+        node: [18, 20, 22, 24]
+        java: [25]
         architecture: [x64]
         include:
           - os: macos-latest
-            node: 22
-            java: 17
+            node: 24
+            java: 25
             architecture: x64
           - os: windows-latest
-            node: 22
-            java: 17
+            node: 24
+            java: 25
             architecture: x64
           - os: windows-latest
             node: 22
