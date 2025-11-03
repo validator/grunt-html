@@ -179,4 +179,140 @@ describe('htmllint', () => {
       run(options, expected, '3 errors from 3 files', done);
     });
   });
+
+  describe('file paths with special characters', () => {
+    it('with spaces (relative)', done => {
+      const filePath = path.normalize('test/fixtures/folder with spaces/test file.html');
+      const options = {
+        files: [filePath],
+        errorlevels: ['info', 'warning', 'error']
+      };
+      const expected = [
+        {
+          file: filePath,
+          type: 'error',
+          message: expectedResults.invalid[1].message,
+          lastLine: 7,
+          lastColumn: 39
+        },
+        {
+          file: filePath,
+          type: 'error',
+          message: expectedResults.invalid[2].message,
+          lastLine: 7,
+          lastColumn: 39
+        },
+        {
+          file: filePath,
+          type: 'error',
+          message: expectedResults.invalid[3].message,
+          lastLine: 8,
+          lastColumn: 20
+        }
+      ];
+
+      run(options, expected, 'errors from file path with spaces', done);
+    });
+
+    it('with spaces (absolute)', done => {
+      const filePath = path.resolve('test/fixtures/folder with spaces/test file.html');
+      const options = {
+        files: [filePath],
+        absoluteFilePathsForReporter: true,
+        errorlevels: ['info', 'warning', 'error']
+      };
+      const expected = [
+        {
+          file: filePath,
+          type: 'error',
+          message: expectedResults.invalid[1].message,
+          lastLine: 7,
+          lastColumn: 39
+        },
+        {
+          file: filePath,
+          type: 'error',
+          message: expectedResults.invalid[2].message,
+          lastLine: 7,
+          lastColumn: 39
+        },
+        {
+          file: filePath,
+          type: 'error',
+          message: expectedResults.invalid[3].message,
+          lastLine: 8,
+          lastColumn: 20
+        }
+      ];
+
+      run(options, expected, 'errors from absolute file path with spaces', done);
+    });
+
+    it('with various special characters (relative)', done => {
+      const filePath = path.normalize('test/fixtures/folder (with) special [chars] & more/test+file#1.html');
+      const options = {
+        files: [filePath],
+        errorlevels: ['info', 'warning', 'error']
+      };
+      const expected = [
+        {
+          file: filePath,
+          type: 'error',
+          message: expectedResults.invalid[1].message.replace('unknownattr', 'invalidattr'),
+          lastLine: 7,
+          lastColumn: 39
+        },
+        {
+          file: filePath,
+          type: 'error',
+          message: expectedResults.invalid[2].message,
+          lastLine: 7,
+          lastColumn: 39
+        },
+        {
+          file: filePath,
+          type: 'error',
+          message: expectedResults.invalid[3].message,
+          lastLine: 8,
+          lastColumn: 21
+        }
+      ];
+
+      run(options, expected, 'errors from file path with special characters', done);
+    });
+
+    it('with various special characters (absolute)', done => {
+      const filePath = path.resolve('test/fixtures/folder (with) special [chars] & more/test+file#1.html');
+      const options = {
+        files: [filePath],
+        absoluteFilePathsForReporter: true,
+        errorlevels: ['info', 'warning', 'error']
+      };
+      const expected = [
+        {
+          file: filePath,
+          type: 'error',
+          message: expectedResults.invalid[1].message.replace('unknownattr', 'invalidattr'),
+          lastLine: 7,
+          lastColumn: 39
+        },
+        {
+          file: filePath,
+          type: 'error',
+          message: expectedResults.invalid[2].message,
+          lastLine: 7,
+          lastColumn: 39
+        },
+        {
+          file: filePath,
+          type: 'error',
+          message: expectedResults.invalid[3].message,
+          lastLine: 8,
+          lastColumn: 21
+        }
+      ];
+
+      run(options, expected, 'errors from absolute file path with special characters', done);
+    });
+  });
 });
