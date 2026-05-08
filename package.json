@@ -29,7 +29,7 @@
   "dependencies": {
     "async": "^3.2.6",
     "picocolors": "^1.1.1",
-    "vnu-jar": "25.11.3"
+    "vnu-jar": "26.2.1"
   },
   "devDependencies": {
     "@lodder/time-grunt": "^4.0.0",
