@@ -11,7 +11,7 @@
 Install this grunt plugin next to your project's [Gruntfile.js][getting_started] with:
 
 ```bash
-npm install grunt-html -D
+npm install grunt-html vnu-jar -D
 ```
 
 Then add this line to your project's `Gruntfile.js`:
@@ -183,6 +183,7 @@ Use this option to control the number of threads that grunt-html will use when v
 ## Potential pitfalls
 
 * vnu.jar requires Java 8 environment or up.
+* As of v19.0.0, `vnu-jar` is no longer a bundled dependency and must be installed separately: `npm install vnu-jar -D`.
 
 ## License
 

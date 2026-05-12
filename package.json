@@ -28,8 +28,7 @@
   },
   "dependencies": {
     "async": "^3.2.6",
-    "picocolors": "^1.1.1",
-    "vnu-jar": "25.11.3"
+    "picocolors": "^1.1.1"
   },
   "devDependencies": {
     "@lodder/time-grunt": "^4.0.0",
@@ -39,10 +38,12 @@
     "mocha": "^11.7.5",
     "start-server-and-test": "^3.0.4",
     "strip-ansi": "^6.0.1",
+    "vnu-jar": "26.5.12",
     "xo": "^2.0.2"
   },
   "peerDependencies": {
-    "grunt": ">=0.4.0"
+    "grunt": ">=0.4.0",
+    "vnu-jar": ">=25.11.3"
   },
   "keywords": [
     "gruntplugin"
