@@ -1,6 +1,18 @@
 name: Tests
 
-on: [push, pull_request, workflow_dispatch]
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name != 'pull_request' }}
 
 env:
   FORCE_COLOR: 2
@@ -10,6 +22,10 @@ jobs:
   test:
     name: Node ${{ matrix.node }} - ${{ matrix.architecture }} on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
+    timeout-minutes: 30
+    permissions:
+      contents: read
+      checks: write # needed by coverallsapp/github-action to post check run status
 
     strategy:
       fail-fast: false
